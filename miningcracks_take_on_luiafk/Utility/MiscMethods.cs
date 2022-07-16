@@ -88,9 +88,9 @@ namespace miningcracks_take_on_luiafk.Utility
 
 		internal static void DrawNPCCenteredOnHitbox(SpriteBatch sb, NPC npc, Player p = null, int textureType = 0)
 		{
-																																																																																				SpriteEffects sE = (SpriteEffects)0;
+			SpriteEffects sE = (SpriteEffects)0;
 			float rot = npc.rotation;
-			if (npc.type == LuiafkMod.Instance.Find<ModNPC>("Deeps").Type)
+			if (npc.type == ModContent.NPCType<NPCs.Deeps>())
 			{
 				NPCLookAtTarget(npc, Main.player[Main.myPlayer], ref sE, ref rot, textureType);
 			}
@@ -100,7 +100,7 @@ namespace miningcracks_take_on_luiafk.Utility
 			hitbox = npc.Hitbox;
 			Vector2 val2 = default(Vector2);
 			val = hitbox;
-			val2.ToWorldCoordinates(autoAddX, val.Center.Y - (int)Main.screenPosition.Y);
+			val2 = new(autoAddX, val.Center.Y - (int)Main.screenPosition.Y);
 			Vector2 val3 = (val2 - new Vector2((float)(TextureAssets.Npc[textureType].Value.Width / 2), (float)(TextureAssets.Npc[textureType].Value.Height / Main.npcFrameCount[textureType] / 2))).RotatedBy(rot, val2);
 			sb.Draw(TextureAssets.Npc[textureType].Value, new Rectangle((int)val3.X, (int)val3.Y, TextureAssets.Npc[textureType].Value.Width, TextureAssets.Npc[textureType].Value.Height / Main.npcFrameCount[textureType]), (Rectangle?)npc.frame, new Color(255, 255, 255), rot, Vector2.Zero, sE, 0f);
 		}

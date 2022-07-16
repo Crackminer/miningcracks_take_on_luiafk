@@ -31,7 +31,7 @@ namespace miningcracks_take_on_luiafk.NPCs
 		public override void SetStaticDefaults()
 		{
 			base.DisplayName.SetDefault("Patchwerk");
-			Main.npcFrameCount[base.NPC.type] = 3;
+			Main.npcFrameCount[base.NPC.type] = 1;
 		}
 
 		public override void SetDefaults()
@@ -92,12 +92,14 @@ namespace miningcracks_take_on_luiafk.NPCs
 
 		public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
 		{
-												Lighting.AddLight(base.NPC.Center, 1.3f, 1.3f, 1.3f);
+			Lighting.AddLight(base.NPC.Center, 1.3f, 1.3f, 1.3f);
+			WhichFrame();
+			MiscMethods.DrawNPCCenteredOnHitbox(spriteBatch, ((ModNPC)this).NPC, null, currentBoss);
 			if (Main.player[Main.myPlayer].GetModPlayer<LuiafkPlayer>().uiDrawDummyHitbox)
 			{
 				MiscMethods.DrawRectangleOutline(spriteBatch, base.NPC.Hitbox, new Color(255, 0, 0, 0));
 			}
-			return true;
+			return false;
 		}
 
 		private void WhichFrame()
@@ -144,7 +146,7 @@ namespace miningcracks_take_on_luiafk.NPCs
 
 		private void NewBoss()
 		{
-									do
+			do
 			{
 				currentBoss = LuiafkMod.AllBosses[Main.rand.Next(LuiafkMod.AllBosses.Length)];
 			}
@@ -170,7 +172,7 @@ namespace miningcracks_take_on_luiafk.NPCs
 
 		public override bool PreAI()
 		{
-									base.NPC.defense = defense;
+			base.NPC.defense = defense;
 			base.NPC.velocity = Vector2.Zero;
 			LuiafkWorld.checkForBoss = true;
 			base.NPC.lifeMax = int.MaxValue;
