@@ -1,0 +1,34 @@
+namespace miningcracks_take_on_luiafk.Utility
+{
+	internal enum Packet
+	{
+		ToggleSync,
+		HellevatorBuild,
+		SubwayBuild,
+		SkyPlatformBuild,
+		SubAndSkyBuild,
+		FishingBuild,
+		HouseBuild,
+		FishingBiomeBuild,
+		SpawnFishron,
+		SolutionType,
+		ArenaBuild,
+		GroundFill,
+		MountMove,
+		DrawDrillBeam,
+		Despawn,
+		Deeps,
+		Revenge,
+		Invasions,
+		Expert,
+		HardMode,
+		Blossom,
+		Harvesting,
+		TownDudes,
+		DD2WaveDelay,
+		BucketBox,
+		AddTelePoint,
+		RemoveTelePoint,
+		UpdateTelePoints
+	}
+}

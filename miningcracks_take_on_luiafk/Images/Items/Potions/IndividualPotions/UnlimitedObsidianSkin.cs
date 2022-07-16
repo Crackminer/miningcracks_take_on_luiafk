@@ -1,0 +1,31 @@
+using miningcracks_take_on_luiafk.Utility;
+using Terraria;
+using Terraria.ModLoader;
+
+namespace miningcracks_take_on_luiafk.Images.Items.Potions.IndividualPotions
+{
+	public class UnlimitedObsidianSkin : ModItem
+	{
+		public override void SetStaticDefaults()
+		{
+			base.DisplayName.SetDefault("Unlimited Obsidian Skin Potion");
+			base.Tooltip.SetDefault("Go get all that hellstone.");
+			base.SacrificeTotal = 1;
+		}
+
+		public override void SetDefaults()
+		{
+			Defaults.Base(base.Item);
+		}
+
+		public override void UpdateInventory(Player player)
+		{
+			player.GetModPlayer<LuiafkPlayer>().buffs.Add("ObsidianSkin");
+		}
+
+		public override void AddRecipes()
+		{
+			CreateRecipe().AddIngredient(288, 30).AddTile(13).Register();
+		}
+	}
+}
