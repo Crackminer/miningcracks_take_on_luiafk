@@ -20,7 +20,8 @@ namespace miningcracks_take_on_luiafk.Images.Items.Potions.IndividualStations
 
 		public override void UpdateInventory(Player player)
 		{
-			player.GetModPlayer<LuiafkPlayer>().buffs.Add("CrystalBall");
+			player.GetModPlayer<LuiafkPlayer>().buffs[55] = true;
+player.GetModPlayer<LuiafkPlayer>().buffs[0] = true;
 		}
 
 		public override void AddRecipes()

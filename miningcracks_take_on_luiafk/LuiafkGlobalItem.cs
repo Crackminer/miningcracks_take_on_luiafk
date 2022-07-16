@@ -115,7 +115,7 @@ namespace miningcracks_take_on_luiafk
 				}
 			}
 			//only works if player already has an instance of a unlimited potion
-			if (player.GetModPlayer<LuiafkPlayer>().buffs.Count != 0)
+			if (player.GetModPlayer<LuiafkPlayer>().buffs[0])
 			{
 				if (item.healLife > 0 && item.stack >= 90)
 				{

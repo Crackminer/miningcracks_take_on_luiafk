@@ -20,7 +20,8 @@ namespace miningcracks_take_on_luiafk.Images.Items.Potions.IndividualPotions
 
 		public override void UpdateInventory(Player player)
 		{
-			player.GetModPlayer<LuiafkPlayer>().buffs.Add("Mining");
+			player.GetModPlayer<LuiafkPlayer>().buffs[28] = true;
+player.GetModPlayer<LuiafkPlayer>().buffs[0] = true;
 		}
 
 		public override void AddRecipes()

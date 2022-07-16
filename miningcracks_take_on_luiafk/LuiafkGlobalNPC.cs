@@ -109,38 +109,45 @@ namespace miningcracks_take_on_luiafk
 			}
 		}
 
-		public override void EditSpawnRate(Player player, ref int spawnRate, ref int maxSpawns)
+        public override void EditSpawnRate(Player player, ref int spawnRate, ref int maxSpawns)
 		{
+			Main.NewText("Got called in general");
 			LuiafkPlayer modPlayer = player.GetModPlayer<LuiafkPlayer>();
-			if ((modPlayer.buffs.Contains("Ultimate Battler") || modPlayer.buffs.Contains("Everything")) && (modPlayer.uiBuffs & PotToggles.UltBattler) != 0)
+			if ((modPlayer.buffs[2] || modPlayer.buffs[1]) && (modPlayer.uiBuffs & PotToggles.UltBattler) != 0)
 			{
+				Main.NewText("I got here! battler");
 				spawnRate = 1;
 				maxSpawns = 500;
 				return;
 			}
-			if ((modPlayer.buffs.Contains("UltimatePeaceful") || modPlayer.buffs.Contains("Everything")) && (modPlayer.uiBuffs & PotToggles.UltPeaceful) != 0)
+			if ((modPlayer.buffs[3] || modPlayer.buffs[1]) && (modPlayer.uiBuffs & PotToggles.UltPeaceful) != 0)
 			{
+				Main.NewText("I got here! peaceful");
 				spawnRate = (int)((float)spawnRate * 5f);
 				maxSpawns = (int)((float)maxSpawns / 5f);
 				return;
 			}
-			if (modPlayer.buffs.Contains("WaterCandle") || modPlayer.buffs.Contains("Battler") || modPlayer.buffs.Contains("UltimatePeaceful") || modPlayer.buffs.Contains("Everything"))
+			if (modPlayer.buffs[48] || modPlayer.buffs[59])
 			{
+				Main.NewText("I got here! water");
 				spawnRate = (int)((float)spawnRate * 0.75f);
 				maxSpawns = (int)((float)maxSpawns * 1.5f);
 			}
-			if (modPlayer.buffs.Contains("Battle") || modPlayer.buffs.Contains("Battler") || modPlayer.buffs.Contains("UltimatePeaceful") || modPlayer.buffs.Contains("Everything"))
+			if (modPlayer.buffs[17] || modPlayer.buffs[59])
 			{
+				Main.NewText("I got here! battle");
 				spawnRate = (int)((float)spawnRate * 0.5f);
 				maxSpawns = (int)((float)maxSpawns * 2f);
 			}
-			if (modPlayer.buffs.Contains("PeaceCandle") || modPlayer.buffs.Contains("Peaceful") || modPlayer.buffs.Contains("UltimatePeaceful") || modPlayer.buffs.Contains("Everything"))
+			if (modPlayer.buffs[47] || modPlayer.buffs[70])
 			{
+				Main.NewText("I got here! peace");
 				spawnRate = (int)((float)spawnRate * 1.3f);
 				maxSpawns = (int)((float)maxSpawns * 0.7f);
 			}
-			if (modPlayer.buffs.Contains("Calming") || modPlayer.buffs.Contains("Peaceful") || modPlayer.buffs.Contains("UltimatePeaceful") || modPlayer.buffs.Contains("Everything"))
+			if (modPlayer.buffs[9] || modPlayer.buffs[70])
 			{
+				Main.NewText("I got here! calm");
 				spawnRate = (int)((float)spawnRate * 1.3f);
 				maxSpawns = (int)((float)maxSpawns * 0.7f);
 			}

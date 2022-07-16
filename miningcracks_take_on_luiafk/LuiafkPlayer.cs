@@ -88,7 +88,7 @@ namespace miningcracks_take_on_luiafk
 
 		private static int[] coatings;
 
-		internal List<string> buffs;
+		internal bool[] buffs = new bool[73];
 
 		internal int[] uiMultiSolutionTileX;
 
@@ -162,7 +162,7 @@ namespace miningcracks_take_on_luiafk
 			ModPacket packet = base.Mod.GetPacket();
 			((BinaryWriter)packet).Write(0);
 			((BinaryWriter)packet).Write(base.Player.whoAmI);
-			((BinaryWriter)packet).Write((ushort)uiBuffs);
+			((BinaryWriter)packet).Write((uint)uiBuffs);
 			((BinaryWriter)packet).Write(goodMove);
 			if (!server)
 			{
@@ -176,7 +176,7 @@ namespace miningcracks_take_on_luiafk
 
 		internal void HandleToggles(BinaryReader reader)
 		{
-			uiBuffs = (PotToggles)reader.ReadUInt16();
+			uiBuffs = (PotToggles)reader.ReadUInt32();
 			goodMove = reader.ReadBoolean();
 			if (Main.netMode == 2)
 			{
@@ -203,16 +203,11 @@ namespace miningcracks_take_on_luiafk
 			uiBuffs ^= PotToggles.UltBattler;
 		}
 
-		public void editSpawnRate(bool battler)
-        {
-			
-        }
-
 		private void BattlerCountdown()
 		{
 			if (battlerCounter == 0)
 			{
-				uiBuffs &= ~PotToggles.UltBattler;
+				uiBuffs ^= PotToggles.UltBattler;
 				battlerCounter = 300;
 				battlerCountdown = false;
 				UILearning.set_battler();
@@ -238,32 +233,7 @@ namespace miningcracks_take_on_luiafk
 		public override void PostItemCheck()
 		{
 			base.PostItemCheck();
-			Item heldItem = Main.player[Main.myPlayer].HeldItem;
-			
-
-			List<string> l1 = CheckForPotions(Main.player[Main.myPlayer].inventory);
-			List<string> l2 = CheckForPotions(Main.player[Main.myPlayer].bank.item);
-			List<string> l3 = CheckForPotions(Main.player[Main.myPlayer].bank2.item);
-			List<string> l4 = CheckForPotions(Main.player[Main.myPlayer].bank3.item);
-			List<string> l5 = CheckForPotions(Main.player[Main.myPlayer].bank4.item);
-			foreach(string s in l2)
-            {
-				if (!l1.Contains(s))	l1.Add(s);
-            }
-			foreach (string s in l3)
-			{
-				if (!l1.Contains(s)) l1.Add(s);
-			}
-			foreach (string s in l4)
-			{
-				if (!l1.Contains(s)) l1.Add(s);
-			}
-			foreach (string s in l5)
-			{
-				if (!l1.Contains(s)) l1.Add(s);
-			}
-			buffs = null;
-			buffs = l1;
+			Item heldItem = Player.HeldItem;
 
 			if (heldItem == null)
 			{
@@ -381,7 +351,8 @@ namespace miningcracks_take_on_luiafk
 
 		private void Reset()
 		{
-			buffs = new();
+			buffs = null;
+			buffs = new bool[73];
 			holdingFishingRod = false;
 			unlimitedMana = false;
 			moneyCollect = false;
@@ -746,7 +717,7 @@ namespace miningcracks_take_on_luiafk
 				base.Player.gills = true;
 				base.Player.lavaImmune = true;
 			}
-			if ((base.Player.whoAmI != Main.myPlayer && Main.netMode != 2) || !base.Player.active || base.Player.dead || buffs.Count == 0)
+			if ((base.Player.whoAmI != Main.myPlayer && Main.netMode != 2) || !base.Player.active || base.Player.dead || !buffs[0])
 			{
 				return;
 			}
@@ -825,7 +796,7 @@ namespace miningcracks_take_on_luiafk
 			{
 				base.Player.maxFallSpeed = 28f;
 			}
-			if (buffs.Count != 0)
+			if (buffs[0])
 			{
 				UpdatePotions();
 			}
@@ -896,92 +867,9 @@ namespace miningcracks_take_on_luiafk
 			}*/
 		}
 
-		internal List<string> CheckForPotions(Item[] inv)
-        {
-			List<string> inInv = new();
-			foreach (Item x in inv)
-            {
-				if (x == null)		continue;
-				else if (x.Name == "Unlimited Buffs") inInv.Add("Everything");
-				else if (x.Name == "Unlimited Travel Potion") inInv.Add("Travel");
-				else if (x.Name == "Unlimited Ammo Reservation Potion") inInv.Add("AmmoReservation");
-				else if (x.Name == "Unlimited Archery Potion") inInv.Add("Archery");
-				else if (x.Name == "Unlimited Battle Potion") inInv.Add("Battle");
-				else if (x.Name == "Unlimited Builder Potion") inInv.Add("Builder");
-				else if (x.Name == "Unlimited Calming Potion") inInv.Add("Calming");
-				else if (x.Name == "Unlimited Crate Potion") inInv.Add("Crates");
-				else if (x.Name == "Unlimited Aquatic Buffs") inInv.Add("Swimming");
-				else if (x.Name == "Unlimited Dangersense Potion") inInv.Add("DangerSense");
-				else if (x.Name == "Unlimited Endurance Potion") inInv.Add("Endurance");
-				else if (x.Name == "Unlimited Featherfall Potion") inInv.Add("FeatherFall");
-				else if (x.Name == "Unlimited Fishing Potion") inInv.Add("Fishing");
-				else if (x.Name == "Unlimited Flipper Potion") inInv.Add("Flipper");
-				else if (x.Name == "Unlimited Gills Potion") inInv.Add("Gills");
-				else if (x.Name == "Unlimited Gravitation Potion") inInv.Add("Gravitation");
-				else if (x.Name == "Unlimited Heartreach Potion") inInv.Add("HeartReach");
-				else if (x.Name == "Unlimited Hunter Potion") inInv.Add("Hunter");
-				else if (x.Name == "Unlimited Ichor Flask") inInv.Add("Ichor");
-				else if (x.Name == "Unlimited Inferno Potion") inInv.Add("Inferno");
-				else if (x.Name == "Unlimited Invisibility Potion") inInv.Add("Invisibility");
-				else if (x.Name == "Unlimited IronSkin Potion") inInv.Add("IronSkin");
-				else if (x.Name == "Unlimited Lifeforce Potion") inInv.Add("LifeForce");
-				else if (x.Name == "Unlimited Magic Power Potion") inInv.Add("MagicPower");
-				else if (x.Name == "Unlimited Mana Regeneration Potion") inInv.Add("ManaRegen");
-				else if (x.Name == "Unlimited Mining Potion") inInv.Add("Mining");
-				else if (x.Name == "Unlimited Night Owl Potion") inInv.Add("NightOwl");
-				else if (x.Name == "Unlimited Obsidian Skin Potion") inInv.Add("ObsidianSkin");
-				else if (x.Name == "Unlimited Rage Potion") inInv.Add("Rage");
-				else if (x.Name == "Unlimited Recall Potion") inInv.Add("Recall");
-				else if (x.Name == "Unlimited Regeneration Potion") inInv.Add("Regeneration");
-				else if (x.Name == "Unlimited Shine Potion") inInv.Add("Shine");
-				else if (x.Name == "Unlimited Sonar Potion") inInv.Add("Sonar");
-				else if (x.Name == "Unlimited Spelunker Potion") inInv.Add("Spelunker");
-				else if (x.Name == "Unlimited Summoning Potion") inInv.Add("Summoning");
-				else if (x.Name == "Unlimited Swiftness Potion") inInv.Add("Swiftness");
-				else if (x.Name == "Unlimited Thorns Potion") inInv.Add("Thorns");
-				else if (x.Name == "Unlimited Tipsy Potion") inInv.Add("Tipsy");
-				else if (x.Name == "Unlimited Titan Potion") inInv.Add("Titan");
-				else if (x.Name == "Unlimited Warmth Potion") inInv.Add("Warmth");
-				else if (x.Name == "Unlimited Water Walking Potion") inInv.Add("WaterWalking");
-				else if (x.Name == "Unlimited Well Fed") inInv.Add("WellFed");
-				else if (x.Name == "Unlimited Wormhole Potion") inInv.Add("WormHole");
-				else if (x.Name == "Unlimited Wrath Potion") inInv.Add("Wrath");
-				else if (x.Name == "Unlimited Peace Candle") inInv.Add("PeaceCandle");
-				else if (x.Name == "Unlimited Water Candle") inInv.Add("WaterCandle");
-				else if (x.Name == "Unlimited Campfire") inInv.Add("Campfire");
-				else if (x.Name == "Unlimited Heart Lantern") inInv.Add("HeartLantern");
-				else if (x.Name == "Unlimited Honey") inInv.Add("Honey");
-				else if (x.Name == "Unlimited Star in a Bottle") inInv.Add("StarBottle");
-				else if (x.Name == "Unlimited Ammo Box") inInv.Add("AmmoBox");
-				else if (x.Name == "Unlimited Bewitching Table") inInv.Add("Bewitching");
-				else if (x.Name == "Unlimited Crystal Ball") inInv.Add("CrystalBall");
-				else if (x.Name == "Unlimited Sharpening Station") inInv.Add("Sharpening");
-				else if (x.Name == "Ultimate Battler") inInv.Add("UltimateBattler");
-				else if (x.Name == "Ultimate Peaceful") inInv.Add("UltimatePeaceful");
-				else if (x.Name == "Unlimited Arena Buffs") inInv.Add("Arena");
-				else if (x.Name == "Unlimited Basic Buffs") inInv.Add("Basics");
-				else if (x.Name == "Unlimited Battler Buffs") inInv.Add("Battler");
-				else if (x.Name == "Unlimited Combat Buffs") inInv.Add("Combat");
-				else if (x.Name == "Unlimited Damage Buffs") inInv.Add("Damage");
-				else if (x.Name == "Unlimited Danger Buffs") inInv.Add("Danger");
-				else if (x.Name == "Unlimited Defense Buffs") inInv.Add("Defense");
-				else if (x.Name == "Unlimited Explorer Buffs") inInv.Add("Explorer");
-				else if (x.Name == "Unlimited Fishing Buffs") inInv.Add("FishingBig");
-				else if (x.Name == "Unlimited Flight Buffs") inInv.Add("Flight");
-				else if (x.Name == "Unlimited Gathering Buffs") inInv.Add("Gathering");
-				else if (x.Name == "Unlimited Magic Buffs") inInv.Add("Magic");
-				else if (x.Name == "Unlimited Melee Buffs") inInv.Add("Melee");
-				else if (x.Name == "Unlimited Peaceful Buffs") inInv.Add("Peaceful");
-				else if (x.Name == "Unlimited Ranged Buffs") inInv.Add("Range");
-				else if (x.Name == "Unlimited Station Buffs") inInv.Add("Station");
-            }
-
-			return inInv;
-        }
-
 		internal void PotionHotkeys()
 		{
-			if ((buffs.Contains("Recall") || buffs.Contains("Travel") || buffs.Contains("Everything")) && base.Player.itemAnimation == 0)
+			if ((buffs[32] || buffs[4] || buffs[1]) && base.Player.itemAnimation == 0)
 			{
 				if (LuiafkMod.LuiafkRecall.JustPressed)
 				{
@@ -996,7 +884,7 @@ namespace miningcracks_take_on_luiafk
 
 		internal void UpdatePotions()
 		{
-			if (buffs.Contains("Campfire") || buffs.Contains("Arena") || buffs.Contains("Combat") || buffs.Contains("Everything"))
+			if (buffs[49] || buffs[57] || buffs[60] || buffs[1])
 			{
 				if (Main.myPlayer == base.Player.whoAmI || Main.netMode == 2)
 				{
@@ -1004,7 +892,7 @@ namespace miningcracks_take_on_luiafk
 				}
 				base.Player.buffImmune[87] = true;
 			}
-			if (buffs.Contains("HeartLantern") || buffs.Contains("Arena") || buffs.Contains("Combat") || buffs.Contains("Everything"))
+			if (buffs[50] || buffs[57] || buffs[60] || buffs[1])
 			{
 				if (Main.myPlayer == base.Player.whoAmI || Main.netMode == 2)
 				{
@@ -1012,12 +900,12 @@ namespace miningcracks_take_on_luiafk
 				}
 				base.Player.buffImmune[89] = true;
 			}
-			if (buffs.Contains("Honey") || buffs.Contains("Arena") || buffs.Contains("Combat") || buffs.Contains("Everything"))
+			if (buffs[51] || buffs[57] || buffs[60] || buffs[1])
 			{
 				base.Player.honey = true;
 				base.Player.buffImmune[48] = true;
 			}
-			if (buffs.Contains("StarBottle") || buffs.Contains("Arena") || buffs.Contains("Combat") || buffs.Contains("Everything"))
+			if (buffs[52] || buffs[57] || buffs[60] || buffs[1])
 			{
 				if (Main.myPlayer == base.Player.whoAmI || Main.netMode == 2)
 				{
@@ -1026,7 +914,7 @@ namespace miningcracks_take_on_luiafk
 				base.Player.manaRegenBonus += 2;
 				base.Player.buffImmune[158] = true;
 			}
-			if (buffs.Contains("PeaceCandle") || buffs.Contains("Peaceful") || buffs.Contains("UltimatePeaceful") || buffs.Contains("Everything"))
+			if (buffs[47] || buffs[70] || buffs[3] || buffs[1])
 			{
 				base.Player.ZonePeaceCandle = true;
 				if (Main.myPlayer == base.Player.whoAmI)
@@ -1035,7 +923,7 @@ namespace miningcracks_take_on_luiafk
 				}
 				base.Player.buffImmune[157] = true;
 			}
-			if (buffs.Contains("WaterCandle") || buffs.Contains("Battler") || buffs.Contains("UltimateBattler") || buffs.Contains("Everything"))
+			if (buffs[48] || buffs[59] || buffs[2] || buffs[1])
 			{
 				base.Player.ZoneWaterCandle = true;
 				if (base.Player.whoAmI == Main.myPlayer)
@@ -1044,86 +932,86 @@ namespace miningcracks_take_on_luiafk
 				}
 				base.Player.buffImmune[86] = true;
 			}
-			if (buffs.Contains("AmmoReservation") || buffs.Contains("Range") || buffs.Contains("Combat") || buffs.Contains("Everything"))
+			if (buffs[5] || buffs[71] || buffs[60] || buffs[1])
 			{
 				base.Player.ammoPotion = true;
 				base.Player.buffImmune[112] = true;
 			}
-			if (buffs.Contains("Archery") || buffs.Contains("Range") || buffs.Contains("Combat") || buffs.Contains("Everything"))
+			if (buffs[6] || buffs[71] || buffs[60] || buffs[1])
 			{
 				base.Player.archery = true;
 				base.Player.arrowDamage.Flat *= 0.2f;
 				base.Player.buffImmune[16] = true;
 			}
-			if (buffs.Contains("Battle") || buffs.Contains("Battler") || buffs.Contains("UltimateBattler") || buffs.Contains("Everything"))
+			if (buffs[7] || buffs[59] || buffs[2] || buffs[1])
 			{
 				base.Player.enemySpawns = true;
 				base.Player.buffImmune[13] = true;
 			}
-			if (buffs.Contains("Builder") || buffs.Contains("Explorer") || buffs.Contains("Everything"))
+			if (buffs[8] || buffs[64] || buffs[1])
 			{
 				base.Player.tileSpeed += 0.25f;
 				base.Player.wallSpeed += 0.25f;
 				base.Player.blockRange++;
 				base.Player.buffImmune[107] = true;
 			}
-			if (buffs.Contains("Calming") || buffs.Contains("Peaceful") || buffs.Contains("UltimatePeaceful") || buffs.Contains("Everything"))
+			if (buffs[9] || buffs[70] || buffs[3] || buffs[1])
 			{
 				base.Player.calmed = true;
 				base.Player.buffImmune[106] = true;
 			}
-			if ((buffs.Contains("Crates") || buffs.Contains("FishingBig") || buffs.Contains("Everything")) && (uiBuffs & PotToggles.Crate) != 0)
+			if ((buffs[10] || buffs[65] || buffs[1]) && (uiBuffs & PotToggles.Crate) != 0)
 			{
 				base.Player.cratePotion = true;
 				base.Player.buffImmune[123] = true;
 			}
-			if ((buffs.Contains("DangerSense") || buffs.Contains("Danger") || buffs.Contains("Explorer") || buffs.Contains("Everything")) && (uiBuffs & PotToggles.DangerHunter) != 0)
+			if ((buffs[12] || buffs[62] || buffs[64] || buffs[1]) && (uiBuffs & PotToggles.DangerHunter) != 0)
 			{
 				base.Player.dangerSense = true;
 				base.Player.buffImmune[111] = true;
 			}
-			if (buffs.Contains("Endurance") || buffs.Contains("Defense") || buffs.Contains("Combat") || buffs.Contains("Everything"))
+			if (buffs[13] || buffs[63] || buffs[60] || buffs[1])
 			{
 				base.Player.endurance += 0.1f;
 				base.Player.buffImmune[114] = true;
 			}
-			if ((buffs.Contains("FeatherFall") || buffs.Contains("Flight") || buffs.Contains("Everything")) && (uiBuffs & PotToggles.Feather) != 0)
+			if ((buffs[14] || buffs[66] || buffs[1]) && (uiBuffs & PotToggles.Feather) != 0)
 			{
 				base.Player.slowFall = true;
 				base.Player.buffImmune[8] = true;
 			}
-			if (buffs.Contains("Fishing") || buffs.Contains("FishingBig") || buffs.Contains("Everything"))
+			if (buffs[15] || buffs[65] || buffs[1])
 			{
 				base.Player.fishingSkill += 15;
 				base.Player.buffImmune[121] = true;
 			}
-			if (buffs.Contains("Flipper") || buffs.Contains("Swimming") || buffs.Contains("Explorer") || buffs.Contains("Everything"))
+			if (buffs[16] || buffs[11] || buffs[64] || buffs[1])
 			{
 				base.Player.ignoreWater = true;
 				base.Player.accFlipper = true;
 				base.Player.buffImmune[109] = true;
 			}
-			if (buffs.Contains("Gills") || buffs.Contains("Swimming") || buffs.Contains("Explorer") || buffs.Contains("Everything"))
+			if (buffs[18] || buffs[11] || buffs[64] || buffs[1])
 			{
 				base.Player.gills = true;
 				base.Player.buffImmune[4] = true;
 			}
-			if ((buffs.Contains("Gravitation") || buffs.Contains("Flight") || buffs.Contains("Everything")) && (uiBuffs & PotToggles.Grav) != 0)
+			if ((buffs[17] || buffs[66] || buffs[1]) && (uiBuffs & PotToggles.Grav) != 0)
 			{
 				base.Player.gravControl = true;
 				base.Player.buffImmune[18] = true;
 			}
-			if (buffs.Contains("HeartReach") || buffs.Contains("Defense") || buffs.Contains("Combat") || buffs.Contains("Everything"))
+			if (buffs[19] || buffs[63] || buffs[60] || buffs[1])
 			{
 				base.Player.lifeMagnet = true;
 				base.Player.buffImmune[105] = true;
 			}
-			if ((buffs.Contains("Hunter") || buffs.Contains("Danger") || buffs.Contains("Explorer") || buffs.Contains("Everything")) && (uiBuffs & PotToggles.DangerHunter) != 0)
+			if ((buffs[20] || buffs[62] || buffs[64] || buffs[1]) && (uiBuffs & PotToggles.DangerHunter) != 0)
 			{
 				base.Player.detectCreature = true;
 				base.Player.buffImmune[17] = true;
 			}
-			if (buffs.Contains("Ichor") || buffs.Contains("Melee") || buffs.Contains("Combat") || buffs.Contains("Everything"))
+			if (buffs[21] || buffs[69] || buffs[60] || buffs[1])
 			{
 				base.Player.meleeEnchant = 5;
 				base.Player.buffImmune[71] = true;
@@ -1134,7 +1022,7 @@ namespace miningcracks_take_on_luiafk
 				base.Player.buffImmune[77] = true;
 				base.Player.buffImmune[79] = true;
 			}
-			if (buffs.Contains("Inferno") || buffs.Contains("Damage") || buffs.Contains("Combat") || buffs.Contains("Everything"))
+			if (buffs[22] || buffs[61] || buffs[60] || buffs[1])
 			{
 				base.Player.inferno = (uiBuffs & PotToggles.Inferno) != 0;
 				Lighting.AddLight((int)base.Player.Center.X >> 4, (int)base.Player.Center.Y >> 4, 0.65f, 0.4f, 0.1f);
@@ -1181,50 +1069,50 @@ namespace miningcracks_take_on_luiafk
 				}
 				base.Player.buffImmune[116] = true;
 			}
-			if ((buffs.Contains("Invisibility") || buffs.Contains("Everything")) && (uiBuffs & PotToggles.Invis) != 0)
+			if ((buffs[23] || buffs[1]) && (uiBuffs & PotToggles.Invis) != 0)
 			{
 				base.Player.invis = true;
 				base.Player.buffImmune[10] = true;
 			}
-			if (buffs.Contains("IronSkin") || buffs.Contains("Basics") || buffs.Contains("Combat") || buffs.Contains("Everything"))
+			if (buffs[24] || buffs[58] || buffs[60] || buffs[1])
 			{
 				base.Player.statDefense += 8;
 				base.Player.buffImmune[5] = true;
 			}
-			if (buffs.Contains("LifeForce") || buffs.Contains("Defense") || buffs.Contains("Combat") || buffs.Contains("Everything"))
+			if (buffs[25] || buffs[63] || buffs[60] || buffs[1])
 			{
 				base.Player.lifeForce = true;
 				base.Player.statLifeMax2 += base.Player.statLifeMax / 5 / 20 * 20;
 				base.Player.buffImmune[113] = true;
 			}
-			if (buffs.Contains("MagicPower") || buffs.Contains("Magic") || buffs.Contains("Combat") || buffs.Contains("Everything"))
+			if (buffs[26] || buffs[68] || buffs[60] || buffs[1])
 			{
 				base.Player.GetDamage(DamageClass.Magic) += 0.2f;
 				base.Player.buffImmune[7] = true;
 			}
-			if (buffs.Contains("ManaRegen") || buffs.Contains("Magic") || buffs.Contains("Combat") || buffs.Contains("Everything"))
+			if (buffs[27] || buffs[68] || buffs[60] || buffs[1])
 			{
 				base.Player.manaRegenBuff = true;
 				base.Player.buffImmune[6] = true;
 			}
-			if (buffs.Contains("Mining") || buffs.Contains("Gathering") || buffs.Contains("Explorer") || buffs.Contains("Everything"))
+			if (buffs[28] || buffs[67] || buffs[64] || buffs[1])
 			{
 				base.Player.pickSpeed -= 0.25f;
 				base.Player.buffImmune[104] = true;
 			}
-			if (buffs.Contains("NightOwl") || buffs.Contains("Gathering") || buffs.Contains("Explorer") || buffs.Contains("Everything"))
+			if (buffs[29] || buffs[67] || buffs[64] || buffs[1])
 			{
 				base.Player.nightVision = true;
 				base.Player.buffImmune[12] = true;
 			}
-			if (buffs.Contains("ObsidianSkin") || buffs.Contains("Gathering") || buffs.Contains("Explorer") || buffs.Contains("Everything"))
+			if (buffs[30] || buffs[67] || buffs[64] || buffs[1])
 			{
 				base.Player.lavaImmune = true;
 				base.Player.fireWalk = true;
 				base.Player.buffImmune[24] = true;
 				base.Player.buffImmune[1] = true;
 			}
-			if (buffs.Contains("Rage") || buffs.Contains("Damage") || buffs.Contains("Combat") || buffs.Contains("Everything"))
+			if (buffs[31] || buffs[61] || buffs[60] || buffs[1])
 			{
 				base.Player.GetCritChance(DamageClass.Melee) += 10f;
 				base.Player.GetCritChance(DamageClass.Throwing) += 10f;
@@ -1232,42 +1120,42 @@ namespace miningcracks_take_on_luiafk
 				base.Player.GetCritChance(DamageClass.Ranged) += 10f;
 				base.Player.buffImmune[115] = true;
 			}
-			if (buffs.Contains("Regeneration") || buffs.Contains("Basics") || buffs.Contains("Combat") || buffs.Contains("Everything"))
+			if (buffs[33] || buffs[58] || buffs[60] || buffs[1])
 			{
 				base.Player.lifeRegen += 4;
 				base.Player.buffImmune[2] = true;
 			}
-			if (buffs.Contains("Shine") || buffs.Contains("Gathering") || buffs.Contains("Explorer") || buffs.Contains("Everything"))
+			if (buffs[34] || buffs[67] || buffs[64] || buffs[1])
 			{
 				Lighting.AddLight((int)base.Player.Center.X >> 4, (int)base.Player.Center.Y >> 4, 0.8f, 0.95f, 1f);
 				base.Player.buffImmune[11] = true;
 			}
-			if (buffs.Contains("Sonar") || buffs.Contains("FishingBig") || buffs.Contains("Everything"))
+			if (buffs[35] || buffs[65] || buffs[1])
 			{
 				base.Player.sonarPotion = true;
 				base.Player.buffImmune[122] = true;
 			}
-			if ((buffs.Contains("Spelunker") || buffs.Contains("Gathering") || buffs.Contains("Explorer") || buffs.Contains("Everything")) && (uiBuffs & PotToggles.Spelunker) != 0)
+			if ((buffs[36] || buffs[67] || buffs[64] || buffs[1]) && (uiBuffs & PotToggles.Spelunker) != 0)
 			{
 				base.Player.findTreasure = true;
 				base.Player.buffImmune[9] = true;
 			}
-			if (buffs.Contains("Summoning") || buffs.Contains("Damage") || buffs.Contains("Combat") || buffs.Contains("Everything"))
+			if (buffs[37] || buffs[61] || buffs[60] || buffs[1])
 			{
 				base.Player.maxMinions++;
 				base.Player.buffImmune[110] = true;
 			}
-			if (buffs.Contains("Swiftness") || buffs.Contains("Basics") || buffs.Contains("Combat") || buffs.Contains("Everything"))
+			if (buffs[38] || buffs[58] || buffs[60] || buffs[1])
 			{
 				base.Player.moveSpeed += 0.25f;
 				base.Player.buffImmune[3] = true;
 			}
-			if (buffs.Contains("Thorns") || buffs.Contains("Damage") || buffs.Contains("Combat") || buffs.Contains("Everything"))
+			if (buffs[39] || buffs[61] || buffs[60] || buffs[1])
 			{
 				base.Player.thorns += 0.33f;
 				base.Player.buffImmune[14] = true;
 			}
-			if (buffs.Contains("Tipsy") || buffs.Contains("Melee") || buffs.Contains("Combat") || buffs.Contains("Everything"))
+			if (buffs[40] || buffs[69] || buffs[60] || buffs[1])
 			{
 				if (base.Player.inventory[base.Player.selectedItem].CountsAsClass(DamageClass.Melee))
 				{
@@ -1278,22 +1166,22 @@ namespace miningcracks_take_on_luiafk
 				base.Player.GetAttackSpeed(DamageClass.Melee) += 0.1f;
 				base.Player.buffImmune[25] = true;
 			}
-			if (buffs.Contains("Titan") || buffs.Contains("Damage") || buffs.Contains("Combat") || buffs.Contains("Everything"))
+			if (buffs[41] || buffs[61] || buffs[60] || buffs[1])
 			{
 				base.Player.kbBuff = true;
 				base.Player.buffImmune[108] = true;
 			}
-			if (buffs.Contains("Warmth") || buffs.Contains("Defense") || buffs.Contains("Combat") || buffs.Contains("Everything"))
+			if (buffs[42] || buffs[63] || buffs[60] || buffs[1])
 			{
 				base.Player.resistCold = true;
 				base.Player.buffImmune[124] = true;
 			}
-			if (buffs.Contains("WaterWalking") || buffs.Contains("Swimming") || buffs.Contains("Explorer") || buffs.Contains("Everything"))
+			if (buffs[43] || buffs[11] || buffs[64] || buffs[1])
 			{
 				base.Player.waterWalk = true;
 				base.Player.buffImmune[15] = true;
 			}
-			if (buffs.Contains("WellFed") || buffs.Contains("Basics") || buffs.Contains("Combat") || buffs.Contains("Everything"))
+			if (buffs[44] || buffs[58] || buffs[60] || buffs[1])
 			{
 				base.Player.wellFed = true;
 				base.Player.statDefense += 4;
@@ -1305,12 +1193,12 @@ namespace miningcracks_take_on_luiafk
 				base.Player.pickSpeed -= 0.15f;
 				base.Player.buffImmune[26] = true;
 			}
-			if (buffs.Contains("Wrath") || buffs.Contains("Damage") || buffs.Contains("Combat") || buffs.Contains("Everything"))
+			if (buffs[46] || buffs[61] || buffs[60] || buffs[1])
 			{
 				base.Player.GetDamage(DamageClass.Generic) += 0.1f;
 				base.Player.buffImmune[117] = true;
 			}
-			if ((buffs.Contains("WormHole") || buffs.Contains("Travel") || buffs.Contains("Everything")) && Main.mapFullscreen && Main.netMode == 1 && Main.myPlayer == base.Player.whoAmI && base.Player.team > 0 && Main.mouseLeft && Main.mouseLeftRelease)
+			if ((buffs[45] || buffs[4] || buffs[1]) && Main.mapFullscreen && Main.netMode == 1 && Main.myPlayer == base.Player.whoAmI && base.Player.team > 0 && Main.mouseLeft && Main.mouseLeftRelease)
 			{
 				for (int k = 0; k < 255; k++)
 				{
@@ -1338,17 +1226,17 @@ namespace miningcracks_take_on_luiafk
 					}
 				}
 			}
-			if (buffs.Contains("AmmoBox") || buffs.Contains("Station") || buffs.Contains("Combat") || buffs.Contains("Everything"))
+			if (buffs[53] || buffs[72] || buffs[60] || buffs[1])
 			{
 				base.Player.ammoBox = true;
 				base.Player.buffImmune[93] = true;
 			}
-			if (buffs.Contains("Bewitching") || buffs.Contains("Station") || buffs.Contains("Combat") || buffs.Contains("Everything"))
+			if (buffs[54] || buffs[72] || buffs[60] || buffs[1])
 			{
 				base.Player.maxMinions++;
 				base.Player.buffImmune[150] = true;
 			}
-			if (buffs.Contains("CrystalBall") || buffs.Contains("Station") || buffs.Contains("Combat") || buffs.Contains("Everything"))
+			if (buffs[55] || buffs[72] || buffs[60] || buffs[1])
 			{
 				base.Player.GetDamage(DamageClass.Magic) += 0.05f;
 				base.Player.GetCritChance(DamageClass.Magic) += 2f;
@@ -1356,7 +1244,7 @@ namespace miningcracks_take_on_luiafk
 				base.Player.manaCost -= 0.02f;
 				base.Player.buffImmune[29] = true;
 			}
-			if (buffs.Contains("SharpeningStation") || buffs.Contains("Station") || buffs.Contains("Combat") || buffs.Contains("Everything"))
+			if (buffs[56] || buffs[72] || buffs[60] || buffs[1])
 			{
 				if (base.Player.inventory[base.Player.selectedItem].DamageType.Type == DamageClass.Melee.Type)
 				{
@@ -1364,7 +1252,7 @@ namespace miningcracks_take_on_luiafk
 				}
 				base.Player.buffImmune[159] = true;
 			}
-			if ((buffs.Contains("UltimatePeaceful") || buffs.Contains("Everything")) && (uiBuffs & PotToggles.UltPeaceful) != 0)
+			if ((buffs[3] || buffs[1]) && (uiBuffs & PotToggles.UltPeaceful) != 0)
 			{
 				if (base.Player.whoAmI == Main.myPlayer)
 				{
@@ -1385,7 +1273,7 @@ namespace miningcracks_take_on_luiafk
 				base.Player.buffImmune[157] = true;
 				base.Player.buffImmune[106] = true;
 			}
-			if ((buffs.Contains("UltimateBattler") || buffs.Contains("Everything")) && (uiBuffs & PotToggles.UltBattler) != 0)
+			if ((buffs[2] || buffs[1]) && (uiBuffs & PotToggles.UltBattler) != 0)
 			{
 				if (base.Player.whoAmI == Main.myPlayer)
 				{
