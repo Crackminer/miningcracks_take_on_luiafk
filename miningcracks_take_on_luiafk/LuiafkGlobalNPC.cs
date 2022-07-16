@@ -111,7 +111,7 @@ namespace miningcracks_take_on_luiafk
 
 		public override void EditSpawnRate(Player player, ref int spawnRate, ref int maxSpawns)
 		{
-			LuiafkPlayer modPlayer = Main.player[Main.myPlayer].GetModPlayer<LuiafkPlayer>();
+			LuiafkPlayer modPlayer = player.GetModPlayer<LuiafkPlayer>();
 			if ((modPlayer.buffs.Contains("Ultimate Battler") || modPlayer.buffs.Contains("Everything")) && (modPlayer.uiBuffs & PotToggles.UltBattler) != 0)
 			{
 				spawnRate = 1;

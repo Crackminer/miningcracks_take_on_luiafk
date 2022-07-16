@@ -7,7 +7,7 @@ namespace miningcracks_take_on_luiafk
 {
 	public class LuiafkGlobalProj : GlobalProjectile
 	{
-		public override bool PreAI(Projectile projectile)
+		/*public override bool PreAI(Projectile projectile)
 		{
 			if (projectile.aiStyle == 61 && Main.player[projectile.owner].GetModPlayer<LuiafkPlayer>().holdingFishingRod)
 			{
@@ -15,7 +15,7 @@ namespace miningcracks_take_on_luiafk
 				return false;
 			}
 			return true;
-		}
+		}*/
 
 		public override bool PreDraw(Projectile projectile, ref Color lightColor)
 		{

@@ -616,7 +616,7 @@ namespace miningcracks_take_on_luiafk
 			}
 		}
 
-		public override void CatchFish(FishingAttempt attempt, ref int itemDrop, ref int npcSpawn, ref AdvancedPopupRequest sonar, ref Vector2 sonarPosition)
+		/*public override void CatchFish(FishingAttempt attempt, ref int itemDrop, ref int npcSpawn, ref AdvancedPopupRequest sonar, ref Vector2 sonarPosition)
 		{
 			if (!Main.hardMode && attempt.rolledItemDrop == 2331)
 			{
@@ -629,7 +629,7 @@ namespace miningcracks_take_on_luiafk
 					attempt.rolledItemDrop = 2315;
 				}
 			}
-		}
+		}*/
 
 		public override void SetControls()
 		{
@@ -675,6 +675,7 @@ namespace miningcracks_take_on_luiafk
 				else
 				{
 					UILearning.BuffInterface?.SetState(UILearning.BuffUI);
+					Main.FrameSkipMode = Terraria.Enums.FrameSkipMode.Subtle;
 				}
 			}
 			if (forwardSlash)

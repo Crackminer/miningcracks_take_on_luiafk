@@ -214,7 +214,7 @@ namespace miningcracks_take_on_luiafk.NPCs
 		public override void SetChatButtons(ref string button, ref string button2)
 		{
 			button = Lang.inter[28].Value;
-			button2 = Lang.inter[64].Value;
+			//button2 = Lang.inter[64].Value;
 		}
 
 		public override void OnChatButtonClicked(bool firstButton, ref bool shop)
@@ -230,7 +230,7 @@ namespace miningcracks_take_on_luiafk.NPCs
 			Player player = Main.player[Main.myPlayer];
 			shop = false;
 			Main.npcChatCornerItem = 0;
-			SoundEngine.PlaySound(in SoundID.Item12, (Vector2?)new Vector2(-1f, -1f));
+			/*SoundEngine.PlaySound(in SoundID.Item12, (Vector2?)new Vector2(-1f, -1f));
 			bool flag = false;
 			if (!Main.anglerQuestFinished && !Main.anglerWhoFinishedToday.Contains(player.name))
 			{
@@ -245,7 +245,7 @@ namespace miningcracks_take_on_luiafk.NPCs
 					flag = true;
 					SoundEngine.PlaySound(in SoundID.Item24, (Vector2?)new Vector2(-1f, -1f));
 					player.anglerQuestsFinished++;
-					player.GetAnglerReward(NPCLoader.GetNPC(369).NPC);
+					player.GetAnglerReward(NPCLoader.GetNPC(NPCID.Angler).NPC);
 				}
 			}
 			Main.npcChatText = Lang.AnglerQuestChat(flag);
@@ -261,7 +261,7 @@ namespace miningcracks_take_on_luiafk.NPCs
 					Main.anglerWhoFinishedToday.Add(player.name);
 				}
 				AchievementsHelper.HandleAnglerService();
-			}
+			}*/
 		}
 	}
 }

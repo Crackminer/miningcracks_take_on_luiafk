@@ -245,7 +245,7 @@ namespace miningcracks_take_on_luiafk
 				FishingBiomeBuilder.HandleBuilding(reader.ReadInt32(), reader.ReadInt32(), reader.ReadInt32(), reader.ReadInt32(), reader.ReadBoolean(), reader.ReadBoolean());
 				break;
 			case 8:
-				Fishing.HandleFishron(reader.ReadInt32());
+				//Fishing.HandleFishron(reader.ReadInt32());
 				break;
 			case 9:
 				UnlimitedMultiSolution.HandleConvert(reader.ReadInt32(), reader.ReadInt32(), reader.ReadInt32(), reader.ReadInt32(), reader.ReadInt32());

@@ -39,6 +39,7 @@ namespace miningcracks_take_on_luiafk.Images.Items.AutoBuilders
 				{
 					UILearning.RightInterface?.SetState(UILearning.RightClickUIs<FishingBiomeUI>());
 					UILearning.RightClickUIs<FishingBiomeUI>().buttonUpdates();
+					if (Main.FrameSkipMode == Terraria.Enums.FrameSkipMode.On) Main.FrameSkipMode = Terraria.Enums.FrameSkipMode.Subtle;
 				}
 				return false;
 			}

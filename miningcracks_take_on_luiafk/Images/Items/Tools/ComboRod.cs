@@ -65,6 +65,11 @@ namespace miningcracks_take_on_luiafk.Images.Items.Tools
 
 		public override bool CanUseItem(Player player)
 		{
+			if (Main.SmartCursorIsUsed)
+			{
+				Main.NewText("Please disable Smart Cursor to use this rod, It will be nearly unusable otherwise.");
+				return false;
+			}
 			if (player.altFunctionUse == 2)
 			{
 				base.Item.shoot = 0;
@@ -77,6 +82,7 @@ namespace miningcracks_take_on_luiafk.Images.Items.Tools
 				{
 					UILearning.ComboInterface?.SetState(UILearning.RightClickUIs<ComboRodUI>());
 					UILearning.RightClickUIs<ComboRodUI>().buttonUpdate();
+					if (Main.FrameSkipMode == Terraria.Enums.FrameSkipMode.On) Main.FrameSkipMode = Terraria.Enums.FrameSkipMode.Subtle;
 				}
 				return false;
 			}

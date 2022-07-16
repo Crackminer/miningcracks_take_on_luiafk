@@ -4,11 +4,11 @@ Ported and Maintained by: miningcrack
 IMPORTANT:
 This is mostly not my (miningrack's) Code, It is taken from the Mod Luiafk and altered to be working in 1.4. 
 
-Currently Not tested in Multiplayer, Very Possible its not working correctly in Multiplayer!!
+Github Link: https://github.com/Crackminer/miningcracks_take_on_luiafk/
 
 Currently all the Harvesters are Disabled, I dont know whats exactly wrong with them and will have an extensive look at them soon
 
-If you encounter any bugs or problems please let me know in a steam discussion thread with your error message!
+If you encounter any bugs or problems please let me know in a steam discussion thread or the github discussions thread with your error message!
 
 
 Unlimited/Combinable Potions

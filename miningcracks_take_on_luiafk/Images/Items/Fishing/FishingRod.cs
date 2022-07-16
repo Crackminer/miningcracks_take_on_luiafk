@@ -52,7 +52,7 @@ namespace miningcracks_take_on_luiafk.Images.Items.Fishing
 			base.DisplayName.SetDefault("Unlimited " + name);
 			base.Tooltip.SetDefault("Doesn't need bait." + tooltip + "\nThrows an extra line for every 5 fishing quests completed.");
 			base.SacrificeTotal = 1;
-			if (skill == 110)
+			if (skill >= 110)
 			{
 				ItemID.Sets.CanFishInLava[base.Item.type] = true;
 			}
@@ -71,14 +71,16 @@ namespace miningcracks_take_on_luiafk.Images.Items.Fishing
 			base.Item.useStyle = 1;
 			base.Item.rare = 10;
 			base.Item.value = 1;
-		}
+            base.Item.fishingPole = skill;
+			base.Item.bait = 1;
+        }
 
-		public override void PostDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
+        public override void PostDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
 		{
 			Player player = Main.player[Main.myPlayer];
 			if (player.inventory[player.selectedItem].type == base.Item.type)
 			{
-				string text = CatchFish.GetProjSkill(myPlayer: true).ToString();
+				string text = player.displayedFishingInfo.Remove(player.displayedFishingInfo.IndexOf(' '));
 				if (text == "-1")
 				{
 					text = "Pig";
@@ -87,15 +89,22 @@ namespace miningcracks_take_on_luiafk.Images.Items.Fishing
 			}
 		}
 
+        public override bool NeedsAmmo(Player player)
+        {
+            return false;
+        }
+
+        public override bool? CanConsumeBait(Player player)
+        {
+            return false;
+        }
+
         public override void HoldItem(Player player)
 		{
-			if (line)
-			{
-				player.accFishingLine = true;
-			}
-			player.fishingSkill += skill;
+			player.accFishingLine = true;
+			//player.fishingSkill += skill;
 			player.GetModPlayer<LuiafkPlayer>().holdingFishingRod = true;
-			if (Main.netMode != 2)
+			/*if (Main.netMode != 2)
 			{
 				int num = player.mount.PlayerOffsetHitbox + 4;
 				player.itemLocation.X = player.position.X + (float)player.width * 0.5f + (float)TextureAssets.Item[base.Item.type].Value.Width * 0.18f * (float)player.direction;
@@ -104,7 +113,7 @@ namespace miningcracks_take_on_luiafk.Images.Items.Fishing
 				{
 					player.itemLocation.Y = player.position.Y + 24f + (float)num - 14f;
 				}
-			}
+			}*/
 		}
 
 		public override void HoldStyle(Player player, Rectangle heldItemFrame)
@@ -150,7 +159,7 @@ namespace miningcracks_take_on_luiafk.Images.Items.Fishing
 			{
 				Fishing.currentlyFishing = true;
 			}
-			bool flag = false;
+			/*bool flag = false;
 			for (int i = 0; i < 1000; i++)
 			{
 				Projectile projectile = Main.projectile[i];
@@ -198,7 +207,7 @@ namespace miningcracks_take_on_luiafk.Images.Items.Fishing
 			if (flag)
 			{
 				return false;
-			}
+			}*/
 			int num2 = player.anglerQuestsFinished / 5;
 			/*if (LuiafkMod.FargoLoaded)
 			{
@@ -218,11 +227,11 @@ namespace miningcracks_take_on_luiafk.Images.Items.Fishing
 					}
 				}
 			}*/
-			for (int k = 0; k < num2; k++)
+			for (int k = 0; k <= num2; k++)
 			{
-				Projectile.NewProjectile(source, position, new Vector2(velocity.X + Main.rand.NextFloat(-75f, 75f) * 0.05f, velocity.Y + Main.rand.NextFloat(-75f, 75f) * 0.05f), type, damage, knockBack, player.whoAmI);
+				Projectile.NewProjectile(source, position, velocity + new Vector2(Main.rand.NextFloat(-75f, 75f) * 0.05f, Main.rand.NextFloat(-75f, 75f) * 0.05f), type, damage, knockBack, player.whoAmI);
 			}
-			return true;
+			return false;
 		}
 
 		public override void AddRecipes()
