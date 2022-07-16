@@ -1,6 +1,9 @@
+using Microsoft.Xna.Framework;
 using miningcracks_take_on_luiafk.Utility;
 using Terraria;
+using Terraria.Chat;
 using Terraria.DataStructures;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace miningcracks_take_on_luiafk
@@ -111,43 +114,86 @@ namespace miningcracks_take_on_luiafk
 
         public override void EditSpawnRate(Player player, ref int spawnRate, ref int maxSpawns)
 		{
-			Main.NewText("Got called in general");
 			LuiafkPlayer modPlayer = player.GetModPlayer<LuiafkPlayer>();
+			if (Main.dedServ || Main.netMode == 2)
+            {
+				//ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral("Got called in general"), Color.White);
+				if ((modPlayer.buffs[2] || modPlayer.buffs[1]) && (modPlayer.uiBuffs & PotToggles.UltBattler) != 0)
+				{
+					//ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral("I got here! battler"), Color.White);
+					spawnRate = 1;
+					maxSpawns = 500;
+					return;
+				}
+				if ((modPlayer.buffs[3] || modPlayer.buffs[1]) && (modPlayer.uiBuffs & PotToggles.UltPeaceful) != 0)
+				{
+					//ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral("I got here! peaceful"), Color.White);
+					spawnRate = (int)((float)spawnRate * 5f);
+					maxSpawns = (int)((float)maxSpawns / 5f);
+					return;
+				}
+				if (modPlayer.buffs[48] || modPlayer.buffs[59])
+				{
+					//ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral("I got here! water"), Color.White);
+					spawnRate = (int)((float)spawnRate * 0.75f);
+					maxSpawns = (int)((float)maxSpawns * 1.5f);
+				}
+				if (modPlayer.buffs[17] || modPlayer.buffs[59])
+				{
+					//ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral("I got here! battle"), Color.White);
+					spawnRate = (int)((float)spawnRate * 0.5f);
+					maxSpawns = (int)((float)maxSpawns * 2f);
+				}
+				if (modPlayer.buffs[47] || modPlayer.buffs[70])
+				{
+					//ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral("I got here! peace"), Color.White);
+					spawnRate = (int)((float)spawnRate * 1.3f);
+					maxSpawns = (int)((float)maxSpawns * 0.7f);
+				}
+				if (modPlayer.buffs[9] || modPlayer.buffs[70])
+				{
+					//ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral("I got here! calm"), Color.White);
+					spawnRate = (int)((float)spawnRate * 1.3f);
+					maxSpawns = (int)((float)maxSpawns * 0.7f);
+				}
+				return;
+			}
+			//Main.NewText("Got called in general");
 			if ((modPlayer.buffs[2] || modPlayer.buffs[1]) && (modPlayer.uiBuffs & PotToggles.UltBattler) != 0)
 			{
-				Main.NewText("I got here! battler");
+				//Main.NewText("I got here! battler");
 				spawnRate = 1;
 				maxSpawns = 500;
 				return;
 			}
 			if ((modPlayer.buffs[3] || modPlayer.buffs[1]) && (modPlayer.uiBuffs & PotToggles.UltPeaceful) != 0)
 			{
-				Main.NewText("I got here! peaceful");
+				//Main.NewText("I got here! peaceful");
 				spawnRate = (int)((float)spawnRate * 5f);
 				maxSpawns = (int)((float)maxSpawns / 5f);
 				return;
 			}
 			if (modPlayer.buffs[48] || modPlayer.buffs[59])
 			{
-				Main.NewText("I got here! water");
+				//Main.NewText("I got here! water");
 				spawnRate = (int)((float)spawnRate * 0.75f);
 				maxSpawns = (int)((float)maxSpawns * 1.5f);
 			}
 			if (modPlayer.buffs[17] || modPlayer.buffs[59])
 			{
-				Main.NewText("I got here! battle");
+				//Main.NewText("I got here! battle");
 				spawnRate = (int)((float)spawnRate * 0.5f);
 				maxSpawns = (int)((float)maxSpawns * 2f);
 			}
 			if (modPlayer.buffs[47] || modPlayer.buffs[70])
 			{
-				Main.NewText("I got here! peace");
+				//Main.NewText("I got here! peace");
 				spawnRate = (int)((float)spawnRate * 1.3f);
 				maxSpawns = (int)((float)maxSpawns * 0.7f);
 			}
 			if (modPlayer.buffs[9] || modPlayer.buffs[70])
 			{
-				Main.NewText("I got here! calm");
+				//Main.NewText("I got here! calm");
 				spawnRate = (int)((float)spawnRate * 1.3f);
 				maxSpawns = (int)((float)maxSpawns * 0.7f);
 			}
