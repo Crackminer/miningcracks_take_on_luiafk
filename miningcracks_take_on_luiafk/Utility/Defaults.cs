@@ -74,7 +74,7 @@ namespace miningcracks_take_on_luiafk.Utility
 
 		internal static void AltarTile(ModTile tile, string tileName)
 		{
-						Main.tileLighted[tile.Type] = true;
+			Main.tileLighted[tile.Type] = true;
 			Main.tileFrameImportant[tile.Type] = true;
 			Main.tileNoAttach[tile.Type] = true;
 			Main.tileSolidTop[tile.Type] = false;
@@ -94,7 +94,7 @@ namespace miningcracks_take_on_luiafk.Utility
 
 		internal static void ChestTile(ModTile tile, string chestName, int drop, Color c)
 		{
-						Main.tileSpelunker[tile.Type] = true;
+			Main.tileSpelunker[tile.Type] = true;
 			Main.tileContainer[tile.Type] = true;
 			Main.tileShine[tile.Type] = 1200;
 			Main.tileShine2[tile.Type] = true;
@@ -104,7 +104,7 @@ namespace miningcracks_take_on_luiafk.Utility
 			TileID.Sets.HasOutlines[tile.Type] = true;
 			TileObjectData.newTile.FullCopyFrom(21);
 			TileObjectData.addTile(tile.Type);
-			tile.AdjTiles = new int[1] { 21 };
+			tile.AdjTiles = new int[] { TileID.Containers };
 			tile.ContainerName.SetDefault(chestName);
 			tile.ChestDrop = drop;
 			ModTranslation modTranslation = tile.CreateMapEntryName();

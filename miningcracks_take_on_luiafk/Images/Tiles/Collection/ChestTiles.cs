@@ -35,12 +35,8 @@ namespace miningcracks_take_on_luiafk.Images.Tiles.Collection
 
 		public override bool RightClick(int x, int y)
 		{
-			if (base.RightClick(x, y))
-			{
-				Chests.ChestRightClick(x, y);
-				return true;
-			}
-			return false;
+			Chests.ChestRightClick(x, y);
+			return true;
 		}
 	}
 }

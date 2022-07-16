@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 
 using miningcracks_take_on_luiafk.Utility;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.UI;
 
@@ -11,6 +12,8 @@ namespace miningcracks_take_on_luiafk.UI
 		internal Point position;
 
 		internal MyImageButton battler;
+
+		internal List<MyImageButton> allButtons = new();
 
 		internal const int Border = 10;
 
@@ -35,6 +38,7 @@ namespace miningcracks_take_on_luiafk.UI
 			};
 			myImageButton.OnClick += Battler;
 			battler = myImageButton;
+			allButtons.Add(myImageButton);
 			myUIPanel.Append(myImageButton);
 			MyImageButton myImageButton2 = new MyImageButton(Textures.BuffPeace, "Ultimate Peaceful")
 			{
@@ -42,6 +46,7 @@ namespace miningcracks_take_on_luiafk.UI
 				VAlign = 0.5f
 			};
 			myImageButton2.OnClick += Peace;
+			allButtons.Add(myImageButton2);
 			myUIPanel.Append(myImageButton2);
 			MyImageButton myImageButton3 = new MyImageButton(Textures.BuffGravitation, "Gravity Control")
 			{
@@ -49,6 +54,7 @@ namespace miningcracks_take_on_luiafk.UI
 				VAlign = 0.5f
 			};
 			myImageButton3.OnClick += Grav;
+			allButtons.Add(myImageButton3);
 			myUIPanel.Append(myImageButton3);
 			MyImageButton myImageButton4 = new MyImageButton(Textures.BuffFeatherFall, "Featherfall")
 			{
@@ -56,6 +62,7 @@ namespace miningcracks_take_on_luiafk.UI
 				VAlign = 0.5f
 			};
 			myImageButton4.OnClick += Feather;
+			allButtons.Add(myImageButton4);
 			myUIPanel.Append(myImageButton4);
 			MyImageButton myImageButton5 = new MyImageButton(Textures.BuffInferno, "Inferno Visual")
 			{
@@ -63,6 +70,7 @@ namespace miningcracks_take_on_luiafk.UI
 				VAlign = 0.5f
 			};
 			myImageButton5.OnClick += Infernal;
+			allButtons.Add(myImageButton5);
 			myUIPanel.Append(myImageButton5);
 			MyImageButton myImageButton6 = new MyImageButton(Textures.BuffInvis, "Invisibility")
 			{
@@ -70,6 +78,7 @@ namespace miningcracks_take_on_luiafk.UI
 				VAlign = 0.5f
 			};
 			myImageButton6.OnClick += Invis;
+			allButtons.Add(myImageButton6);
 			myUIPanel.Append(myImageButton6);
 			MyImageButton myImageButton7 = new MyImageButton(Textures.BuffCrate, "Crate Potion")
 			{
@@ -77,6 +86,7 @@ namespace miningcracks_take_on_luiafk.UI
 				VAlign = 0.5f
 			};
 			myImageButton7.OnClick += Crates;
+			allButtons.Add(myImageButton7);
 			myUIPanel.Append(myImageButton7);
 			MyImageButton myImageButton8 = new MyImageButton(Textures.BuffSpelunker, "Spelunker")
 			{
@@ -84,6 +94,7 @@ namespace miningcracks_take_on_luiafk.UI
 				VAlign = 0.5f
 			};
 			myImageButton8.OnClick += Spelunk;
+			allButtons.Add(myImageButton8);
 			myUIPanel.Append(myImageButton8);
 			MyImageButton myImageButton9 = new MyImageButton(Textures.BuffDangerSense, "Danger and Hunter")
 			{
@@ -91,14 +102,69 @@ namespace miningcracks_take_on_luiafk.UI
 				VAlign = 0.5f
 			};
 			myImageButton9.OnClick += Danger;
+			allButtons.Add(myImageButton9);
 			myUIPanel.Append(myImageButton9);
 			Append(myUIPanel);
+		}
+
+		public void buttonUpdates()
+        {
+			foreach (MyImageButton button in allButtons)
+			{
+				button.active = false;
+				button.SetVisibility(1f, 0.6f);
+			}
+
+			if ((UILearning.LuiP.uiBuffs & PotToggles.UltBattler) != 0)
+            {
+				allButtons.ToArray()[0].active = true;
+				allButtons.ToArray()[0].SetVisibility(0.6f, 1f);
+			}
+			if ((UILearning.LuiP.uiBuffs & PotToggles.UltPeaceful) != 0)
+			{
+				allButtons.ToArray()[1].active = true;
+				allButtons.ToArray()[1].SetVisibility(0.6f, 1f);
+			}
+			if ((UILearning.LuiP.uiBuffs & PotToggles.Grav) != 0)
+			{
+				allButtons.ToArray()[2].active = true;
+				allButtons.ToArray()[2].SetVisibility(0.6f, 1f);
+			}
+			if ((UILearning.LuiP.uiBuffs & PotToggles.Feather) != 0)
+			{
+				allButtons.ToArray()[3].active = true;
+				allButtons.ToArray()[3].SetVisibility(0.6f, 1f);
+			}
+			if ((UILearning.LuiP.uiBuffs & PotToggles.Inferno) != 0)
+			{
+				allButtons.ToArray()[4].active = true;
+				allButtons.ToArray()[4].SetVisibility(0.6f, 1f);
+			}
+			if ((UILearning.LuiP.uiBuffs & PotToggles.Invis) != 0)
+			{
+				allButtons.ToArray()[5].active = true;
+				allButtons.ToArray()[5].SetVisibility(0.6f, 1f);
+			}
+			if ((UILearning.LuiP.uiBuffs & PotToggles.Crate) != 0)
+			{
+				allButtons.ToArray()[6].active = true;
+				allButtons.ToArray()[6].SetVisibility(0.6f, 1f);
+			}
+			if ((UILearning.LuiP.uiBuffs & PotToggles.Spelunker) != 0)
+			{
+				allButtons.ToArray()[7].active = true;
+				allButtons.ToArray()[7].SetVisibility(0.6f, 1f);
+			}
+			if ((UILearning.LuiP.uiBuffs & PotToggles.DangerHunter) != 0)
+			{
+				allButtons.ToArray()[8].active = true;
+				allButtons.ToArray()[8].SetVisibility(0.6f, 1f);
+			}
 		}
 
         public void Battler(UIMouseEvent evt, UIElement element)
 		{
 			MyImageButton myImageButton = (MyImageButton)element;
-			//myImageButton.active = !myImageButton.active;
 			if (!myImageButton.active)
 			{
 				myImageButton.active = true;
@@ -121,7 +187,6 @@ namespace miningcracks_take_on_luiafk.UI
 			{
 				myImageButton.SetVisibility(0.6f, 1f);
 				UILearning.LuiP.uiBuffs ^= PotToggles.UltPeaceful;
-				//UILearning.LuiP.editSpawnRate(battler: false);
 			}
 			else
 			{

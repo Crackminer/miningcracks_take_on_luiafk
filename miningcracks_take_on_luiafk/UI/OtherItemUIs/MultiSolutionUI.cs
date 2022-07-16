@@ -168,5 +168,55 @@ namespace miningcracks_take_on_luiafk.UI.OtherItemUIs
 		{
 			UnlimitedMultiSolution.ConvertClicked();
 		}
+
+		public void buttonUpdates()
+		{
+			foreach (MyImageButton button in buttons)
+			{
+				button.active = false;
+				button.SetVisibility(1f, 0.6f);
+			}
+
+			switch (UILearning.LuiP.uiMultiSolutionType)
+			{
+				case 1:
+					buttons.ToArray()[0].active = true;
+					buttons.ToArray()[0].SetVisibility(0.6f, 1f);
+					break;
+				case 2:
+					buttons.ToArray()[1].active = true;
+					buttons.ToArray()[1].SetVisibility(0.6f, 1f);
+					break;
+				case 0:
+					buttons.ToArray()[2].active = true;
+					buttons.ToArray()[2].SetVisibility(0.6f, 1f);
+					break;
+				case 4:
+					buttons.ToArray()[3].active = true;
+					buttons.ToArray()[3].SetVisibility(0.6f, 1f);
+					break;
+				case 7:
+					buttons.ToArray()[4].active = true;
+					buttons.ToArray()[4].SetVisibility(0.6f, 1f);
+					break;
+				case 6:
+					buttons.ToArray()[5].active = true;
+					buttons.ToArray()[5].SetVisibility(0.6f, 1f);
+					break;
+				case 5:
+					buttons.ToArray()[6].active = true;
+					buttons.ToArray()[6].SetVisibility(0.6f, 1f);
+					break;
+				case 3:
+					buttons.ToArray()[7].active = true;
+					buttons.ToArray()[7].SetVisibility(0.6f, 1f);
+					break;
+				case 8:
+					buttons.ToArray()[8].active = true;
+					buttons.ToArray()[8].SetVisibility(0.6f, 1f);
+					break;
+				default: break;
+			}
+		}
 	}
 }

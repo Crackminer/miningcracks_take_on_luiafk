@@ -9,6 +9,9 @@ namespace miningcracks_take_on_luiafk.UI.OtherItemUIs
 	{
 		public List<MyImageButton> buttons = new List<MyImageButton>();
 
+		internal List<MyImageButton> buttons2 = new List<MyImageButton>();
+
+
 		internal HoikRodUI()
 			: base(9, 1)
 		{
@@ -77,6 +80,7 @@ namespace miningcracks_take_on_luiafk.UI.OtherItemUIs
 				HAlign = 0.72f
 			};
 			myImageButton7.OnClick += activateClick;
+			buttons2.Add(myImageButton7);
 			myUIPanel.Append(myImageButton7);
 			MyImageButton myImageButton8 = new MyImageButton(Textures.HoikReverse, "Reverse Actuation\nOverrides Active/Inactive")
 			{
@@ -84,6 +88,7 @@ namespace miningcracks_take_on_luiafk.UI.OtherItemUIs
 				HAlign = 0.83f
 			};
 			myImageButton8.OnClick += reverseClick;
+			buttons2.Add(myImageButton8);
 			myUIPanel.Append(myImageButton8);
 			MyTextBox element = new MyTextBox("Gap Between Blocks")
 			{
@@ -170,6 +175,62 @@ namespace miningcracks_take_on_luiafk.UI.OtherItemUIs
 				myImageButton.SetVisibility(1f, 0.6f);
 			}
 			UILearning.LuiP.uiHoikRodReverse = !UILearning.LuiP.uiHoikRodReverse;
+		}
+
+		public void buttonUpdates()
+		{
+			foreach (MyImageButton button in buttons)
+			{
+				button.active = false;
+				button.SetVisibility(1f, 0.6f);
+			}
+
+			foreach (MyImageButton button in buttons2)
+			{
+				button.active = false;
+				button.SetVisibility(1f, 0.6f);
+			}
+
+			switch (UILearning.LuiP.uiHoikRodSelected)
+			{
+				case 0:
+					buttons.ToArray()[0].active = true;
+					buttons.ToArray()[0].SetVisibility(0.6f, 1f);
+					break;
+				case 1:
+					buttons.ToArray()[1].active = true;
+					buttons.ToArray()[1].SetVisibility(0.6f, 1f);
+					break;
+				case 4:
+					buttons.ToArray()[2].active = true;
+					buttons.ToArray()[2].SetVisibility(0.6f, 1f);
+					break;
+				case 5:
+					buttons.ToArray()[3].active = true;
+					buttons.ToArray()[3].SetVisibility(0.6f, 1f);
+					break;
+				case 2:
+					buttons.ToArray()[4].active = true;
+					buttons.ToArray()[4].SetVisibility(0.6f, 1f);
+					break;
+				case 3:
+					buttons.ToArray()[5].active = true;
+					buttons.ToArray()[5].SetVisibility(0.6f, 1f);
+					break;
+				default: break;
+			}
+
+			if(UILearning.LuiP.uiHoikRodActive)
+            {
+				buttons2.ToArray()[0].active = true;
+				buttons2.ToArray()[0].SetVisibility(0.6f, 1f);
+			}
+
+			if (UILearning.LuiP.uiHoikRodReverse)
+			{
+				buttons2.ToArray()[1].active = true;
+				buttons2.ToArray()[1].SetVisibility(0.6f, 1f);
+			}
 		}
 	}
 }

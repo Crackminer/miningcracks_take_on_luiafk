@@ -38,6 +38,7 @@ namespace miningcracks_take_on_luiafk.UI.AutoBuilderUIs
 				HAlign = 0.14f
 			};
 			myImageButton2.OnClick += campClick;
+			allButtons.Add(myImageButton2);
 			myUIPanel.Append(myImageButton2);
 			MyImageButton myImageButton3 = new MyImageButton(Textures.WallWood, "Wood")
 			{
@@ -200,35 +201,41 @@ namespace miningcracks_take_on_luiafk.UI.AutoBuilderUIs
 				allButtons.ToArray()[0].SetVisibility(0.6f, 1f);
 			}
 
+			if(UILearning.LuiP.uiCampfire)
+            {
+				allButtons.ToArray()[1].active = true;
+				allButtons.ToArray()[1].SetVisibility(0.6f, 1f);
+			}
+
 			switch (UILearning.LuiP.uiMaterial)
 			{
 				case 2:
-					allButtons.ToArray()[1].active = true;
-					allButtons.ToArray()[1].SetVisibility(0.6f, 1f);
-					break;
-				case 3:
 					allButtons.ToArray()[2].active = true;
 					allButtons.ToArray()[2].SetVisibility(0.6f, 1f);
 					break;
-				case 4:
+				case 3:
 					allButtons.ToArray()[3].active = true;
 					allButtons.ToArray()[3].SetVisibility(0.6f, 1f);
 					break;
-				case 5:
+				case 4:
 					allButtons.ToArray()[4].active = true;
 					allButtons.ToArray()[4].SetVisibility(0.6f, 1f);
 					break;
-				case 6:
+				case 5:
 					allButtons.ToArray()[5].active = true;
 					allButtons.ToArray()[5].SetVisibility(0.6f, 1f);
 					break;
-				case 7:
+				case 6:
 					allButtons.ToArray()[6].active = true;
 					allButtons.ToArray()[6].SetVisibility(0.6f, 1f);
 					break;
-				case 8:
+				case 7:
 					allButtons.ToArray()[7].active = true;
 					allButtons.ToArray()[7].SetVisibility(0.6f, 1f);
+					break;
+				case 8:
+					allButtons.ToArray()[8].active = true;
+					allButtons.ToArray()[8].SetVisibility(0.6f, 1f);
 					break;
 				default: break;
 			}

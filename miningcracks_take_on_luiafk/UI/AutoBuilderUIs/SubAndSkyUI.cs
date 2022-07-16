@@ -128,6 +128,7 @@ namespace miningcracks_take_on_luiafk.UI.AutoBuilderUIs
 				HAlign = 1f
 			};
 			myImageButton12.SetVisibility(1f, 1f);
+			allButtons.Add(myImageButton12);
 			myImageButton12.OnClick += subOrSkyClick;
 			myUIPanel.Append(myImageButton12);
 			Append(myUIPanel);
@@ -255,6 +256,13 @@ namespace miningcracks_take_on_luiafk.UI.AutoBuilderUIs
             {
 				allButtons.ToArray()[10].active = true;
 				allButtons.ToArray()[10].SetVisibility(0.6f, 1f);
+			}
+
+			if(UILearning.LuiP.uiSubOrMinecart)
+            {
+				allButtons.ToArray()[11].active = true;
+				allButtons.ToArray()[11].SetVisibility(0.6f, 1f);
+				allButtons.ToArray()[12].SetImage(Textures.MiscMineTrack);
 			}
 
 			switch(UILearning.LuiP.uiMaterial)

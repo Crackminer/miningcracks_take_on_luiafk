@@ -6,6 +6,7 @@ using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace miningcracks_take_on_luiafk.Images.Tiles.Collection
 {
@@ -25,7 +26,7 @@ namespace miningcracks_take_on_luiafk.Images.Tiles.Collection
 
 		internal static void Kill(int x, int y, int drop)
 		{
-									Item.NewItem(new EntitySource_TileBreak(x, y), new Vector2((float)(x << 4), (float)(y << 4)), new Vector2(32f, 32f), drop);
+			Item.NewItem(new EntitySource_TileBreak(x, y), new Vector2((float)(x << 4), (float)(y << 4)), new Vector2(32f, 32f), drop);
 			Chest.DestroyChest(x, y);
 		}
 
@@ -74,7 +75,7 @@ namespace miningcracks_take_on_luiafk.Images.Tiles.Collection
 
 		internal static void ChestRightClick(int x, int y)
 		{
-																																	Player player = Main.player[Main.myPlayer];
+			/*Player player = Main.player[Main.myPlayer];
 			Main.mouseRightRelease = false;
 			Point16 point = TileChecks.FindChestTopLeft(x, y, destroy: false);
 			if (player.sign >= 0)
@@ -130,6 +131,75 @@ namespace miningcracks_take_on_luiafk.Images.Tiles.Collection
 					SoundEngine.PlaySound(in style, (Vector2?)new Vector2(-1f, -1f));
 				}
 				Recipe.FindRecipes();
+			}*/
+			Player player = Main.LocalPlayer;
+			Tile tile = Main.tile[x, y];
+			Main.mouseRightRelease = false;
+			int left = x;
+			int top = y;
+			if (tile.TileFrameX % 36 != 0)
+			{
+				left--;
+			}
+
+			if (tile.TileFrameY != 0)
+			{
+				top--;
+			}
+
+			player.CloseSign();
+			player.SetTalkNPC(-1);
+			Main.npcChatCornerItem = 0;
+			Main.npcChatText = "";
+			if (Main.editChest)
+			{
+				SoundEngine.PlaySound(SoundID.MenuTick);
+				Main.editChest = false;
+				Main.npcChatText = string.Empty;
+			}
+
+			if (player.editedChestName)
+			{
+				NetMessage.SendData(MessageID.SyncPlayerChest, -1, -1, NetworkText.FromLiteral(Main.chest[player.chest].name), player.chest, 1f);
+				player.editedChestName = false;
+			}
+
+			bool isLocked = Chest.IsLocked(left, top);
+			if (Main.netMode == NetmodeID.MultiplayerClient && !isLocked)
+			{
+				if (left == player.chestX && top == player.chestY && player.chest >= 0)
+				{
+					player.chest = -1;
+					Recipe.FindRecipes();
+					SoundEngine.PlaySound(SoundID.MenuClose);
+				}
+				else
+				{
+					NetMessage.SendData(MessageID.RequestChestOpen, -1, -1, null, left, top);
+					Main.stackSplit = 600;
+				}
+			}
+			else
+			{
+				
+				int chest = Chest.FindChest(left, top);
+				if (chest >= 0)
+				{
+					Main.stackSplit = 600;
+					if (chest == player.chest)
+					{
+						player.chest = -1;
+						SoundEngine.PlaySound(SoundID.MenuClose);
+					}
+					else
+					{
+						SoundEngine.PlaySound(player.chest < 0 ? SoundID.MenuOpen : SoundID.MenuTick);
+						player.OpenChest(left, top, chest);
+					}
+
+					Recipe.FindRecipes();
+				}
+				
 			}
 		}
 	}

@@ -9,7 +9,6 @@ namespace miningcracks_take_on_luiafk.UI.OtherItemUIs
 	{
 		internal List<MyImageButton> buttons = new List<MyImageButton>();
 		internal List<MyImageButton> allButtons = new List<MyImageButton>();
-		//TODO: buttonUpdates() method for all open uis with all their corresponding types
 
 		internal UltimateBucketUI()
 			: base(4, 1)

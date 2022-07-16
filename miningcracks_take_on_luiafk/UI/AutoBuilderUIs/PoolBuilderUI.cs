@@ -149,6 +149,7 @@ namespace miningcracks_take_on_luiafk.UI.AutoBuilderUIs
 				HAlign = 0.74f
 			};
 			myImageButton14.OnClick += fishClick;
+			allButtons.Add(myImageButton14);
 			myUIPanel.Append(myImageButton14);
 			MyImageButton myImageButton15 = new MyImageButton(Textures.MiscWalls, "Walls On/Off")
 			{
@@ -300,6 +301,12 @@ namespace miningcracks_take_on_luiafk.UI.AutoBuilderUIs
 
 			if (UILearning.LuiP.uiObsidian)
 			{
+				allButtons.ToArray()[14].active = true;
+				allButtons.ToArray()[14].SetVisibility(0.6f, 1f);
+			}
+
+			if (UILearning.LuiP.uiPoolBuild)
+            {
 				allButtons.ToArray()[13].active = true;
 				allButtons.ToArray()[13].SetVisibility(0.6f, 1f);
 			}

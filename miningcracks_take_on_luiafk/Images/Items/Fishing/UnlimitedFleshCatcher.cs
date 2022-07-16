@@ -3,7 +3,7 @@ namespace miningcracks_take_on_luiafk.Images.Items.Fishing
 	public class UnlimitedFleshCatcher : FishingRod
 	{
 		public UnlimitedFleshCatcher()
-			: base("Fleshcatcher", "\n45% Fishing Power.", 381, 13.5f, 45, line: false, 2421, "Luiafk:TwentyBait", 30)
+			: base("Fleshcatcher", "", 381, 13.5f, 45, line: false, 2421, "Luiafk:TwentyBait", 30)
 		{
 		}
 	}

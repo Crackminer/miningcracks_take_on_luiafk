@@ -3,7 +3,6 @@ using miningcracks_take_on_luiafk.Utility;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using static Terraria.ID.ContentSamples.CreativeHelper;
 
 namespace miningcracks_take_on_luiafk.Images.Items.Torches
 {
@@ -35,9 +34,9 @@ namespace miningcracks_take_on_luiafk.Images.Items.Torches
 			base.SacrificeTotal = 1;
 		}
 
-        public override void ModifyResearchSorting(ref ItemGroup itemGroup)
+        public override void ModifyResearchSorting(ref ContentSamples.CreativeHelper.ItemGroup itemGroup)
         {
-            itemGroup = ItemGroup.Torches;
+            itemGroup = ContentSamples.CreativeHelper.ItemGroup.Torches;
         }
 
         public override void SetDefaults()
@@ -56,7 +55,7 @@ namespace miningcracks_take_on_luiafk.Images.Items.Torches
 			Defaults.Base(base.Item);
 		}
 
-		public override void HoldItem(Player player)
+        public override void HoldItem(Player player)
 		{
 			if ((!player.wet && noWet) || !noWet)
 			{

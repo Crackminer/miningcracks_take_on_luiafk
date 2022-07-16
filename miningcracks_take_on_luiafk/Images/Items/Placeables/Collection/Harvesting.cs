@@ -7,6 +7,7 @@ using miningcracks_take_on_luiafk.Images.Items.Fishing;
 using miningcracks_take_on_luiafk.Utility;
 using Terraria;
 using Terraria.DataStructures;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace miningcracks_take_on_luiafk.Images.Items.Placeables.Collection
@@ -36,7 +37,7 @@ namespace miningcracks_take_on_luiafk.Images.Items.Placeables.Collection
 
 			internal void Update()
 			{
-								for (int i = 0; i < chests.Count; i++)
+				for (int i = 0; i < chests.Count; i++)
 				{
 					int num = chests[i];
 					if (Main.chest[num] == null || Main.tile[Main.chest[num].x, Main.chest[num].y].TileType != tileType)
@@ -75,7 +76,7 @@ namespace miningcracks_take_on_luiafk.Images.Items.Placeables.Collection
 
 		private static void CheckLarge(int chest, HarvesterInfo harvInfo, ref bool full)
 		{
-						Point16 p = default(Point16);
+			Point16 p = default(Point16);
 			p.ToWorldCoordinates(Main.chest[chest].x, Main.chest[chest].y);
 			for (int i = p.X - 50; i < p.X + 52; i++)
 			{
@@ -135,12 +136,63 @@ namespace miningcracks_take_on_luiafk.Images.Items.Placeables.Collection
 			}
 		}
 
-		internal static void Init(bool unbreak = true)
+		internal static void Init(bool unbreak = true)      //TODO: Check if Harvester are working now
 		{
+			crappyPackets = false;
+			harvInfo = new List<HarvesterInfo>
+			{
+				new HarvesterInfo(((Mod)LuiafkMod.Instance).Find<ModTile>("PlantHarvesterTile").Type, "Plant", CheckLarge, PlantHarvesting.NearbyPlants),
+				new HarvesterInfo(((Mod)LuiafkMod.Instance).Find<ModTile>("TreeHarvesterTile").Type, "Tree", CheckLarge, TreeHarvesting.NearbyTrees),
+				new HarvesterInfo(((Mod)LuiafkMod.Instance).Find<ModTile>("CactusHarvesterTile").Type, "Cactus", CheckLarge, CactusHarvesting.NearbyCactus),
+				new HarvesterInfo(((Mod)LuiafkMod.Instance).Find<ModTile>("FishHarvesterTile").Type, "Fish", CheckWater)
+			};
+			if (unbreak)
+			{
+				UnbreakChests();
+			}
+			frame++;
+			if (frame != 60) return;
+			frame = 0;
+			for (int i = 0; i < Main.chest.Length; i++)
+			{
+				if (Main.chest[i] == null)
+				{
+					continue;
+				}
+				int type = Main.tile[Main.chest[i].x, Main.chest[i].y].TileType;	
+				foreach (HarvesterInfo item in harvInfo)
+				{
+					if (item.tileType == type)
+					{
+						item.chests.Add(i);
+						break;
+					}
+				}
+			}
 		}
 
 		internal static void UpdateChests()
 		{
+			if (crappyPackets)
+			{
+				Init(unbreak: false);
+			}
+			foreach (HarvesterInfo item in harvInfo)
+			{
+				item.Update();
+			}
+			if (Main.netMode != NetmodeID.Server)
+			{
+				return;
+			}
+			for (int i = 0; i < 255; i++)
+			{
+				Player p = Main.player[i];
+				if (((Entity)p).active && !p.dead && p.chest >= 0 && harvInfo.Exists((HarvesterInfo x) => x.chests.Contains(p.chest)))
+				{
+					ForceUpdateChest(p);
+				}
+			}
 		}
 
 		private static void ForceUpdateChest(Player p)

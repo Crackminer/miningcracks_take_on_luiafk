@@ -23,7 +23,7 @@ namespace miningcracks_take_on_luiafk.UI.OtherItemUIs
 
 		public void initUI()
 		{
-									MyUIPanel myUIPanel = new MyUIPanel();
+			MyUIPanel myUIPanel = new MyUIPanel();
 			myUIPanel.Width.Set(175f, 0f);
 			myUIPanel.Height.Set(115f, 0f);
 			myUIPanel.PaddingTop = 0f;
@@ -445,6 +445,165 @@ namespace miningcracks_take_on_luiafk.UI.OtherItemUIs
 				break;
 			}
 			UILearning.LuiP.uiPaintMode ^= (PaintType)(byte)(1 << num);
+		}
+
+		public void buttonUpdates()
+		{
+			foreach (MyImageButton button in buttons)
+			{
+				button.active = false;
+				button.SetVisibility(1f, 0.6f);
+			}
+
+			foreach (MyImageButton button in buttons2)
+			{
+				button.active = false;
+				button.SetVisibility(1f, 0.6f);
+			}
+
+			if ((UILearning.LuiP.uiPaintMode & PaintType.Tile) != 0)
+            {
+				buttons2.ToArray()[0].active = true;
+				buttons2.ToArray()[0].SetVisibility(0.6f, 1f);
+			}
+
+			if ((UILearning.LuiP.uiPaintMode & PaintType.Wall) != 0)
+			{
+				buttons2.ToArray()[1].active = true;
+				buttons2.ToArray()[1].SetVisibility(0.6f, 1f);
+			}
+
+			if ((UILearning.LuiP.uiPaintMode & PaintType.Remove) != 0)
+			{
+				buttons2.ToArray()[2].active = true;
+				buttons2.ToArray()[2].SetVisibility(0.6f, 1f);
+			}
+
+			switch (UILearning.LuiP.uiPaintType)
+			{
+				case 1:
+					buttons.ToArray()[0].active = true;
+					buttons.ToArray()[0].SetVisibility(0.6f, 1f);
+					break;
+				case 2:
+					buttons.ToArray()[1].active = true;
+					buttons.ToArray()[1].SetVisibility(0.6f, 1f);
+					break;
+				case 3:
+					buttons.ToArray()[2].active = true;
+					buttons.ToArray()[2].SetVisibility(0.6f, 1f);
+					break;
+				case 4:
+					buttons.ToArray()[3].active = true;
+					buttons.ToArray()[3].SetVisibility(0.6f, 1f);
+					break;
+				case 5:
+					buttons.ToArray()[4].active = true;
+					buttons.ToArray()[4].SetVisibility(0.6f, 1f);
+					break;
+				case 6:
+					buttons.ToArray()[5].active = true;
+					buttons.ToArray()[5].SetVisibility(0.6f, 1f);
+					break;
+				case 7:
+					buttons.ToArray()[6].active = true;
+					buttons.ToArray()[6].SetVisibility(0.6f, 1f);
+					break;
+				case 8:
+					buttons.ToArray()[7].active = true;
+					buttons.ToArray()[7].SetVisibility(0.6f, 1f);
+					break;
+				case 9:
+					buttons.ToArray()[8].active = true;
+					buttons.ToArray()[8].SetVisibility(0.6f, 1f);
+					break;
+				case 10:
+					buttons.ToArray()[9].active = true;
+					buttons.ToArray()[9].SetVisibility(0.6f, 1f);
+					break;
+				case 11:
+					buttons.ToArray()[10].active = true;
+					buttons.ToArray()[10].SetVisibility(0.6f, 1f);
+					break;
+				case 12:
+					buttons.ToArray()[11].active = true;
+					buttons.ToArray()[11].SetVisibility(0.6f, 1f);
+					break;
+				case 13:
+					buttons.ToArray()[12].active = true;
+					buttons.ToArray()[12].SetVisibility(0.6f, 1f);
+					break;
+				case 14:
+					buttons.ToArray()[13].active = true;
+					buttons.ToArray()[13].SetVisibility(0.6f, 1f);
+					break;
+				case 15:
+					buttons.ToArray()[14].active = true;
+					buttons.ToArray()[14].SetVisibility(0.6f, 1f);
+					break;
+				case 16:
+					buttons.ToArray()[15].active = true;
+					buttons.ToArray()[15].SetVisibility(0.6f, 1f);
+					break;
+				case 17:
+					buttons.ToArray()[16].active = true;
+					buttons.ToArray()[16].SetVisibility(0.6f, 1f);
+					break;
+				case 18:
+					buttons.ToArray()[17].active = true;
+					buttons.ToArray()[17].SetVisibility(0.6f, 1f);
+					break;
+				case 19:
+					buttons.ToArray()[18].active = true;
+					buttons.ToArray()[18].SetVisibility(0.6f, 1f);
+					break;
+				case 20:
+					buttons.ToArray()[19].active = true;
+					buttons.ToArray()[19].SetVisibility(0.6f, 1f);
+					break;
+				case 21:
+					buttons.ToArray()[20].active = true;
+					buttons.ToArray()[20].SetVisibility(0.6f, 1f);
+					break;
+				case 22:
+					buttons.ToArray()[21].active = true;
+					buttons.ToArray()[21].SetVisibility(0.6f, 1f);
+					break;
+				case 23:
+					buttons.ToArray()[22].active = true;
+					buttons.ToArray()[22].SetVisibility(0.6f, 1f);
+					break;
+				case 24:
+					buttons.ToArray()[23].active = true;
+					buttons.ToArray()[23].SetVisibility(0.6f, 1f);
+					break;
+				case 25:
+					buttons.ToArray()[24].active = true;
+					buttons.ToArray()[24].SetVisibility(0.6f, 1f);
+					break;
+				case 26:
+					buttons.ToArray()[25].active = true;
+					buttons.ToArray()[25].SetVisibility(0.6f, 1f);
+					break;
+				case 27:
+					buttons.ToArray()[26].active = true;
+					buttons.ToArray()[26].SetVisibility(0.6f, 1f);
+					break;
+				case 28:
+					buttons.ToArray()[27].active = true;
+					buttons.ToArray()[27].SetVisibility(0.6f, 1f);
+					break;
+				case 29:
+					buttons.ToArray()[28].active = true;
+					buttons.ToArray()[28].SetVisibility(0.6f, 1f);
+					break;
+				case 30:
+					buttons.ToArray()[29].active = true;
+					buttons.ToArray()[29].SetVisibility(0.6f, 1f);
+					break;
+				default:
+					break;
+			}
 		}
 	}
 }

@@ -1,12 +1,14 @@
 using Microsoft.Xna.Framework;
 
 using miningcracks_take_on_luiafk.Utility;
+using System.Collections.Generic;
 using Terraria.UI;
 
 namespace miningcracks_take_on_luiafk.UI.OtherItemUIs
 {
 	internal class WiringUI : RightClickUI
 	{
+		internal List<MyImageButton> allButtons = new();
 		internal WiringUI()
 			: base(6, 1)
 		{
@@ -27,6 +29,7 @@ namespace miningcracks_take_on_luiafk.UI.OtherItemUIs
 				HAlign = 0f
 			};
 			myImageButton.OnClick += wireClick;
+			allButtons.Add(myImageButton);
 			myUIPanel.Append(myImageButton);
 			MyImageButton myImageButton2 = new MyImageButton(Textures.WireGreen, "Green")
 			{
@@ -34,6 +37,7 @@ namespace miningcracks_take_on_luiafk.UI.OtherItemUIs
 				HAlign = 0.2f
 			};
 			myImageButton2.OnClick += wireClick;
+			allButtons.Add(myImageButton2);
 			myUIPanel.Append(myImageButton2);
 			MyImageButton myImageButton3 = new MyImageButton(Textures.WireBlue, "Blue")
 			{
@@ -41,6 +45,7 @@ namespace miningcracks_take_on_luiafk.UI.OtherItemUIs
 				HAlign = 0.4f
 			};
 			myImageButton3.OnClick += wireClick;
+			allButtons.Add(myImageButton3);
 			myUIPanel.Append(myImageButton3);
 			MyImageButton myImageButton4 = new MyImageButton(Textures.WireYellow, "Yellow")
 			{
@@ -48,6 +53,7 @@ namespace miningcracks_take_on_luiafk.UI.OtherItemUIs
 				HAlign = 0.6f
 			};
 			myImageButton4.OnClick += wireClick;
+			allButtons.Add(myImageButton4);
 			myUIPanel.Append(myImageButton4);
 			MyImageButton myImageButton5 = new MyImageButton(Textures.WireActuator, "Actuator")
 			{
@@ -55,6 +61,7 @@ namespace miningcracks_take_on_luiafk.UI.OtherItemUIs
 				HAlign = 0.8f
 			};
 			myImageButton5.OnClick += wireClick;
+			allButtons.Add(myImageButton5);
 			myUIPanel.Append(myImageButton5);
 			MyImageButton myImageButton6 = new MyImageButton(Textures.WireCutter, "Cutter")
 			{
@@ -62,6 +69,7 @@ namespace miningcracks_take_on_luiafk.UI.OtherItemUIs
 				HAlign = 1f
 			};
 			myImageButton6.OnClick += wireClick;
+			allButtons.Add(myImageButton6);
 			myUIPanel.Append(myImageButton6);
 			Append(myUIPanel);
 		}
@@ -104,6 +112,46 @@ namespace miningcracks_take_on_luiafk.UI.OtherItemUIs
 				break;
 			}
 			UILearning.LuiP.uiWireMode ^= (MultiToolMode)(byte)(1 << num);
+		}
+
+		public void buttonUpdates()
+		{
+			foreach (MyImageButton button in allButtons)
+			{
+				button.active = false;
+				button.SetVisibility(1f, 0.6f);
+			}
+
+			if((UILearning.LuiP.uiWireMode & MultiToolMode.Red) != 0)
+            {
+				allButtons.ToArray()[0].active = true;
+				allButtons.ToArray()[0].SetVisibility(0.6f, 1f);
+			}
+			if ((UILearning.LuiP.uiWireMode & MultiToolMode.Green) != 0)
+			{
+				allButtons.ToArray()[1].active = true;
+				allButtons.ToArray()[1].SetVisibility(0.6f, 1f);
+			}
+			if ((UILearning.LuiP.uiWireMode & MultiToolMode.Blue) != 0)
+			{
+				allButtons.ToArray()[2].active = true;
+				allButtons.ToArray()[2].SetVisibility(0.6f, 1f);
+			}
+			if ((UILearning.LuiP.uiWireMode & MultiToolMode.Yellow) != 0)
+			{
+				allButtons.ToArray()[3].active = true;
+				allButtons.ToArray()[3].SetVisibility(0.6f, 1f);
+			}
+			if ((UILearning.LuiP.uiWireMode & MultiToolMode.Actuator) != 0)
+			{
+				allButtons.ToArray()[4].active = true;
+				allButtons.ToArray()[4].SetVisibility(0.6f, 1f);
+			}
+			if ((UILearning.LuiP.uiWireMode & MultiToolMode.Cutter) != 0)
+			{
+				allButtons.ToArray()[5].active = true;
+				allButtons.ToArray()[5].SetVisibility(0.6f, 1f);
+			}
 		}
 	}
 }

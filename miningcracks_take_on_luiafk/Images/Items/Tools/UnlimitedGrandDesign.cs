@@ -43,6 +43,7 @@ namespace miningcracks_take_on_luiafk.Images.Items.Tools
 				else
 				{
 					UILearning.RightInterface?.SetState(UILearning.RightClickUIs<WiringUI>());
+					UILearning.RightClickUIs<WiringUI>().buttonUpdates();
 					if (Main.FrameSkipMode == Terraria.Enums.FrameSkipMode.On) Main.FrameSkipMode = Terraria.Enums.FrameSkipMode.Subtle;
 				}
 				return false;

@@ -85,6 +85,7 @@ namespace miningcracks_take_on_luiafk.Images.Items.Solutions
 				else
 				{
 					UILearning.RightInterface?.SetState(UILearning.RightClickUIs<MultiSolutionUI>());
+					UILearning.RightClickUIs<MultiSolutionUI>().buttonUpdates();
 				}
 				return false;
 			}

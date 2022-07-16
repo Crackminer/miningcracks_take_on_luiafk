@@ -16,8 +16,6 @@ namespace miningcracks_take_on_luiafk.Images.Items.Fishing
 	{
 		private readonly string name;
 
-		private readonly string tooltip;
-
 		private readonly int shoot;
 
 		private readonly float speed;
@@ -27,6 +25,8 @@ namespace miningcracks_take_on_luiafk.Images.Items.Fishing
 		private readonly bool line;
 
 		private readonly int rod;
+
+		private readonly string tooltip;
 
 		private readonly string bait;
 

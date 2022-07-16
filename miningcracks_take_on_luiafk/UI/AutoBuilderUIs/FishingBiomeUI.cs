@@ -350,6 +350,12 @@ namespace miningcracks_take_on_luiafk.UI.AutoBuilderUIs
 				button.SetVisibility(1f, 0.6f);
 			}
 
+			foreach (MyImageButton button in buttons2)
+			{
+				button.active = false;
+				button.SetVisibility(1f, 0.6f);
+			}
+
 			if (UILearning.LuiP.uiLight)
 			{
 				allButtons.ToArray()[0].active = true;
@@ -399,6 +405,47 @@ namespace miningcracks_take_on_luiafk.UI.AutoBuilderUIs
 				case 8:
 					allButtons.ToArray()[9].active = true;
 					allButtons.ToArray()[9].SetVisibility(0.6f, 1f);
+					break;
+				default: break;
+			}
+
+			switch(UILearning.LuiP.uiBiome)
+            {
+				case 0:
+					allButtons.ToArray()[0].active = true;
+					allButtons.ToArray()[0].SetVisibility(0.6f, 1f);
+					break;
+				case 1:
+					allButtons.ToArray()[1].active = true;
+					allButtons.ToArray()[1].SetVisibility(0.6f, 1f);
+					break;
+				case 5:
+					allButtons.ToArray()[2].active = true;
+					allButtons.ToArray()[2].SetVisibility(0.6f, 1f);
+					break;
+				case 2:
+					allButtons.ToArray()[3].active = true;
+					allButtons.ToArray()[3].SetVisibility(0.6f, 1f);
+					break;
+				case 6:
+					allButtons.ToArray()[4].active = true;
+					allButtons.ToArray()[4].SetVisibility(0.6f, 1f);
+					break;
+				case 7:
+					allButtons.ToArray()[5].active = true;
+					allButtons.ToArray()[5].SetVisibility(0.6f, 1f);
+					break;
+				case 8:
+					allButtons.ToArray()[6].active = true;
+					allButtons.ToArray()[6].SetVisibility(0.6f, 1f);
+					break;
+				case 3:
+					allButtons.ToArray()[7].active = true;
+					allButtons.ToArray()[7].SetVisibility(0.6f, 1f);
+					break;
+				case 4:
+					allButtons.ToArray()[8].active = true;
+					allButtons.ToArray()[8].SetVisibility(0.6f, 1f);
 					break;
 				default: break;
 			}
