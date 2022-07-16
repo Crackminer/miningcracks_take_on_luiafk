@@ -1,0 +1,86 @@
+Author and Owner of the original Code: Luiafk
+Ported and Maintained by: miningcrack
+
+IMPORTANT:
+This is mostly not my (miningrack's) Code, It is taken from the Mod Luiafk and altered to be working in 1.4. 
+
+Currently Not tested in Multiplayer, Very Possible its not working correctly in Multiplayer!!
+
+Currently all the Harvesters are Disabled, I dont know whats exactly wrong with them and will have an extensive look at them soon
+
+If you encounter any bugs or problems please let me know in a steam discussion thread with your error message!
+
+
+Unlimited/Combinable Potions
+Take up no buff slots so you don't hit the buff cap and lose your pets and stuff
+Recall potion has a hotkey you can set to teleport home
+
+Money Collector
+Automatically places picked up coins into your Piggy Bank
+
+Pretty much all ammo/thrown/consumable weapons/health/mana/buff potions, modded included are infinite if you are carrying enough or have them in your piggy bank
+/luiafk ammo will toggle this effect on and off
+Check the link below to see how it works, how many you need etc
+
+Improved Drill Mount
+Flies faster, better control, more lasers
+
+Harvesting Chests
+When placed they'll collect Herbs/Trees/Cactus placed nearby, or collect fish relevant to position (including quest fish) if the chest contains baitless rod or normal rod + bait
+
+Combo Rod
+Made from various building rods/buckets etc
+Lets you paint by selecting a box to paint/remove paint
+Lets you place walls by selecting a box
+Lets you place tiles like how the Grand design works, as well as choosing slope style, a gap of upto 3 (for hoiks), and you can place wand woods/leaves, regrowth moss, or grasses
+Lets you place wires, like grand design, but you won't run out of wires
+Lets you place liquid/remove liquid, unlimited buckets and sponge
+
+Improved Target Dummy
+Summons a target dummy npc that just sits there and takes everything you can throw at it
+Projectiles are summoned when hit by weapons like earth
+Despawns when a boss is active to avoid using it to kill bosses with weapons like Earth
+
+Unlimited AutoBuilding
+Auto hellevator/sub or skyway/NPC prisons/skybridge/hellbridge builders/fishing pool/fishing biome/arena platforms, right click to choose material and stuff
+Added Unlimited Asphalt Platforms
+Added Jungle solution, and Multi Solution
+Multi solution can be used as solution, or you can select 2 points in the world and convert everything inside of it to your selected biome
+
+Travelling Merchant and Skeleton Merchant are Town NPCs
+
+Unlimited Water/Lava/Honey buckets and multipurpose sponge
+These can be combined, use right click to choose between buckets and sponge
+
+Mobile Safe/Defender's Forge/Piggy Bank/Mobile Merchant
+Work like the money trough, Piggy Bank, Merchant, and safe can be combined, which then combine with the Defender's Forge
+Mobile Merchant can be summoned using an item and hangs around for a few minutes, can buy some basic stuff and, more importantly, sell all your trash
+Mobile Merchant can also handle your fishing quests
+
+Unlimited/Baitless Fishing Rods
+Extra fishing bobbers every 5 fishing quests completed
+Speeds up potion farming a little bit
+
+Craftable Demon/Crimson Altar
+Can be crafted once BoC/EoW is dead, can be placed an unlimited amount of times, won't spawn ore when destroyed
+
+Unlimited Grand Design/Improved Actuation Rod
+Unlimited Grand Design that doesn't consume any wires or actuators
+Improved Actuation Rod that doesn't require actuators on the blocks, and you can click and drag like the grand design to actuate multiple blocks
+Right-click lets you activate the wire you've clicked on
+
+Accessories
+3 building accessories that increase tool/tile/wall speed and range, starts off just increasing mining speed, can craft upgrades when you kill skeletron and moon lord
+Unlimited mana accessory, starts off as unlimited mana and 30% LESS damage, upgrade as you kill bosses (not the most balanced, but I hate mana potions :D)
+
+Unlimited Event enablers
+All invasions (and skip the waiting time), eclipse/blood moon, frost/pumpkin moon, rain/sandstorm, halloween/christmas
+
+Unlimited/Random items
+Unlimited versions of vanilla thrown weapons/ammo/explosives/torches/glowsticks. Torches/glowsticks work with shift
+Unlimited Rope/Streamers/Chain and Rope Coils
+Time changer, changes to the following night/day so it can spawn events, reset fishing quest etc
+Plantera Bulb Locator, finds the closest Plantera Bulb
+Temple Locator, finds the temple for those times when you just can't find it
+Loot magnet, attracts all loot, entire map range, dropped from wall of flesh (20% chance)
+Instant Moon Lord summon, no Altar Golem summon, no fishing Duke Fishron summon(craftable from a single normal summon, recipe only available when fargos isn't active)

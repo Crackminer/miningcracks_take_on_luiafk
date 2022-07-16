@@ -1,0 +1,7 @@
+author = miningcrack
+version = 1.0.3.3
+displayName = miningcrack's Take on Luiafk
+homepage = https://forums.terraria.org/index.php?threads/luiafk-unlimited-combinable-potions-autobuilding-stuff-and-more.58806/
+includePDB = true
+hideCode = true
+hideResources = true

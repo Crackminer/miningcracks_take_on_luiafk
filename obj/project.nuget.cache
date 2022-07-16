@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "QaYJ9nYdX8YellCgX6c6AOfKeMWPGt8rBkXcjuSNrLQ2cyzS+wMWYjCh0ZnbUERbB5MfKA0OeHFOtCtwlDoeiA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\schew\\OneDrive\\Documents\\My games\\Terraria\\tModLoader\\ModSources\\miningcracks_take_on_luiafk\\miningcracks_take_on_luiafk.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\schew\\.nuget\\packages\\tmodloader.codeassist\\0.1.5\\tmodloader.codeassist.0.1.5.nupkg.sha512"
+  ],
+  "logs": []
+}

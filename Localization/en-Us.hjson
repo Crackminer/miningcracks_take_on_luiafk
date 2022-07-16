@@ -1,0 +1,56 @@
+Mods:
+{
+	miningcracks_take_on_luiafk: 
+	{
+		TownNPCMood:
+		{
+			SkeletonMerchant:
+			{
+				Content: Thanks for not killing me yet, greatly appreciated ^^
+				NoHome: I'd like to have a home, too, you know :(
+				LoveSpace: This much space around me is perfect for practicing my Yo-Yo's and throwing bones.
+				FarFromHome: Would you care to help me find my way back home? You know, as a skeleton I can't see where I'm going...
+				DislikeCrowded: Is there a party going on here? There is a few too many people around here.
+				HateCrowded: There is way too many people around here, please make them go away.
+				LikeBiome: I really like this Biome.
+				LoveBiome: I love this Biome.
+				LikeNPC: I like this NPC.
+				LoveNPC: I love this NPC.
+				HateNPC: I hate this NPC.
+				HateBiome: I hate this Biome.
+			},
+
+			TravellingMerchant:
+			{
+				Content: Thanks for not killing me yet, greatly appreciated ^^
+				NoHome: I'd like to have a home, too, you know :(
+				LoveSpace: This space allows me to greatly dissappoint you with my non-existant Cellphone items so you can kill me without anyone niticing it ^^
+				FarFromHome: Help! I can't find my way back home. Please, guide me back.
+				DislikeCrowded: Is there a party going on here? There is a few too many people around here.
+				HateCrowded: There is way too many people around here, please make them go away.
+				LikeBiome: I really like this Biome.
+				LoveBiome: I love this Biome.
+				LikeNPC: I like this NPC.
+				LoveNPC: I love this NPC.
+				HateNPC: I hate this NPC.
+				HateBiome: I hate this Biome.
+			}
+
+			MobileMerchant:
+			{
+				Content: Hey there, nice to chat with you ^^
+				NoHome: I don't understand this urge to have a home, I am just a static flying merchant...
+				LoveSpace: There is so much room for me and some friends, thank you ^^
+				FarFromHome: Help! I can't find my way back home. Please, guide me back.
+				DislikeCrowded: Is there a party going on here? There is a few too many people around here.
+				HateCrowded: There is way too many people around here, please make them go away.
+				LikeBiome: I really like this Biome.
+				LoveBiome: I love this Biome.
+				LikeNPC: I like this NPC.
+				LoveNPC: I love this NPC.
+				HateNPC: I hate this NPC.
+				HateBiome: I hate this Biome.
+			}
+		}
+	}
+}
