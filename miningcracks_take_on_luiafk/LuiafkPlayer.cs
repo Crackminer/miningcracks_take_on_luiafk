@@ -11,6 +11,7 @@ using miningcracks_take_on_luiafk.UI.OtherItemUIs;
 using miningcracks_take_on_luiafk.Utility;
 using Terraria;
 using Terraria.Audio;
+using Terraria.Chat;
 using Terraria.DataStructures;
 using Terraria.GameInput;
 using Terraria.ID;
@@ -811,6 +812,8 @@ namespace miningcracks_take_on_luiafk
 			}
 		}
 
+		internal int ticks = 0;
+
 		public override void PostUpdate()
 		{
 			if (Main.netMode != 2)
@@ -850,6 +853,23 @@ namespace miningcracks_take_on_luiafk
 					settingSync = 0;
 					TogglesPacket(server: false);
 				}
+			}
+
+			if (Main.FrameSkipMode == Terraria.Enums.FrameSkipMode.On)
+			{
+				if ((UILearning.BuffInterface?.CurrentState != null || UILearning.RightInterface?.CurrentState != null || UILearning.ComboInterface?.CurrentState != null) && ticks == 600)
+				{
+					ticks = 0;
+					if (Main.netMode == 0)
+					{
+						Main.NewText("Please set FrameSkip to Subtle or Off for the GUIs to work!");
+					}
+					else if (Main.netMode == NetmodeID.MultiplayerClient)
+					{
+						ChatHelper.SendChatMessageToClient(Terraria.Localization.NetworkText.FromLiteral("Please set FrameSkip to Subtle or Off for the GUIs to work!"), Color.Orange, Main.myPlayer);
+					}
+				}
+				ticks++;
 			}
 		}
 

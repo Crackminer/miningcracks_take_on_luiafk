@@ -42,7 +42,6 @@ namespace miningcracks_take_on_luiafk.Images.Items.Buckets
 				{
 					UILearning.RightInterface?.SetState(UILearning.RightClickUIs<UltimateBucketUI>());
 					UILearning.RightClickUIs<UltimateBucketUI>().buttonUpdates();
-					if (Main.FrameSkipMode == Terraria.Enums.FrameSkipMode.On) Main.FrameSkipMode = Terraria.Enums.FrameSkipMode.Subtle;
 				}
 				return false;
 			}

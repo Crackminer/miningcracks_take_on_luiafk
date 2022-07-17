@@ -46,7 +46,6 @@ namespace miningcracks_take_on_luiafk.Images.Items.Placeables
 				{
 					UILearning.RightInterface?.SetState(UILearning.RightClickUIs<HouseUI>());
 					UILearning.RightClickUIs<HouseUI>().buttonUpdates();
-					if (Main.FrameSkipMode == Terraria.Enums.FrameSkipMode.On) Main.FrameSkipMode = Terraria.Enums.FrameSkipMode.Subtle;
 				}
 				return false;
 			}
