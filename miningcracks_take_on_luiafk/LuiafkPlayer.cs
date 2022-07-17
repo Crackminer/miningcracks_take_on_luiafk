@@ -647,7 +647,7 @@ namespace miningcracks_take_on_luiafk
 				{
 					UILearning.BuffInterface?.SetState(UILearning.BuffUI);
 					UILearning.BuffUI.buttonUpdates();
-					Main.FrameSkipMode = Terraria.Enums.FrameSkipMode.Subtle;
+					if(Main.FrameSkipMode == Terraria.Enums.FrameSkipMode.On)	Main.FrameSkipMode = Terraria.Enums.FrameSkipMode.Subtle;
 				}
 			}
 			if (forwardSlash)
