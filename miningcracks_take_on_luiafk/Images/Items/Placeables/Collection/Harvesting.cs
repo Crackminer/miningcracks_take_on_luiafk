@@ -77,7 +77,7 @@ namespace miningcracks_take_on_luiafk.Images.Items.Placeables.Collection
 		private static void CheckLarge(int chest, HarvesterInfo harvInfo, ref bool full)
 		{
 			Point16 p = default(Point16);
-			p.ToWorldCoordinates(Main.chest[chest].x, Main.chest[chest].y);
+			p = new(Main.chest[chest].x, Main.chest[chest].y);
 			for (int i = p.X - 50; i < p.X + 52; i++)
 			{
 				for (int j = p.Y - 50; j < p.Y + 52; j++)
