@@ -1,4 +1,5 @@
 using miningcracks_take_on_luiafk.Utility;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace miningcracks_take_on_luiafk.Images.Items.Rockets
@@ -14,7 +15,7 @@ namespace miningcracks_take_on_luiafk.Images.Items.Rockets
 
 		public override void SetDefaults()
 		{
-			Defaults.CloneAmmoThrown(base.Item, 774);
+			Defaults.CloneAmmoThrown(base.Item, ItemID.RocketIV);
 		}
 
 		public override void AddRecipes()

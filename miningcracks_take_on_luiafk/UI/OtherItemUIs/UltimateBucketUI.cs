@@ -134,5 +134,18 @@ namespace miningcracks_take_on_luiafk.UI.OtherItemUIs
 				default: break;
             }
 		}
+
+		internal override void resetValues()
+		{
+			foreach (MyImageButton button in allButtons)
+			{
+				button.active = false;
+				button.SetVisibility(1f, 0.6f);
+			}
+
+			UILearning.LuiP.uiBucketType = 0;
+
+			buttonUpdates();
+		}
 	}
 }

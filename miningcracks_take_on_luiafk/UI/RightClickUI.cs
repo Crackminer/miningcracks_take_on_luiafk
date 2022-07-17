@@ -109,6 +109,8 @@ namespace miningcracks_take_on_luiafk.UI
 			};
 		}
 
+		internal abstract void resetValues();
+
 		internal void RightClick()
 		{
 			Player player = Main.player[Main.myPlayer];

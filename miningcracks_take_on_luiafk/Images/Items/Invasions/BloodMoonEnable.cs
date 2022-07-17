@@ -22,7 +22,7 @@ namespace miningcracks_take_on_luiafk.Images.Items.Invasions
 
 		public override bool? UseItem(Player player)
 		{
-						if (!Main.dayTime && !Main.snowMoon && !Main.pumpkinMoon && !Main.bloodMoon && Main.netMode != 1)
+			if (!Main.dayTime && !Main.snowMoon && !Main.pumpkinMoon && !Main.bloodMoon && Main.netMode != 1)
 			{
 				Main.bloodMoon = true;
 				if (Main.bloodMoon)

@@ -12,12 +12,13 @@ namespace miningcracks_take_on_luiafk.UI
 		public string hoverText;
 
 		public MyTextBox(string text, float textScale = 1.6f, bool large = false)
-			: base("1", textScale, large)
+			: base("0", textScale, large)
 		{
 			this.text = text;
 			Width.Set(32f, 0f);
 			Height.Set(32f, 0f);
 			hoverText = "Gap Between Blocks";
+			//UILearning.LuiP.uiHoikRodGap = 0;
 		}
 
 		public override void Click(UIMouseEvent evt)

@@ -100,10 +100,15 @@ namespace miningcracks_take_on_luiafk.UI
 		internal static void OnEnterWorld()
 		{
 			LuiP = Main.player[Main.myPlayer].GetModPlayer<LuiafkPlayer>();
-			BuffUI.position = LuiP.uiBuffPosition;
-		}
+            BuffUI.position = LuiP.uiBuffPosition;
+			foreach(RightClickUI rui in rightClickUIs.Values)
+            {
+				rui.resetValues();
+            }
+			BuffUI.resetValues();
+        }
 
-		private static LegacyGameInterfaceLayer SmartLayer()
+        private static LegacyGameInterfaceLayer SmartLayer()
 		{
 			GameInterfaceDrawMethod drawMethod = delegate
 			{

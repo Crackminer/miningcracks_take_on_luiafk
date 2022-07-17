@@ -153,5 +153,18 @@ namespace miningcracks_take_on_luiafk.UI.OtherItemUIs
 				allButtons.ToArray()[5].SetVisibility(0.6f, 1f);
 			}
 		}
+
+		internal override void resetValues()
+		{
+			foreach (MyImageButton button in allButtons)
+			{
+				button.active = false;
+				button.SetVisibility(1f, 0.6f);
+			}
+
+			UILearning.LuiP.uiWireMode = 0x00;
+
+			buttonUpdates();
+		}
 	}
 }

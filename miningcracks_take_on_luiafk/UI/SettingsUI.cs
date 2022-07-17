@@ -306,5 +306,18 @@ namespace miningcracks_take_on_luiafk.UI
 				UILearning.LuiP.uiBuffs ^= PotToggles.DangerHunter;
 			}
 		}
+
+		public void resetValues()
+        {
+			foreach (MyImageButton button in allButtons)
+			{
+				button.active = false;
+				button.SetVisibility(1f, 0.6f);
+			}
+
+			UILearning.LuiP.uiBuffs = 0b000000000;
+
+			buttonUpdates();
+		}
 	}
 }

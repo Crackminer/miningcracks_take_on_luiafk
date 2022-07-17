@@ -36,7 +36,7 @@ namespace miningcracks_take_on_luiafk.Images.Items.Tools
 			{
 				PaintToolUI paintToolUI = UILearning.RightClickUIs<PaintToolUI>();
 				paintToolUI.holding = true;
-				if (Main.FrameSkipMode == Terraria.Enums.FrameSkipMode.On) MiscMethods.PaintHoldItem(player, paintToolUI);
+				MiscMethods.PaintHoldItem(player, paintToolUI);
 			}
 		}
 
@@ -57,7 +57,7 @@ namespace miningcracks_take_on_luiafk.Images.Items.Tools
 				{
 					UILearning.RightInterface?.SetState(UILearning.RightClickUIs<PaintToolUI>());
 					UILearning.RightClickUIs<PaintToolUI>().buttonUpdates();
-					Main.FrameSkipMode = Terraria.Enums.FrameSkipMode.Subtle;
+					if (Main.FrameSkipMode == Terraria.Enums.FrameSkipMode.On) Main.FrameSkipMode = Terraria.Enums.FrameSkipMode.Subtle;
 				}
 				return false;
 			}

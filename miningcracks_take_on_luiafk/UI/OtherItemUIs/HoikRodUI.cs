@@ -11,6 +11,8 @@ namespace miningcracks_take_on_luiafk.UI.OtherItemUIs
 
 		internal List<MyImageButton> buttons2 = new List<MyImageButton>();
 
+		internal MyTextBox textBox;
+
 
 		internal HoikRodUI()
 			: base(9, 1)
@@ -90,11 +92,12 @@ namespace miningcracks_take_on_luiafk.UI.OtherItemUIs
 			myImageButton8.OnClick += reverseClick;
 			buttons2.Add(myImageButton8);
 			myUIPanel.Append(myImageButton8);
-			MyTextBox element = new MyTextBox("Gap Between Blocks")
+			MyTextBox element = new("Gap Between Blocks")
 			{
 				VAlign = 0.8f,
 				HAlign = 0.94f
 			};
+			textBox = element;
 			myUIPanel.Append(element);
 			Append(myUIPanel);
 		}
@@ -231,6 +234,46 @@ namespace miningcracks_take_on_luiafk.UI.OtherItemUIs
 				buttons2.ToArray()[1].active = true;
 				buttons2.ToArray()[1].SetVisibility(0.6f, 1f);
 			}
+
+			switch(textBox.text)
+            {
+				case "0":
+					UILearning.LuiP.uiHoikRodGap = 0;
+					break;
+				case "1":
+					UILearning.LuiP.uiHoikRodGap = 1;
+					break;
+				case "2":
+					UILearning.LuiP.uiHoikRodGap = 2;
+					break;
+				case "3":
+					UILearning.LuiP.uiHoikRodGap = 3;
+					break;
+				default: break;
+            }
+		}
+
+		internal override void resetValues()
+		{
+			foreach (MyImageButton button in buttons)
+			{
+				button.active = false;
+				button.SetVisibility(1f, 0.6f);
+			}
+
+			foreach (MyImageButton button in buttons2)
+			{
+				button.active = false;
+				button.SetVisibility(1f, 0.6f);
+			}
+
+			UILearning.LuiP.uiHoikRodSelected = 0;
+
+			UILearning.LuiP.uiHoikRodActive = false;
+
+			UILearning.LuiP.uiHoikRodReverse = false;
+
+			buttonUpdates();
 		}
 	}
 }

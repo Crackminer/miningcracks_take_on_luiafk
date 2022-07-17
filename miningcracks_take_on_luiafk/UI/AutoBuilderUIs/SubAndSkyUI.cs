@@ -307,5 +307,24 @@ namespace miningcracks_take_on_luiafk.UI.AutoBuilderUIs
             }
 		}
 
+		internal override void resetValues()
+		{
+			foreach (MyImageButton button in allButtons)
+			{
+				button.active = false;
+				button.SetVisibility(1f, 0.6f);
+			}
+
+			UILearning.LuiP.uiLight = false;
+
+			UILearning.LuiP.uiSubOrMinecart = false;
+
+			UILearning.LuiP.uiObsidian = false;
+
+			UILearning.LuiP.uiMaterial = 0;
+
+			buttonUpdates();
+		}
+
 	}
 }
