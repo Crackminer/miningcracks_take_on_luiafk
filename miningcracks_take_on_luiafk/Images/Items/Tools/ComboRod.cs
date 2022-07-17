@@ -1,7 +1,10 @@
+using Microsoft.Xna.Framework;
 using miningcracks_take_on_luiafk.UI;
 using miningcracks_take_on_luiafk.UI.OtherItemUIs;
 using miningcracks_take_on_luiafk.Utility;
 using Terraria;
+using Terraria.Chat;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace miningcracks_take_on_luiafk.Images.Items.Tools
@@ -67,7 +70,8 @@ namespace miningcracks_take_on_luiafk.Images.Items.Tools
 		{
 			if (Main.SmartCursorIsUsed)
 			{
-				Main.NewText("Please disable Smart Cursor to use this rod, It will be nearly unusable otherwise.");
+				if (Main.netMode == 0) Main.NewText("Please disable Smart Cursor to use this rod, It will be nearly unusable otherwise.");
+				else if (Main.netMode == 1) ChatHelper.SendChatMessageToClient(NetworkText.FromLiteral("Please disable Smart Cursor to use this rod, It will be nearly unusable otherwise."), Color.Orange, (Main.player[Main.myPlayer].GetModPlayer<LuiafkPlayer>() == UILearning.LuiP) ? UILearning.LuiP.Player.whoAmI : Main.myPlayer);
 				return false;
 			}
 			if (player.altFunctionUse == 2)

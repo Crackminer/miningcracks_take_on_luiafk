@@ -234,7 +234,7 @@ namespace miningcracks_take_on_luiafk
 		public override void PostItemCheck()
 		{
 			base.PostItemCheck();
-			Item heldItem = Player.HeldItem;
+			Item heldItem = UILearning.LuiP.Player.HeldItem;
 
 			if (heldItem == null)
 			{
@@ -648,7 +648,6 @@ namespace miningcracks_take_on_luiafk
 				{
 					UILearning.BuffInterface?.SetState(UILearning.BuffUI);
 					UILearning.BuffUI.buttonUpdates();
-					if(Main.FrameSkipMode == Terraria.Enums.FrameSkipMode.On)	Main.FrameSkipMode = Terraria.Enums.FrameSkipMode.Subtle;
 				}
 			}
 			if (forwardSlash)
@@ -866,7 +865,7 @@ namespace miningcracks_take_on_luiafk
 					}
 					else if (Main.netMode == NetmodeID.MultiplayerClient)
 					{
-						ChatHelper.SendChatMessageToClient(Terraria.Localization.NetworkText.FromLiteral("Please set FrameSkip to Subtle or Off for the GUIs to work!"), Color.Orange, Main.myPlayer);
+						ChatHelper.SendChatMessageToClient(NetworkText.FromLiteral("Please set FrameSkip to Subtle or Off for the GUIs to work!"), Color.Orange, (Main.player[Main.myPlayer].GetModPlayer<LuiafkPlayer>() == UILearning.LuiP) ? UILearning.LuiP.Player.whoAmI : base.Player.whoAmI);
 					}
 				}
 				ticks++;
