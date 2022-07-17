@@ -24,7 +24,7 @@ namespace miningcracks_take_on_luiafk.UI
 			this.hoverText = hoverText;
 			Width.Set(32f, 0f);
 			Height.Set(32f, 0f);
-			SetVisibility(1f, 0.6f);
+			SetVisibility(0.6f, 0.6f);
 		}
 
 		public override void Update(GameTime gameTime)

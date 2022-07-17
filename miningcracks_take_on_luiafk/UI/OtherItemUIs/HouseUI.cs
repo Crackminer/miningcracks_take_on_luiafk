@@ -43,11 +43,11 @@ namespace miningcracks_take_on_luiafk.UI.OtherItemUIs
 			myImageButton.active = !myImageButton.active;
 			if (myImageButton.active)
 			{
-				myImageButton.SetVisibility(0.6f, 1f);
+				myImageButton.SetVisibility(1f, 1f);
 			}
 			else
 			{
-				myImageButton.SetVisibility(1f, 0.6f);
+				myImageButton.SetVisibility(0.6f, 0.6f);
 			}
 			UILearning.LuiP.uiLight = !UILearning.LuiP.uiLight;
 		}
@@ -57,13 +57,13 @@ namespace miningcracks_take_on_luiafk.UI.OtherItemUIs
 			foreach (MyImageButton button in allButtons)
 			{
 				button.active = false;
-				button.SetVisibility(1f, 0.6f);
+				button.SetVisibility(0.6f, 0.6f);
 			}
 
 			if (UILearning.LuiP.uiLight)
             {
                 allButtons.ToArray()[0].active = true;
-				allButtons.ToArray()[0].SetVisibility(0.6f, 1f);
+				allButtons.ToArray()[0].SetVisibility(1f, 1f);
 			}
         }
 
@@ -72,7 +72,7 @@ namespace miningcracks_take_on_luiafk.UI.OtherItemUIs
 			foreach (MyImageButton button in allButtons)
 			{
 				button.active = false;
-				button.SetVisibility(1f, 0.6f);
+				button.SetVisibility(0.6f, 0.6f);
 			}
 
 			UILearning.LuiP.uiLight = false;

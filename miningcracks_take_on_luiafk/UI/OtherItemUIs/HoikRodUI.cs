@@ -110,17 +110,17 @@ namespace miningcracks_take_on_luiafk.UI.OtherItemUIs
 				if (button.active && myImageButton.hoverText != button.hoverText)
 				{
 					button.active = false;
-					button.SetVisibility(1f, 0.6f);
+					button.SetVisibility(0.6f, 0.6f);
 				}
 			}
 			myImageButton.active = !myImageButton.active;
 			if (myImageButton.active)
 			{
-				myImageButton.SetVisibility(0.6f, 1f);
+				myImageButton.SetVisibility(1f, 1f);
 			}
 			else
 			{
-				myImageButton.SetVisibility(1f, 0.6f);
+				myImageButton.SetVisibility(0.6f, 0.6f);
 			}
 			byte uiHoikRodSelected;
 			switch (myImageButton.hoverText)
@@ -156,11 +156,11 @@ namespace miningcracks_take_on_luiafk.UI.OtherItemUIs
 			myImageButton.active = !myImageButton.active;
 			if (myImageButton.active)
 			{
-				myImageButton.SetVisibility(0.6f, 1f);
+				myImageButton.SetVisibility(1f, 1f);
 			}
 			else
 			{
-				myImageButton.SetVisibility(1f, 0.6f);
+				myImageButton.SetVisibility(0.6f, 0.6f);
 			}
 			UILearning.LuiP.uiHoikRodActive = !UILearning.LuiP.uiHoikRodActive;
 		}
@@ -171,11 +171,11 @@ namespace miningcracks_take_on_luiafk.UI.OtherItemUIs
 			myImageButton.active = !myImageButton.active;
 			if (myImageButton.active)
 			{
-				myImageButton.SetVisibility(0.6f, 1f);
+				myImageButton.SetVisibility(1f, 1f);
 			}
 			else
 			{
-				myImageButton.SetVisibility(1f, 0.6f);
+				myImageButton.SetVisibility(0.6f, 0.6f);
 			}
 			UILearning.LuiP.uiHoikRodReverse = !UILearning.LuiP.uiHoikRodReverse;
 		}
@@ -185,40 +185,40 @@ namespace miningcracks_take_on_luiafk.UI.OtherItemUIs
 			foreach (MyImageButton button in buttons)
 			{
 				button.active = false;
-				button.SetVisibility(1f, 0.6f);
+				button.SetVisibility(0.6f, 0.6f);
 			}
 
 			foreach (MyImageButton button in buttons2)
 			{
 				button.active = false;
-				button.SetVisibility(1f, 0.6f);
+				button.SetVisibility(0.6f, 0.6f);
 			}
 
 			switch (UILearning.LuiP.uiHoikRodSelected)
 			{
 				case 0:
 					buttons.ToArray()[0].active = true;
-					buttons.ToArray()[0].SetVisibility(0.6f, 1f);
+					buttons.ToArray()[0].SetVisibility(1f, 1f);
 					break;
 				case 1:
 					buttons.ToArray()[1].active = true;
-					buttons.ToArray()[1].SetVisibility(0.6f, 1f);
+					buttons.ToArray()[1].SetVisibility(1f, 1f);
 					break;
 				case 4:
 					buttons.ToArray()[2].active = true;
-					buttons.ToArray()[2].SetVisibility(0.6f, 1f);
+					buttons.ToArray()[2].SetVisibility(1f, 1f);
 					break;
 				case 5:
 					buttons.ToArray()[3].active = true;
-					buttons.ToArray()[3].SetVisibility(0.6f, 1f);
+					buttons.ToArray()[3].SetVisibility(1f, 1f);
 					break;
 				case 2:
 					buttons.ToArray()[4].active = true;
-					buttons.ToArray()[4].SetVisibility(0.6f, 1f);
+					buttons.ToArray()[4].SetVisibility(1f, 1f);
 					break;
 				case 3:
 					buttons.ToArray()[5].active = true;
-					buttons.ToArray()[5].SetVisibility(0.6f, 1f);
+					buttons.ToArray()[5].SetVisibility(1f, 1f);
 					break;
 				default: break;
 			}
@@ -226,13 +226,13 @@ namespace miningcracks_take_on_luiafk.UI.OtherItemUIs
 			if(UILearning.LuiP.uiHoikRodActive)
             {
 				buttons2.ToArray()[0].active = true;
-				buttons2.ToArray()[0].SetVisibility(0.6f, 1f);
+				buttons2.ToArray()[0].SetVisibility(1f, 1f);
 			}
 
 			if (UILearning.LuiP.uiHoikRodReverse)
 			{
 				buttons2.ToArray()[1].active = true;
-				buttons2.ToArray()[1].SetVisibility(0.6f, 1f);
+				buttons2.ToArray()[1].SetVisibility(1f, 1f);
 			}
 
 			switch(textBox.text)
@@ -258,13 +258,13 @@ namespace miningcracks_take_on_luiafk.UI.OtherItemUIs
 			foreach (MyImageButton button in buttons)
 			{
 				button.active = false;
-				button.SetVisibility(1f, 0.6f);
+				button.SetVisibility(0.6f, 0.6f);
 			}
 
 			foreach (MyImageButton button in buttons2)
 			{
 				button.active = false;
-				button.SetVisibility(1f, 0.6f);
+				button.SetVisibility(0.6f, 0.6f);
 			}
 
 			UILearning.LuiP.uiHoikRodSelected = 0;

@@ -77,17 +77,17 @@ namespace miningcracks_take_on_luiafk.UI.OtherItemUIs
 				if (button.active && myImageButton.hoverText != button.hoverText)
 				{
 					button.active = false;
-					button.SetVisibility(1f, 0.6f);
+					button.SetVisibility(0.6f, 0.6f);
 				}
 			}
 			myImageButton.active = !myImageButton.active;
 			if (myImageButton.active)
 			{
-				myImageButton.SetVisibility(0.6f, 1f);
+				myImageButton.SetVisibility(1f, 1f);
 			}
 			else
 			{
-				myImageButton.SetVisibility(1f, 0.6f);
+				myImageButton.SetVisibility(0.6f, 0.6f);
 			}
 			int num;
 			switch (myImageButton.hoverText)
@@ -156,37 +156,37 @@ namespace miningcracks_take_on_luiafk.UI.OtherItemUIs
 			foreach (MyImageButton button in buttons)
 			{
 				button.active = false;
-				button.SetVisibility(1f, 0.6f);
+				button.SetVisibility(0.6f, 0.6f);
 			}
 
 			switch(UILearning.LuiP.uiComboMode)
             {
 				case BuildingRodModes.Paint:
 					buttons.ToArray()[0].active = true;
-					buttons.ToArray()[0].SetVisibility(0.6f, 1f);
+					buttons.ToArray()[0].SetVisibility(1f, 1f);
 					UILearning.RightInterface?.SetState(UILearning.RightClickUIs<PaintToolUI>());
 					UILearning.RightClickUIs<PaintToolUI>().buttonUpdates();
 					break;
 				case BuildingRodModes.Walls:
 					buttons.ToArray()[1].active = true;
-					buttons.ToArray()[1].SetVisibility(0.6f, 1f);
+					buttons.ToArray()[1].SetVisibility(1f, 1f);
 					UILearning.RightInterface?.SetState(null);
 					break;
 				case BuildingRodModes.Tiles:
 					buttons.ToArray()[2].active = true;
-					buttons.ToArray()[2].SetVisibility(0.6f, 1f);
+					buttons.ToArray()[2].SetVisibility(1f, 1f);
 					UILearning.RightInterface?.SetState(UILearning.RightClickUIs<HoikRodUI>());
 					UILearning.RightClickUIs<HoikRodUI>().buttonUpdates();
 					break;
 				case BuildingRodModes.Wire:
 					buttons.ToArray()[3].active = true;
-					buttons.ToArray()[3].SetVisibility(0.6f, 1f);
+					buttons.ToArray()[3].SetVisibility(1f, 1f);
 					UILearning.RightInterface?.SetState(UILearning.RightClickUIs<WiringUI>());
 					UILearning.RightClickUIs<WiringUI>().buttonUpdates();
 					break;
 				case BuildingRodModes.Liquid:
 					buttons.ToArray()[4].active = true;
-					buttons.ToArray()[4].SetVisibility(0.6f, 1f);
+					buttons.ToArray()[4].SetVisibility(1f, 1f);
 					UILearning.RightInterface?.SetState(UILearning.RightClickUIs<UltimateBucketUI>());
 					UILearning.RightClickUIs<UltimateBucketUI>().buttonUpdates();
 					break;
@@ -201,7 +201,7 @@ namespace miningcracks_take_on_luiafk.UI.OtherItemUIs
 			foreach (MyImageButton button in buttons)
 			{
 				button.active = false;
-				button.SetVisibility(1f, 0.6f);
+				button.SetVisibility(0.6f, 0.6f);
 			}
 
 			UILearning.LuiP.uiComboMode = 0;

@@ -71,17 +71,17 @@ namespace miningcracks_take_on_luiafk.UI.OtherItemUIs
 				if (button.active && myImageButton.hoverText != button.hoverText)
 				{
 					button.active = false;
-					button.SetVisibility(1f, 0.6f);
+					button.SetVisibility(0.6f, 0.6f);
 				}
 			}
 			myImageButton.active = !myImageButton.active;
 			if (myImageButton.active)
 			{
-				myImageButton.SetVisibility(0.6f, 1f);
+				myImageButton.SetVisibility(1f, 1f);
 			}
 			else
 			{
-				myImageButton.SetVisibility(1f, 0.6f);
+				myImageButton.SetVisibility(0.6f, 0.6f);
 			}
 			int uiBucketType;
 			switch (myImageButton.hoverText)
@@ -110,26 +110,26 @@ namespace miningcracks_take_on_luiafk.UI.OtherItemUIs
 			foreach(MyImageButton button in allButtons)
 			{
 				button.active = false;
-				button.SetVisibility(1f, 0.6f);
+				button.SetVisibility(0.6f, 0.6f);
 			}
 
 			switch(UILearning.LuiP.uiBucketType)
             {
 				case 0:
 					allButtons.ToArray()[0].active = true;
-					allButtons.ToArray()[0].SetVisibility(0.6f, 1f);
+					allButtons.ToArray()[0].SetVisibility(1f, 1f);
 					break;
 				case 1:
 					allButtons.ToArray()[1].active = true;
-					allButtons.ToArray()[1].SetVisibility(0.6f, 1f);
+					allButtons.ToArray()[1].SetVisibility(1f, 1f);
 					break;
 				case 2:
 					allButtons.ToArray()[2].active = true;
-					allButtons.ToArray()[2].SetVisibility(0.6f, 1f);
+					allButtons.ToArray()[2].SetVisibility(1f, 1f);
 					break;
 				case 3:
 					allButtons.ToArray()[3].active = true;
-					allButtons.ToArray()[3].SetVisibility(0.6f, 1f);
+					allButtons.ToArray()[3].SetVisibility(1f, 1f);
 					break;
 				default: break;
             }
@@ -140,7 +140,7 @@ namespace miningcracks_take_on_luiafk.UI.OtherItemUIs
 			foreach (MyImageButton button in allButtons)
 			{
 				button.active = false;
-				button.SetVisibility(1f, 0.6f);
+				button.SetVisibility(0.6f, 0.6f);
 			}
 
 			UILearning.LuiP.uiBucketType = 0;

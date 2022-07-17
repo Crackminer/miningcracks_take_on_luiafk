@@ -136,7 +136,7 @@ namespace miningcracks_take_on_luiafk.Images.Items.Placeables.Collection
 			}
 		}
 
-		internal static void Init(bool unbreak = true)      //TODO: Check if Harvester are working now
+		internal static void Init(bool unbreak = true)
 		{
 			crappyPackets = false;
 			harvInfo = new List<HarvesterInfo>

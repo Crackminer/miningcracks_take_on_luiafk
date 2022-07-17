@@ -112,53 +112,53 @@ namespace miningcracks_take_on_luiafk.UI
 			foreach (MyImageButton button in allButtons)
 			{
 				button.active = false;
-				button.SetVisibility(1f, 0.6f);
+				button.SetVisibility(0.6f, 0.6f);
 			}
 
 			if ((UILearning.LuiP.uiBuffs & PotToggles.UltBattler) != 0)
             {
 				allButtons.ToArray()[0].active = true;
-				allButtons.ToArray()[0].SetVisibility(0.6f, 1f);
+				allButtons.ToArray()[0].SetVisibility(1f, 1f);
 			}
 			if ((UILearning.LuiP.uiBuffs & PotToggles.UltPeaceful) != 0)
 			{
 				allButtons.ToArray()[1].active = true;
-				allButtons.ToArray()[1].SetVisibility(0.6f, 1f);
+				allButtons.ToArray()[1].SetVisibility(1f, 1f);
 			}
 			if ((UILearning.LuiP.uiBuffs & PotToggles.Grav) != 0)
 			{
 				allButtons.ToArray()[2].active = true;
-				allButtons.ToArray()[2].SetVisibility(0.6f, 1f);
+				allButtons.ToArray()[2].SetVisibility(1f, 1f);
 			}
 			if ((UILearning.LuiP.uiBuffs & PotToggles.Feather) != 0)
 			{
 				allButtons.ToArray()[3].active = true;
-				allButtons.ToArray()[3].SetVisibility(0.6f, 1f);
+				allButtons.ToArray()[3].SetVisibility(1f, 1f);
 			}
 			if ((UILearning.LuiP.uiBuffs & PotToggles.Inferno) != 0)
 			{
 				allButtons.ToArray()[4].active = true;
-				allButtons.ToArray()[4].SetVisibility(0.6f, 1f);
+				allButtons.ToArray()[4].SetVisibility(1f, 1f);
 			}
 			if ((UILearning.LuiP.uiBuffs & PotToggles.Invis) != 0)
 			{
 				allButtons.ToArray()[5].active = true;
-				allButtons.ToArray()[5].SetVisibility(0.6f, 1f);
+				allButtons.ToArray()[5].SetVisibility(1f, 1f);
 			}
 			if ((UILearning.LuiP.uiBuffs & PotToggles.Crate) != 0)
 			{
 				allButtons.ToArray()[6].active = true;
-				allButtons.ToArray()[6].SetVisibility(0.6f, 1f);
+				allButtons.ToArray()[6].SetVisibility(1f, 1f);
 			}
 			if ((UILearning.LuiP.uiBuffs & PotToggles.Spelunker) != 0)
 			{
 				allButtons.ToArray()[7].active = true;
-				allButtons.ToArray()[7].SetVisibility(0.6f, 1f);
+				allButtons.ToArray()[7].SetVisibility(1f, 1f);
 			}
 			if ((UILearning.LuiP.uiBuffs & PotToggles.DangerHunter) != 0)
 			{
 				allButtons.ToArray()[8].active = true;
-				allButtons.ToArray()[8].SetVisibility(0.6f, 1f);
+				allButtons.ToArray()[8].SetVisibility(1f, 1f);
 			}
 		}
 
@@ -168,7 +168,7 @@ namespace miningcracks_take_on_luiafk.UI
 			if (!myImageButton.active)
 			{
 				myImageButton.active = true;
-				myImageButton.SetVisibility(0.6f, 1f);
+				myImageButton.SetVisibility(1f, 1f);
 			}
 			UILearning.LuiP.StartBattlerCountdown();
 		}
@@ -176,7 +176,7 @@ namespace miningcracks_take_on_luiafk.UI
 		public void disableBattler()
         {
 			battler.active = false;
-			battler.SetVisibility(1f, 0.6f);
+			battler.SetVisibility(0.6f, 0.6f);
 		}
 
 		public void Peace(UIMouseEvent evt, UIElement element)
@@ -185,12 +185,12 @@ namespace miningcracks_take_on_luiafk.UI
 			myImageButton.active = !myImageButton.active;
 			if (myImageButton.active)
 			{
-				myImageButton.SetVisibility(0.6f, 1f);
+				myImageButton.SetVisibility(1f, 1f);
 				UILearning.LuiP.uiBuffs ^= PotToggles.UltPeaceful;
 			}
 			else
 			{
-				myImageButton.SetVisibility(1f, 0.6f);
+				myImageButton.SetVisibility(0.6f, 0.6f);
 				UILearning.LuiP.uiBuffs ^= PotToggles.UltPeaceful;
 			}
 		}
@@ -201,12 +201,12 @@ namespace miningcracks_take_on_luiafk.UI
 			myImageButton.active = !myImageButton.active;
 			if (myImageButton.active)
 			{
-				myImageButton.SetVisibility(0.6f, 1f);
+				myImageButton.SetVisibility(1f, 1f);
 				UILearning.LuiP.uiBuffs ^= PotToggles.Grav;
 			}
 			else
 			{
-				myImageButton.SetVisibility(1f, 0.6f);
+				myImageButton.SetVisibility(0.6f, 0.6f);
 				UILearning.LuiP.uiBuffs ^= PotToggles.Grav;
 			}
 		}
@@ -217,12 +217,12 @@ namespace miningcracks_take_on_luiafk.UI
 			myImageButton.active = !myImageButton.active;
 			if (myImageButton.active)
 			{
-				myImageButton.SetVisibility(0.6f, 1f);
+				myImageButton.SetVisibility(1f, 1f);
 				UILearning.LuiP.uiBuffs ^= PotToggles.Feather;
 			}
 			else
 			{
-				myImageButton.SetVisibility(1f, 0.6f);
+				myImageButton.SetVisibility(0.6f, 0.6f);
 				UILearning.LuiP.uiBuffs ^= PotToggles.Feather;
 			}
 		}
@@ -233,12 +233,12 @@ namespace miningcracks_take_on_luiafk.UI
 			myImageButton.active = !myImageButton.active;
 			if (myImageButton.active)
 			{
-				myImageButton.SetVisibility(0.6f, 1f);
+				myImageButton.SetVisibility(1f, 1f);
 				UILearning.LuiP.uiBuffs ^= PotToggles.Inferno;
 			}
 			else
 			{
-				myImageButton.SetVisibility(1f, 0.6f);
+				myImageButton.SetVisibility(0.6f, 0.6f);
 				UILearning.LuiP.uiBuffs ^= PotToggles.Inferno;
 			}
 		}
@@ -249,12 +249,12 @@ namespace miningcracks_take_on_luiafk.UI
 			myImageButton.active = !myImageButton.active;
 			if (myImageButton.active)
 			{
-				myImageButton.SetVisibility(0.6f, 1f);
+				myImageButton.SetVisibility(1f, 1f);
 				UILearning.LuiP.uiBuffs ^= PotToggles.Invis;
 			}
 			else
 			{
-				myImageButton.SetVisibility(1f, 0.6f);
+				myImageButton.SetVisibility(0.6f, 0.6f);
 				UILearning.LuiP.uiBuffs ^= PotToggles.Invis;
 			}
 		}
@@ -265,12 +265,12 @@ namespace miningcracks_take_on_luiafk.UI
 			myImageButton.active = !myImageButton.active;
 			if (myImageButton.active)
 			{
-				myImageButton.SetVisibility(0.6f, 1f);
+				myImageButton.SetVisibility(1f, 1f);
 				UILearning.LuiP.uiBuffs ^= PotToggles.Crate;
 			}
 			else
 			{
-				myImageButton.SetVisibility(1f, 0.6f);
+				myImageButton.SetVisibility(0.6f, 0.6f);
 				UILearning.LuiP.uiBuffs ^= PotToggles.Crate;
 			}
 		}
@@ -281,12 +281,12 @@ namespace miningcracks_take_on_luiafk.UI
 			myImageButton.active = !myImageButton.active;
 			if (myImageButton.active)
 			{
-				myImageButton.SetVisibility(0.6f, 1f);
+				myImageButton.SetVisibility(1f, 1f);
 				UILearning.LuiP.uiBuffs ^= PotToggles.Spelunker;
 			}
 			else
 			{
-				myImageButton.SetVisibility(1f, 0.6f);
+				myImageButton.SetVisibility(0.6f, 0.6f);
 				UILearning.LuiP.uiBuffs ^= PotToggles.Spelunker;
 			}
 		}
@@ -297,12 +297,12 @@ namespace miningcracks_take_on_luiafk.UI
 			myImageButton.active = !myImageButton.active;
 			if (myImageButton.active)
 			{
-				myImageButton.SetVisibility(0.6f, 1f);
+				myImageButton.SetVisibility(1f, 1f);
 				UILearning.LuiP.uiBuffs ^= PotToggles.DangerHunter;
 			}
 			else
 			{
-				myImageButton.SetVisibility(1f, 0.6f);
+				myImageButton.SetVisibility(0.6f, 0.6f);
 				UILearning.LuiP.uiBuffs ^= PotToggles.DangerHunter;
 			}
 		}
@@ -312,7 +312,7 @@ namespace miningcracks_take_on_luiafk.UI
 			foreach (MyImageButton button in allButtons)
 			{
 				button.active = false;
-				button.SetVisibility(1f, 0.6f);
+				button.SetVisibility(0.6f, 0.6f);
 			}
 
 			UILearning.LuiP.uiBuffs = 0b000000000;

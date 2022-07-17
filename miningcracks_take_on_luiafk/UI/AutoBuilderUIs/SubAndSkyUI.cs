@@ -142,17 +142,17 @@ namespace miningcracks_take_on_luiafk.UI.AutoBuilderUIs
 				if (button.active && myImageButton.hoverText != button.hoverText)
 				{
 					button.active = false;
-					button.SetVisibility(1f, 0.6f);
+					button.SetVisibility(0.6f, 0.6f);
 				}
 			}
 			myImageButton.active = !myImageButton.active;
 			if (myImageButton.active)
 			{
-				myImageButton.SetVisibility(0.6f, 1f);
+				myImageButton.SetVisibility(1f, 1f);
 			}
 			else
 			{
-				myImageButton.SetVisibility(1f, 0.6f);
+				myImageButton.SetVisibility(0.6f, 0.6f);
 			}
 			int uiMaterial;
 			switch (myImageButton.hoverText)
@@ -197,11 +197,11 @@ namespace miningcracks_take_on_luiafk.UI.AutoBuilderUIs
 			myImageButton.active = !myImageButton.active;
 			if (myImageButton.active)
 			{
-				myImageButton.SetVisibility(0.6f, 1f);
+				myImageButton.SetVisibility(1f, 1f);
 			}
 			else
 			{
-				myImageButton.SetVisibility(1f, 0.6f);
+				myImageButton.SetVisibility(0.6f, 0.6f);
 			}
 			UILearning.LuiP.uiLight = !UILearning.LuiP.uiLight;
 		}
@@ -212,11 +212,11 @@ namespace miningcracks_take_on_luiafk.UI.AutoBuilderUIs
 			myImageButton.active = !myImageButton.active;
 			if (myImageButton.active)
 			{
-				myImageButton.SetVisibility(0.6f, 1f);
+				myImageButton.SetVisibility(1f, 1f);
 			}
 			else
 			{
-				myImageButton.SetVisibility(1f, 0.6f);
+				myImageButton.SetVisibility(0.6f, 0.6f);
 			}
 			UILearning.LuiP.uiObsidian = !UILearning.LuiP.uiObsidian;
 		}
@@ -229,12 +229,14 @@ namespace miningcracks_take_on_luiafk.UI.AutoBuilderUIs
 				myImageButton.active = false;
 				myImageButton.SetImage(Textures.MiscPlatform);
 				myImageButton.hoverText = "Platform Builder\nClick again for Minecart";
+				allButtons.ToArray()[10].hoverText = "Obsidian Platforms On/Off";
 			}
 			else
 			{
 				myImageButton.active = true;
 				myImageButton.SetImage(Textures.MiscMineTrack);
 				myImageButton.hoverText = "Minecart Builder\nClick again for Platforms";
+				allButtons.ToArray()[10].hoverText = "Walls On/Off";
 			}
 			UILearning.LuiP.uiSubOrMinecart = !UILearning.LuiP.uiSubOrMinecart;
 		}
@@ -243,25 +245,25 @@ namespace miningcracks_take_on_luiafk.UI.AutoBuilderUIs
 			foreach (MyImageButton button in allButtons)
 			{
 				button.active = false;
-				button.SetVisibility(1f, 0.6f);
+				button.SetVisibility(0.6f, 0.6f);
 			}
 
 			if (UILearning.LuiP.uiLight)
 			{
 				allButtons.ToArray()[0].active = true;
-				allButtons.ToArray()[0].SetVisibility(0.6f, 1f);
+				allButtons.ToArray()[0].SetVisibility(1f, 1f);
 			}
 
 			if(UILearning.LuiP.uiObsidian)
             {
 				allButtons.ToArray()[10].active = true;
-				allButtons.ToArray()[10].SetVisibility(0.6f, 1f);
+				allButtons.ToArray()[10].SetVisibility(1f, 1f);
 			}
 
 			if(UILearning.LuiP.uiSubOrMinecart)
             {
 				allButtons.ToArray()[11].active = true;
-				allButtons.ToArray()[11].SetVisibility(0.6f, 1f);
+				allButtons.ToArray()[11].SetVisibility(1f, 1f);
 				allButtons.ToArray()[12].SetImage(Textures.MiscMineTrack);
 			}
 
@@ -269,39 +271,39 @@ namespace miningcracks_take_on_luiafk.UI.AutoBuilderUIs
             {
 				case 0:
 					allButtons.ToArray()[1].active = true;
-					allButtons.ToArray()[1].SetVisibility(0.6f, 1f); 
+					allButtons.ToArray()[1].SetVisibility(1f, 1f); 
 					break;
 				case 1:
 					allButtons.ToArray()[2].active = true;
-					allButtons.ToArray()[2].SetVisibility(0.6f, 1f);
+					allButtons.ToArray()[2].SetVisibility(1f, 1f);
 					break;
 				case 2:
 					allButtons.ToArray()[3].active = true;
-					allButtons.ToArray()[3].SetVisibility(0.6f, 1f);
+					allButtons.ToArray()[3].SetVisibility(1f, 1f);
 					break;
 				case 3:
 					allButtons.ToArray()[4].active = true;
-					allButtons.ToArray()[4].SetVisibility(0.6f, 1f);
+					allButtons.ToArray()[4].SetVisibility(1f, 1f);
 					break;
 				case 4:
 					allButtons.ToArray()[5].active = true;
-					allButtons.ToArray()[5].SetVisibility(0.6f, 1f);
+					allButtons.ToArray()[5].SetVisibility(1f, 1f);
 					break;
 				case 5:
 					allButtons.ToArray()[6].active = true;
-					allButtons.ToArray()[6].SetVisibility(0.6f, 1f);
+					allButtons.ToArray()[6].SetVisibility(1f, 1f);
 					break;
 				case 6:
 					allButtons.ToArray()[7].active = true;
-					allButtons.ToArray()[7].SetVisibility(0.6f, 1f);
+					allButtons.ToArray()[7].SetVisibility(1f, 1f);
 					break;
 				case 7:
 					allButtons.ToArray()[8].active = true;
-					allButtons.ToArray()[8].SetVisibility(0.6f, 1f);
+					allButtons.ToArray()[8].SetVisibility(1f, 1f);
 					break;
 				case 8:
 					allButtons.ToArray()[9].active = true;
-					allButtons.ToArray()[9].SetVisibility(0.6f, 1f);
+					allButtons.ToArray()[9].SetVisibility(1f, 1f);
 					break;
 				default: break;
             }
@@ -312,7 +314,7 @@ namespace miningcracks_take_on_luiafk.UI.AutoBuilderUIs
 			foreach (MyImageButton button in allButtons)
 			{
 				button.active = false;
-				button.SetVisibility(1f, 0.6f);
+				button.SetVisibility(0.6f, 0.6f);
 			}
 
 			UILearning.LuiP.uiLight = false;
