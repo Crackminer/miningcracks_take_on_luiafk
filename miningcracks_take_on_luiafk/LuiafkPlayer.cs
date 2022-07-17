@@ -861,11 +861,11 @@ namespace miningcracks_take_on_luiafk
 					ticks = 0;
 					if (Main.netMode == 0)
 					{
-						Main.NewText("Please set FrameSkip to Subtle or Off for the GUIs to work!");
+						Main.NewText("[LuiAFK] Please set FrameSkip to Subtle or Off for the GUIs to work!");
 					}
 					else if (Main.netMode == NetmodeID.MultiplayerClient)
 					{
-						ChatHelper.SendChatMessageToClient(NetworkText.FromLiteral("Please set FrameSkip to Subtle or Off for the GUIs to work!"), Color.Orange, (Main.player[Main.myPlayer].GetModPlayer<LuiafkPlayer>() == UILearning.LuiP) ? UILearning.LuiP.Player.whoAmI : base.Player.whoAmI);
+						ChatHelper.SendChatMessageToClient(NetworkText.FromLiteral("[LuiAFK] Please set FrameSkip to Subtle or Off for the GUIs to work!"), Color.Orange, (Main.player[Main.myPlayer].GetModPlayer<LuiafkPlayer>() == UILearning.LuiP) ? UILearning.LuiP.Player.whoAmI : base.Player.whoAmI);
 					}
 				}
 				ticks++;
