@@ -14,6 +14,7 @@ namespace miningcracks_take_on_luiafk.Images.Items.Placeables.Collection.Harvest
 		public override void SetDefaults()
 		{
 			Defaults.ChestMaterials(base.Item);
+			Item.expertOnly = true;
 		}
 	}
 }

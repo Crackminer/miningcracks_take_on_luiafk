@@ -14,14 +14,11 @@ namespace miningcracks_take_on_luiafk.Images.Items.Placeables.Collection
 		private static void UpdateTile(Tile t, int x, int y)
 		{
 			Harvesting.MultiTilesTrees(x, y, kill: true, treeTypes);
-			WorldGen.PlaceTile(x, y, TileID.GemSaplings, false, false, -1, (Main.tile[x, y].TileType - 583) * 3);
+            if (Main.tile[x, y + 2].TileType == 1)
+            {
+				WorldGen.PlaceTile(x, y + 1, 590, mute: true, forced: true, style: (Main.tile[x, y + 1].TileType - 583) * 3);
+			}
 		}
-
-		internal static int Amount()
-        {
-			int rand = Main.rand.Next(0, 15);
-			return rand;
-        }
 
 		internal static bool NearbyGemTrees(Tile t, int chest, int x, int y)
 		{

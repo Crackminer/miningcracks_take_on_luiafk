@@ -15,14 +15,12 @@ namespace miningcracks_take_on_luiafk.Images.Items.Placeables.Collection.Harvest
 		public override void SetDefaults()
 		{
 			Defaults.ChestMaterials(base.Item);
+			Item.expertOnly = true;
 		}
 
 		public override void AddRecipes()
 		{
-			if (Main.expertMode || Main.masterMode)
-			{
-				CreateRecipe().AddIngredient(225, 25).AddTile(18).Register();
-			}
+			CreateRecipe().AddIngredient(225, 25).AddTile(18).AddCondition(Terraria.Localization.NetworkText.FromLiteral("Luiafk:Expert Only"), ((Recipe _) => Main.expertMode || Main.masterMode)).Register();
 		}
 	}
 }

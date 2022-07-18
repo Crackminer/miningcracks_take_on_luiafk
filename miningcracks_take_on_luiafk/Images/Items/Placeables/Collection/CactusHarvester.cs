@@ -17,18 +17,17 @@ namespace miningcracks_take_on_luiafk.Images.Items.Placeables.Collection
 		public override void SetDefaults()
 		{
 			Defaults.Storage(base.Item, ModContent.TileType<CactusHarvesterTile>());
+			Item.expertOnly = true;
 		}
 
 		public override void AddRecipes()
 		{
-			if (Main.expertMode || Main.masterMode)
-			{
-				CreateRecipe().AddRecipeGroup("Luiafk:Chests").AddRecipeGroup("Luiafk:Axes").AddIngredient(206, 5)
-					.AddIngredient(base.Mod.Find<ModItem>("Piping").Type, 7)
-					.AddIngredient(base.Mod.Find<ModItem>("HarvesterParts").Type, 3)
-					.AddTile(16)
-					.Register();
-			}
+			CreateRecipe().AddRecipeGroup("Luiafk:Chests").AddRecipeGroup("Luiafk:Axes").AddIngredient(206, 5)
+				.AddIngredient(base.Mod.Find<ModItem>("Piping").Type, 7)
+				.AddIngredient(base.Mod.Find<ModItem>("HarvesterParts").Type, 3)
+				.AddTile(16)
+				.AddCondition(Terraria.Localization.NetworkText.FromLiteral("Luiafk:Expert Only"), ((Recipe _) => Main.expertMode || Main.masterMode))
+				.Register();
 		}
 	}
 }
