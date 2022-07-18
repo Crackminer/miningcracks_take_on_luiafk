@@ -226,8 +226,7 @@ namespace miningcracks_take_on_luiafk.Images.Items.Placeables.Collection
 				}
 				y--;
 			}
-			if (types.Contains(80)) return (int)(count / 6);
-			return (int)(count * 1.3f);
+			return (int)(count / 5);
 		}
 
 		internal static void RemoveOrCountTiles(int x, int y, bool kill, ref int count)
