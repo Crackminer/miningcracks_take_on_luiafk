@@ -207,7 +207,30 @@ namespace miningcracks_take_on_luiafk.Images.Items.Placeables.Collection
 			NetMessage.SendData(80, -1, p.whoAmI, null, p.whoAmI, chest);
 		}
 
-		internal static int MultiTiles(int x, int y, bool kill, int[] types)
+		internal static int MultiTilesTrees(int x, int y, bool kill, int[] types)
+		{
+			int count = 0;
+			while ((Main.tile[x, y] != null && types.Contains(Main.tile[x, y].TileType)))
+			{
+				if (Main.tile[x, y] != null && types.Contains(Main.tile[x, y].TileType))
+				{
+					RemoveOrCountTiles(x, y, kill, ref count);
+				}
+				if (Main.tile[x - 1, y] != null && types.Contains(Main.tile[x - 1, y].TileType))
+				{
+					RemoveOrCountTiles(x - 1, y, kill, ref count);
+				}
+				if (Main.tile[x + 1, y] != null && types.Contains(Main.tile[x + 1, y].TileType))
+				{
+					RemoveOrCountTiles(x + 1, y, kill, ref count);
+				}
+				y--;
+			}
+			//if (count != 0) return (int)(count / 5);
+			return count;
+		}
+
+		internal static int MultiTilesCactus(int x, int y, bool kill, int[] types)
 		{
 			int count = 0;
 			while ((Main.tile[x, y] != null && types.Contains(Main.tile[x, y].TileType)) || (Main.tile[x - 1, y] != null && types.Contains(Main.tile[x - 1, y].TileType)) || (Main.tile[x + 1, y] != null && types.Contains(Main.tile[x + 1, y].TileType)))
@@ -226,7 +249,8 @@ namespace miningcracks_take_on_luiafk.Images.Items.Placeables.Collection
 				}
 				y--;
 			}
-			return (int)(count / 5);
+			if(count != 0)	return (int)(count / 5);
+			return 0;
 		}
 
 		internal static void RemoveOrCountTiles(int x, int y, bool kill, ref int count)
@@ -241,9 +265,18 @@ namespace miningcracks_take_on_luiafk.Images.Items.Placeables.Collection
 			}
 		}
 
-		internal static void MultiFits(int x, int y, int drop, int[] types, int chest, Tile t, TileUpdate updateTile, ref bool full)
+		internal static void MultiFits(int x, int y, int drop, int[] types, int chest, Tile t, TileUpdate updateTile, ref bool full, bool trees)
 		{
-			int num = MultiTiles(x, y, kill: false, types);
+			int num = 0; 
+			if (trees)
+			{
+				num = MultiTilesTrees(x, y, kill: false, types);
+				num = (int)(num * 2.0f);
+			}
+			else
+            {
+				num = MultiTilesCactus(x, y, kill: false, types);
+			}
 			int num2 = PutInChest(chest, drop, num);
 			if (num2 < num)
 			{

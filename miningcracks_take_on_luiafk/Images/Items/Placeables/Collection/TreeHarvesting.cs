@@ -10,7 +10,7 @@ namespace miningcracks_take_on_luiafk.Images.Items.Placeables.Collection
 
 		private static void UpdateTile(Tile t, int x, int y)
 		{
-			Harvesting.MultiTiles(x, y, kill: true, treeTypes);
+			Harvesting.MultiTilesTrees(x, y, kill: true, treeTypes);
 			if (Main.tile[x, y + 1].TileType != 60)
 			{
 				WorldGen.PlaceTile(x, y, 20);
@@ -31,7 +31,7 @@ namespace miningcracks_take_on_luiafk.Images.Items.Placeables.Collection
 			}
 			if (drop != -1)
 			{
-				Harvesting.MultiFits(x, y - 1, drop, treeTypes, chest, t, UpdateTile, ref full);
+				Harvesting.MultiFits(x, y - 1, drop, treeTypes, chest, t, UpdateTile, ref full, true);
 			}
 			return full;
 		}

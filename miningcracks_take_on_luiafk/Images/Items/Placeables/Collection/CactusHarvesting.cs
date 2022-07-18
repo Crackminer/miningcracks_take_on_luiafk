@@ -9,7 +9,7 @@ namespace miningcracks_take_on_luiafk.Images.Items.Placeables.Collection
 
 		private static void UpdateTile(Tile t, int x, int y)
 		{
-			Harvesting.MultiTiles(x, y, kill: true, cactusType);
+			Harvesting.MultiTilesCactus(x, y, kill: true, cactusType);
 		}
 
 		internal static bool NearbyCactus(Tile t, int chest, int x, int y)
@@ -27,7 +27,7 @@ namespace miningcracks_take_on_luiafk.Images.Items.Placeables.Collection
 			}
 			if (num != -1)
 			{
-				Harvesting.MultiFits(x, y, num, cactusType, chest, t, UpdateTile, ref full);
+				Harvesting.MultiFits(x, y, num, cactusType, chest, t, UpdateTile, ref full, false);
 			}
 			return full;
 		}
