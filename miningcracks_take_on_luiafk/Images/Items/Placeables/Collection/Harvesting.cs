@@ -143,6 +143,7 @@ namespace miningcracks_take_on_luiafk.Images.Items.Placeables.Collection
 			{
 				new HarvesterInfo(((Mod)LuiafkMod.Instance).Find<ModTile>("PlantHarvesterTile").Type, "Plant", CheckLarge, PlantHarvesting.NearbyPlants),
 				new HarvesterInfo(((Mod)LuiafkMod.Instance).Find<ModTile>("TreeHarvesterTile").Type, "Tree", CheckLarge, TreeHarvesting.NearbyTrees),
+				new HarvesterInfo(((Mod)LuiafkMod.Instance).Find<ModTile>("GemCornHarvesterTile").Type, "GemCorn", CheckLarge, GemCornHarvesting.NearbyGemTrees),
 				new HarvesterInfo(((Mod)LuiafkMod.Instance).Find<ModTile>("CactusHarvesterTile").Type, "Cactus", CheckLarge, CactusHarvesting.NearbyCactus),
 				new HarvesterInfo(((Mod)LuiafkMod.Instance).Find<ModTile>("FishHarvesterTile").Type, "Fish", CheckWater)
 			};
@@ -226,7 +227,6 @@ namespace miningcracks_take_on_luiafk.Images.Items.Placeables.Collection
 				}
 				y--;
 			}
-			//if (count != 0) return (int)(count / 5);
 			return count;
 		}
 
@@ -267,17 +267,151 @@ namespace miningcracks_take_on_luiafk.Images.Items.Placeables.Collection
 
 		internal static void MultiFits(int x, int y, int drop, int[] types, int chest, Tile t, TileUpdate updateTile, ref bool full, bool trees)
 		{
-			int num = 0; 
+            int num;
+			int num2;
 			if (trees)
 			{
-				num = MultiTilesTrees(x, y, kill: false, types);
-				num = (int)(num * 2.0f);
+				if(types.Length == 7)
+                {
+					int stone = 0;
+					int topaz = 0;
+					int amethyst = 0;
+					int sapphire = 0;
+					int emerald = 0;
+					int ruby = 0;
+					int diamond = 0;
+					int amber = 0;
+					num = MultiTilesTrees(x, y, kill: false, new int[] { types[0] } );
+					for(int i = 0; i < num; i++)
+                    {
+						if (Main.rand.NextBool(10)) topaz++;
+						else if (Main.rand.NextBool(2)) stone += 2;
+						else stone++;
+                    }
+					num2 = PutInChest(chest, ItemID.Topaz, topaz);
+					if (num2 < num)
+					{
+						updateTile(t, x, y);
+					}
+					if (num2 > 0)
+					{
+						full = true;
+					}
+
+					num = MultiTilesTrees(x, y, kill: false, new int[] { types[1] });
+					for (int i = 0; i < num; i++)
+					{
+						if (Main.rand.NextBool(10)) amethyst++;
+						else if (Main.rand.NextBool(2)) stone += 2;
+						else stone++;
+					}
+					num2 = PutInChest(chest, ItemID.Amethyst, amethyst);
+					if (num2 < num)
+					{
+						updateTile(t, x, y);
+					}
+					if (num2 > 0)
+					{
+						full = true;
+					}
+
+					num = MultiTilesTrees(x, y, kill: false, new int[] { types[2] });
+					for (int i = 0; i < num; i++)
+					{
+						if (Main.rand.NextBool(10)) sapphire++;
+						else if (Main.rand.NextBool(2)) stone += 2;
+						else stone++;
+					}
+					num2 = PutInChest(chest, ItemID.Sapphire, sapphire);
+					if (num2 < num)
+					{
+						updateTile(t, x, y);
+					}
+					if (num2 > 0)
+					{
+						full = true;
+					}
+
+					num = MultiTilesTrees(x, y, kill: false, new int[] { types[3] });
+					for (int i = 0; i < num; i++)
+					{
+						if (Main.rand.NextBool(10)) emerald++;
+						else if (Main.rand.NextBool(2)) stone += 2;
+						else stone++;
+					}
+					num2 = PutInChest(chest, ItemID.Emerald, emerald);
+					if (num2 < num)
+					{
+						updateTile(t, x, y);
+					}
+					if (num2 > 0)
+					{
+						full = true;
+					}
+
+					num = MultiTilesTrees(x, y, kill: false, new int[] { types[4] });
+					for (int i = 0; i < num; i++)
+					{
+						if (Main.rand.NextBool(10)) ruby++;
+						else if (Main.rand.NextBool(2)) stone += 2;
+						else stone++;
+					}
+					num2 = PutInChest(chest, ItemID.Ruby, ruby);
+					if (num2 < num)
+					{
+						updateTile(t, x, y);
+					}
+					if (num2 > 0)
+					{
+						full = true;
+					}
+
+					num = MultiTilesTrees(x, y, kill: false, new int[] { types[5] });
+					for (int i = 0; i < num; i++)
+					{
+						if (Main.rand.NextBool(10)) diamond++;
+						else if (Main.rand.NextBool(2)) stone += 2;
+						else stone++;
+					}
+					num2 = PutInChest(chest, ItemID.Diamond, diamond);
+					if (num2 < num)
+					{
+						updateTile(t, x, y);
+					}
+					if (num2 > 0)
+					{
+						full = true;
+					}
+
+					num = MultiTilesTrees(x, y, kill: false, new int[] { types[6] });
+					for (int i = 0; i < num; i++)
+					{
+						if (Main.rand.NextBool(10)) amber++;
+						else if (Main.rand.NextBool(2)) stone += 2;
+						else stone++;
+					}
+					num2 = PutInChest(chest, ItemID.Amber, amber);
+					if (num2 < num)
+					{
+						updateTile(t, x, y);
+					}
+					if (num2 > 0)
+					{
+						full = true;
+					}
+					num = stone;
+				}
+				else
+                {
+					num = MultiTilesTrees(x, y, kill: false, types);
+					num = (int)(num * 2.0f);
+				}
 			}
 			else
             {
 				num = MultiTilesCactus(x, y, kill: false, types);
 			}
-			int num2 = PutInChest(chest, drop, num);
+			num2 = PutInChest(chest, drop, num);
 			if (num2 < num)
 			{
 				updateTile(t, x, y);

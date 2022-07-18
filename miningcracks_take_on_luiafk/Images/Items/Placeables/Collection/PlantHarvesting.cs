@@ -26,7 +26,19 @@ namespace miningcracks_take_on_luiafk.Images.Items.Placeables.Collection
 
 		internal static int Amount()
 		{
-			return Main.rand.Next(1, 3);
+			int rand = Main.rand.Next(1, 100);
+            if(rand <= 75)
+			{
+				return 1;
+            }
+			else if (rand <= 95)
+            {
+				return 2;
+            }
+			else
+            {
+				return 3;
+            }
 		}
 
 		private static bool ModBloom(int chest, int x, int y, Tile t)
