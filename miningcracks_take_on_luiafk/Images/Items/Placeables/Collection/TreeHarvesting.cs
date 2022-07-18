@@ -6,7 +6,7 @@ namespace miningcracks_take_on_luiafk.Images.Items.Placeables.Collection
 {
 	internal static class TreeHarvesting
 	{
-		private static readonly int[] treeTypes = new int[2] { 5, 323 };
+		private static readonly int[] treeTypes = new int[4] { 5, 323, 596, 616 };
 
 		private static void UpdateTile(Tile t, int x, int y)
 		{
@@ -22,10 +22,10 @@ namespace miningcracks_take_on_luiafk.Images.Items.Placeables.Collection
 			bool full = false;
 			int drop = -1;
 			if (t.TileType == 5 || t.TileType == 596 || t.TileType == 616)
-			{
-				TreeType(ref x, ref y, ref drop);
-			}
-			else if (t.TileType == 323)
+            {
+                TreeType(ref x, ref y, ref drop);
+            }
+            else if (t.TileType == 323)
 			{
 				PalmTreeType(ref x, ref y, ref drop);
 			}

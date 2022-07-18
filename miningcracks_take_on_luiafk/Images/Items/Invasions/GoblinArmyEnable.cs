@@ -21,7 +21,7 @@ namespace miningcracks_take_on_luiafk.Images.Items.Invasions
 
 		public override bool? UseItem(Player player)
 		{
-						if (Main.netMode == 1)
+			if (Main.netMode == 1)
 			{
 				return true;
 			}
