@@ -10,7 +10,7 @@ namespace miningcracks_take_on_luiafk.Images.Items.Placeables.Collection
 		public override void SetStaticDefaults()
 		{
 			base.DisplayName.SetDefault("Plant Harvester");
-			base.Tooltip.SetDefault("Disabled for now!\n\nWhen placed will collect and replant nearby plants.\nWill collect plants blooming within 50 tiles each direction.\nWill replant anything harvested.\nNo seeds will be collected.\nExpert");
+			base.Tooltip.SetDefault("When placed will collect and replant nearby plants.\nWill collect plants blooming within 50 tiles each direction.\nWill replant anything harvested.\nNo seeds will be collected.\nExpert");
 			base.SacrificeTotal = 1;
 		}
 

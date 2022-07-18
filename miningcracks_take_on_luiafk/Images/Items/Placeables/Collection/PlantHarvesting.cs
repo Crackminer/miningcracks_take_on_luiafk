@@ -31,7 +31,7 @@ namespace miningcracks_take_on_luiafk.Images.Items.Placeables.Collection
 
 		private static bool ModBloom(int chest, int x, int y, Tile t)
 		{
-																		foreach (Tuple<int, int, int, Func<int>> modHerb in modHerbs)
+			foreach (Tuple<int, int, int, Func<int>> modHerb in modHerbs)
 			{
 				if (modHerb.Item1 == t.TileType && modHerb.Item2 == t.TileFrameX)
 				{

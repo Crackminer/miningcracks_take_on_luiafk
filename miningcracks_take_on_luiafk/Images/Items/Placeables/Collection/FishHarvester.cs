@@ -10,7 +10,7 @@ namespace miningcracks_take_on_luiafk.Images.Items.Placeables.Collection
 		public override void SetStaticDefaults()
 		{
 			base.DisplayName.SetDefault("Fish Harvester");
-			base.Tooltip.SetDefault("Disabled for now!\n\nWhen placed will fish in nearby water.\nRequires Unlimited Rod or Normal Rod + Bait.\nCertain items can be placed in the chest for higher quality fish.\nCatches will be based on the chests location (biomes).\nPlace upto 10 tiles above water.\nBiome range is 30 tiles in each direction.\nExpert");
+			base.Tooltip.SetDefault("When placed will fish in nearby water.\nRequires Unlimited Rod or Normal Rod + Bait.\nCertain items can be placed in the chest for higher quality fish.\nCatches will be based on the chests location (biomes).\nPlace upto 10 tiles above water.\nBiome range is 30 tiles in each direction.\nExpert");
 			base.SacrificeTotal = 1;
 		}
 

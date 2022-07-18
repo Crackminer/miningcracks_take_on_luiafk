@@ -10,7 +10,7 @@ namespace miningcracks_take_on_luiafk.Images.Items.Placeables.Collection
 		public override void SetStaticDefaults()
 		{
 			base.DisplayName.SetDefault("Tree Harvester");
-			base.Tooltip.SetDefault("Disabled for now!\n\nWhen placed will collect and replant nearby trees.\nWill collect wood within 50 tiles each direction.\nWill replant anything harvested.\nNo acorns will be collected.\nExpert");
+			base.Tooltip.SetDefault("When placed will collect and replant nearby trees.\nWill collect wood within 50 tiles each direction.\nWill replant anything harvested.\nNo acorns will be collected.\nStone/Gemcorn Trees will not be harvested.\nExpert");
 			base.SacrificeTotal = 1;
 		}
 

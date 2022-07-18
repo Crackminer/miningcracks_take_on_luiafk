@@ -21,7 +21,7 @@ namespace miningcracks_take_on_luiafk.Images.Items.Placeables.Collection
 		{
 			bool full = false;
 			int drop = -1;
-			if (t.TileType == 5)
+			if (t.TileType == 5 || t.TileType == 596 || t.TileType == 616)
 			{
 				TreeType(ref x, ref y, ref drop);
 			}

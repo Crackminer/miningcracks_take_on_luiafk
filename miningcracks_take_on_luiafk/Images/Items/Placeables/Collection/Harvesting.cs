@@ -210,7 +210,7 @@ namespace miningcracks_take_on_luiafk.Images.Items.Placeables.Collection
 		internal static int MultiTiles(int x, int y, bool kill, int[] types)
 		{
 			int count = 0;
-			while ((Main.tile[x, y] != null && types.Contains(Main.tile[x, y].TileType)) || (Main.tile[x - 1, y] != null && types.Contains(Main.tile[x - 1, y].TileType)) || (Main.tile[x + 1, y] != null && types.Contains(Main.tile[x + 1, y].TileType)))
+			while ((Main.tile[x, y] != null && types.Contains(Main.tile[x, y].TileType)))
 			{
 				if (Main.tile[x, y] != null && types.Contains(Main.tile[x, y].TileType))
 				{

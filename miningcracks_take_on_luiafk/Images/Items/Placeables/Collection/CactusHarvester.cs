@@ -10,7 +10,7 @@ namespace miningcracks_take_on_luiafk.Images.Items.Placeables.Collection
 		public override void SetStaticDefaults()
 		{
 			base.DisplayName.SetDefault("Cactus Harvester");
-			base.Tooltip.SetDefault("Disabled for now!\n\nWhen placed will collect nearby cactus.\nWill collect cactus within 50 tiles each direction.\nExpert");
+			base.Tooltip.SetDefault("When placed will collect nearby cactus.\nWill collect cactus within 50 tiles each direction.\nExpert");
 			base.SacrificeTotal = 1;
 		}
 
