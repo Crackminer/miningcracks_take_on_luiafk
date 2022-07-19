@@ -30,8 +30,27 @@ namespace miningcracks_take_on_luiafk
 
 		public override void PickAmmo(Item weapon, Item ammo, Player player, ref int type, ref float speed, ref StatModifier damage, ref float knockback)
 		{
-			if (weapon.type == 1946)
+			if (weapon.type == 3930)
 			{
+				if (ammo.type == base.Mod.Find<ModItem>("UnlimitedRocketIs").Type)
+				{
+					type = 715;
+				}
+				else if (ammo.type == base.Mod.Find<ModItem>("UnlimitedRocketIIs").Type)
+				{
+					type = 716;
+				}
+				else if (ammo.type == base.Mod.Find<ModItem>("UnlimitedRocketIIIs").Type)
+				{
+					type = 717;
+				}
+				else if (ammo.type == base.Mod.Find<ModItem>("UnlimitedRocketIVs").Type)
+				{
+					type = 718;
+				}
+			}
+			else if (weapon.type == 1946)
+            {
 				if (ammo.type == base.Mod.Find<ModItem>("UnlimitedRocketIs").Type)
 				{
 					type = 338;
