@@ -1,5 +1,5 @@
 author = miningcrack
-version = 1.0.4.0
+version = 1.0.4.1
 displayName = miningcrack's Take on Luiafk
 homepage = https://forums.terraria.org/index.php?threads/luiafk-unlimited-combinable-potions-autobuilding-stuff-and-more.58806/
 includePDB = true

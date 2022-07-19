@@ -41,7 +41,6 @@ namespace miningcracks_take_on_luiafk.UI
 		public static void MyLoad()
 		{
 			_lastUpdateUiGameTime = new GameTime();
-			_lastUpdateUiGameTime = new GameTime();
 			BuffInterface = new UserInterface();
 			RightInterface = new UserInterface();
 			ComboInterface = new UserInterface();

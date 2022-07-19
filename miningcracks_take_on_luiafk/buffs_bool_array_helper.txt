@@ -71,4 +71,10 @@
 70 = peaceful
 71 = ranged
 72 = station
-73 = 
+73 = lesser luck
+74 = luck
+75 = greater luck
+76 = ladybug
+77 = gnome
+78 = lucky buffs
+79 = 

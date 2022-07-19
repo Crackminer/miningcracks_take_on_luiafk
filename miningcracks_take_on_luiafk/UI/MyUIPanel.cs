@@ -32,13 +32,13 @@ namespace miningcracks_take_on_luiafk.UI
 
 		private void DragStart(UIMouseEvent evt)
 		{
-									offset = new Vector2(evt.MousePosition.X - Left.Pixels, evt.MousePosition.Y - Top.Pixels);
+			offset = new Vector2(evt.MousePosition.X - Left.Pixels, evt.MousePosition.Y - Top.Pixels);
 			dragging = true;
 		}
 
 		private void DragEnd(UIMouseEvent evt)
 		{
-															Vector2 mousePosition = evt.MousePosition;
+			Vector2 mousePosition = evt.MousePosition;
 			dragging = false;
 			Left.Set(mousePosition.X - offset.X, 0f);
 			Top.Set(mousePosition.Y - offset.Y, 0f);
@@ -47,7 +47,7 @@ namespace miningcracks_take_on_luiafk.UI
 
 		public override void Update(GameTime gameTime)
 		{
-																					base.Update(gameTime);
+			base.Update(gameTime);
 			if (ContainsPoint(Main.MouseScreen))
 			{
 				Main.LocalPlayer.mouseInterface = true;

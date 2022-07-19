@@ -6,8 +6,6 @@ This is mostly not my (miningrack's) Code, It is taken from the Mod Luiafk and a
 
 Github Link: https://github.com/Crackminer/miningcracks_take_on_luiafk/
 
-Currently all the Harvesters are Disabled, I dont know whats exactly wrong with them and will have an extensive look at them soon
-
 If you encounter any bugs or problems please let me know in a steam discussion thread or the github discussions thread with your error message!
 
 
@@ -26,7 +24,7 @@ Improved Drill Mount
 Flies faster, better control, more lasers
 
 Harvesting Chests
-When placed they'll collect Herbs/Trees/Cactus placed nearby, or collect fish relevant to position (including quest fish) if the chest contains baitless rod or normal rod + bait
+When placed they'll collect Herbs/Trees/Cactus/GemTrees placed nearby, or collect fish relevant to position (including quest fish) if the chest contains baitless rod or normal rod + bait
 
 Combo Rod
 Made from various building rods/buckets etc
