@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+﻿/*using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.DataStructures;
@@ -130,14 +130,14 @@ namespace miningcracks_take_on_luiafk.Images.Tiles.Gemcorns
 			}*/
 
 			// A flag to check if a player is near the sapling
-			bool isPlayerNear = WorldGen.PlayerLOS(i, j);
+			/*bool isPlayerNear = WorldGen.PlayerLOS(i, j);
 
 			//If growing the tree was a sucess and the player is near, show growing effects
 			if (growSuccess && isPlayerNear)
 			{
 				WorldGen.TreeGrowFXCheck(i, j);
 			}
-		}
+		}*/
 
 		/*public override void SetSpriteEffects(int i, int j, ref SpriteEffects effects)
 		{
@@ -146,5 +146,5 @@ namespace miningcracks_take_on_luiafk.Images.Tiles.Gemcorns
 				effects = SpriteEffects.FlipHorizontally;
 			}
 		}*/
-	}
-}
+/*	}
+}*/

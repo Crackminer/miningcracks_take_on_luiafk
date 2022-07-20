@@ -27,6 +27,7 @@ namespace miningcracks_take_on_luiafk.Images.Items.Placeables.Collection
 					case 588: WorldGen.PlaceTile(x, y + 1, ModContent.TileType<DiamondCorn>(), mute: true, forced: true); break;
 					case 589: WorldGen.PlaceTile(x, y + 1, ModContent.TileType<AmberCorn>(), mute: true, forced: true); break;
 				}
+				//WorldGen.PlaceTile(x, y + 1, 590, mute: true, forced: true, plr: 5);
 			}
 		}
 

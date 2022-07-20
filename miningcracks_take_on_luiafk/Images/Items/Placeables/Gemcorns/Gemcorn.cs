@@ -24,7 +24,7 @@ namespace miningcracks_take_on_luiafk.Images.Items.Placeables.Gemcorns
 		{
 			base.DisplayName.SetDefault("Modded " + name + "Gemcorn");
 			base.Tooltip.SetDefault("'Cause vanilla's cant be placed :/\nOnly for placing down for the Gem Harvester.");
-			base.SacrificeTotal = 1;
+			base.SacrificeTotal = 15;
 		}
 
 		public override void SetDefaults()
@@ -33,7 +33,7 @@ namespace miningcracks_take_on_luiafk.Images.Items.Placeables.Gemcorns
 			base.Item.useStyle = 1;
 			base.Item.useTurn = true;
 			base.Item.useAnimation = 15;
-			base.Item.useTime = 10;
+			base.Item.useTime = 20;
 			base.Item.holdStyle = 1;
 			base.Item.autoReuse = true;
 			int tt = 0;
