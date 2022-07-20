@@ -289,7 +289,7 @@ namespace miningcracks_take_on_luiafk.Images.Items.Placeables.Collection
 						else stone++;
                     }
 					num2 = PutInChest(chest, ItemID.Topaz, topaz);
-					if (num != 0) PutInChest(chest, ItemID.GemTreeTopazSeed, Main.rand.NextBool(10) ? 1 : 0);
+					//if (num != 0) PutInChest(chest, ItemID.GemTreeTopazSeed, Main.rand.NextBool(10) ? 1 : 0);
 					if (num2 < num)
 					{
 						updateTile(t, x, y);
@@ -307,7 +307,7 @@ namespace miningcracks_take_on_luiafk.Images.Items.Placeables.Collection
 						else stone++;
 					}
 					num2 = PutInChest(chest, ItemID.Amethyst, amethyst);
-					if (num != 0) PutInChest(chest, ItemID.GemTreeAmethystSeed, Main.rand.NextBool(10) ? 1 : 0);
+					//if (num != 0) PutInChest(chest, ItemID.GemTreeAmethystSeed, Main.rand.NextBool(10) ? 1 : 0);
 					if (num2 < num)
 					{
 						updateTile(t, x, y);
@@ -325,7 +325,7 @@ namespace miningcracks_take_on_luiafk.Images.Items.Placeables.Collection
 						else stone++;
 					}
 					num2 = PutInChest(chest, ItemID.Sapphire, sapphire);
-					if (num != 0) PutInChest(chest, ItemID.GemTreeSapphireSeed, Main.rand.NextBool(10) ? 1 : 0);
+					//if (num != 0) PutInChest(chest, ItemID.GemTreeSapphireSeed, Main.rand.NextBool(10) ? 1 : 0);
 					if (num2 < num)
 					{
 						updateTile(t, x, y);
@@ -343,7 +343,7 @@ namespace miningcracks_take_on_luiafk.Images.Items.Placeables.Collection
 						else stone++;
 					}
 					num2 = PutInChest(chest, ItemID.Emerald, emerald);
-					if(num != 0) PutInChest(chest, ItemID.GemTreeEmeraldSeed, Main.rand.NextBool(10) ? 1 : 0);
+					//if(num != 0) PutInChest(chest, ItemID.GemTreeEmeraldSeed, Main.rand.NextBool(10) ? 1 : 0);
 					if (num2 < num)
 					{
 						updateTile(t, x, y);
@@ -361,7 +361,7 @@ namespace miningcracks_take_on_luiafk.Images.Items.Placeables.Collection
 						else stone++;
 					}
 					num2 = PutInChest(chest, ItemID.Ruby, ruby);
-					if(num != 0) PutInChest(chest, ItemID.GemTreeRubySeed, Main.rand.NextBool(10) ? 1 : 0);
+					//if(num != 0) PutInChest(chest, ItemID.GemTreeRubySeed, Main.rand.NextBool(10) ? 1 : 0);
 					if (num2 < num)
 					{
 						updateTile(t, x, y);
@@ -379,7 +379,7 @@ namespace miningcracks_take_on_luiafk.Images.Items.Placeables.Collection
 						else stone++;
 					}
 					num2 = PutInChest(chest, ItemID.Diamond, diamond);
-					if (num != 0) PutInChest(chest, ItemID.GemTreeDiamondSeed, Main.rand.NextBool(10) ? 1 : 0);
+					//if (num != 0) PutInChest(chest, ItemID.GemTreeDiamondSeed, Main.rand.NextBool(10) ? 1 : 0);
 					if (num2 < num)
 					{
 						updateTile(t, x, y);
@@ -397,7 +397,7 @@ namespace miningcracks_take_on_luiafk.Images.Items.Placeables.Collection
 						else stone++;
 					}
 					num2 = PutInChest(chest, ItemID.Amber, amber);
-					if (num != 0) PutInChest(chest, ItemID.GemTreeAmberSeed, Main.rand.NextBool(10) ? 1 : 0);
+					//if (num != 0) PutInChest(chest, ItemID.GemTreeAmberSeed, Main.rand.NextBool(10) ? 1 : 0);
 					if (num2 < num)
 					{
 						updateTile(t, x, y);
@@ -407,6 +407,18 @@ namespace miningcracks_take_on_luiafk.Images.Items.Placeables.Collection
 						full = true;
 					}
 					num = stone;
+
+					num2 = PutInChest(chest, ItemID.StoneBlock, stone);
+					//if (num != 0) PutInChest(chest, ItemID.GemTreeTopazSeed, Main.rand.NextBool(10) ? 1 : 0);
+					if (num2 < num)
+					{
+						updateTile(t, x, y);
+					}
+					if (num2 > 0)
+					{
+						full = true;
+					}
+					return;
 				}
 				else
                 {
