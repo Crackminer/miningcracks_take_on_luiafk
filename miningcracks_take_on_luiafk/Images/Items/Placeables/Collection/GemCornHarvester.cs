@@ -11,7 +11,7 @@ namespace miningcracks_take_on_luiafk.Images.Items.Placeables.Collection
 		public override void SetStaticDefaults()
 		{
 			base.DisplayName.SetDefault("Gemcorn Tree Harvester");
-			base.Tooltip.SetDefault("When placed will collect nearby gemcorn trees.\nWill collect gemcorn trees within 50 tiles each direction.\nWill collect gemcorn acorns.\nWill currently not replant the gemcorn trees :/\nExpert");
+			base.Tooltip.SetDefault("When placed will collect nearby gemcorn trees.\nWill collect gemcorn trees within 50 tiles each direction.\nWill not collect gemcorn saplings.\nExpert");
 			base.SacrificeTotal = 1;
 		}
 
