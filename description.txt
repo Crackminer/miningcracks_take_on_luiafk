@@ -1,5 +1,5 @@
 Author and Owner of the original Code: Luiafk
-Ported and Maintained by: miningcrack
+Ported and Maintained by: miningcrack and TheBrutalSkull ^-^
 
 IMPORTANT:
 This is mostly not my (miningrack's) Code, It is taken from the Mod Luiafk and altered to be working in 1.4. 

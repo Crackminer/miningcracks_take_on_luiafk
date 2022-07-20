@@ -1,8 +1,11 @@
 using Microsoft.Xna.Framework;
+using miningcracks_take_on_luiafk.Images.Items.Drops;
+using miningcracks_take_on_luiafk.Images.Items.Thrown;
 using miningcracks_take_on_luiafk.Utility;
 using Terraria;
 using Terraria.Chat;
 using Terraria.DataStructures;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
@@ -10,28 +13,22 @@ namespace miningcracks_take_on_luiafk
 {
 	public class LuiafkGlobalNPC : GlobalNPC
 	{
-		public override void OnKill(NPC npc)
-		{
+        public override void ModifyNPCLoot(NPC npc, NPCLoot npcLoot)
+        {
 			switch (npc.type)
 			{
-			case 113:
-				if (Main.rand.NextBool(5))
-				{
-					Item.NewItem(new EntitySource_Loot(npc), (int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, base.Mod.Find<ModItem>("LootMagnet").Type);
-				}
-				break;
-			case 370:
-				Item.NewItem(new EntitySource_Loot(npc), (int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, base.Mod.Find<ModItem>("ManaEssence").Type);
-				break;
-			case 398:
-				Item.NewItem(new EntitySource_Loot(npc), (int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, base.Mod.Find<ModItem>("MagicEssence").Type);
-				break;
-			case 4:
-				if (Main.rand.NextBool(10))
-				{
-					Item.NewItem(new EntitySource_Loot(npc), (int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, base.Mod.Find<ModItem>("UnlimitedMerchantKiller").Type);
-				}
-				break;
+				case 113:
+					npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<LootMagnet>(), chanceDenominator: 5));
+					break;
+				case 370:
+					npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ManaEssence>(), chanceDenominator: 1));
+					break;
+				case 398:
+					npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<MagicEssence>(), chanceDenominator: 1));
+					break;
+				case 4:
+					npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<UnlimitedMerchantKiller>(), chanceDenominator: 10));
+					break;
 			}
 		}
 
