@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using Microsoft.Xna.Framework;
 using miningcracks_take_on_luiafk.Utility;
@@ -86,8 +87,13 @@ namespace miningcracks_take_on_luiafk.Images.Items.Misc
 
         public override void AddRecipes()
         {
-            CreateRecipe().AddIngredient(3202, 1).AddTile(18)
-                .Register();
+            Recipe recipe = base.CreateRecipe(1);
+            recipe.AddIngredient(3202, 1);
+            recipe.Register();
+
+            Recipe recipeBack = Recipe.Create(3202, 1);
+            recipeBack.AddIngredient<DeepsSummon>(1);
+            recipeBack.Register();
         }
     }
 }
