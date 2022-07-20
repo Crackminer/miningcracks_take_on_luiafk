@@ -309,13 +309,24 @@ namespace miningcracks_take_on_luiafk.UI
 
 		public void resetValues()
         {
+			int helper = 0;
 			foreach (MyImageButton button in allButtons)
 			{
+				if(button.active)
+                {
+					UILearning.LuiP.uiBuffs ^= (PotToggles)((ushort)PotToggles.UltBattler << helper);
+                }
 				button.active = false;
 				button.SetVisibility(0.6f, 0.6f);
+				helper++;
 			}
 
-			UILearning.LuiP.uiBuffs = 0b000000000;
+			if((UILearning.LuiP.uiBuffs & PotToggles.UltBattler) != 0)
+            {
+				UILearning.LuiP.uiBuffs ^= PotToggles.UltBattler;
+
+			}
+			//UILearning.LuiP.uiBuffs = 0b000000000;
 
 			buttonUpdates();
 		}

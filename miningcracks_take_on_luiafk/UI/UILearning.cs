@@ -98,9 +98,9 @@ namespace miningcracks_take_on_luiafk.UI
 			BuffUI.disableBattler();
 		}
 
-		internal static void OnEnterWorld()
+		internal static void OnEnterWorld(Player player)
 		{
-			LuiP = Main.player[Main.myPlayer].GetModPlayer<LuiafkPlayer>();
+			LuiP = player.GetModPlayer<LuiafkPlayer>();
             BuffUI.position = LuiP.uiBuffPosition;
 			foreach(RightClickUI rui in rightClickUIs.Values)
             {

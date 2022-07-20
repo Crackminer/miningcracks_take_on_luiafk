@@ -525,7 +525,7 @@ namespace miningcracks_take_on_luiafk
 				{ "mouseTileCoords", mouseTileCoords },
 				{ "goodMove", goodMove },
 				{ "infiniteAmmoDisabled", infiniteAmmoDisabled },
-				{ "craftWithAnyTile", craftWithAnyTile }
+				{ "craftWithAnyTile", craftWithAnyTile },
 			};
 			SaveUI(tag);
 		}
@@ -560,7 +560,7 @@ namespace miningcracks_take_on_luiafk
 					position = new Vector2((float)(Main.spawnTileX << 4), (float)(Main.spawnTileY << 4));
 				}
 			}
-			UILearning.OnEnterWorld();
+			UILearning.OnEnterWorld(player);
 			uiMultiSolutionTileX = new int[3] { -1, -1, -1 };
 			uiMultiSolutionTileY = new int[2] { -1, -1 };
 			if (Main.netMode == 1)
