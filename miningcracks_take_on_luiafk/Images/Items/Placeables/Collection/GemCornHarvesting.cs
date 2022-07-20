@@ -1,4 +1,5 @@
-﻿using miningcracks_take_on_luiafk.Utility;
+﻿using miningcracks_take_on_luiafk.Images.Tiles.Gemcorns;
+using miningcracks_take_on_luiafk.Utility;
 using System;
 using System.Linq;
 using Terraria;
@@ -16,7 +17,16 @@ namespace miningcracks_take_on_luiafk.Images.Items.Placeables.Collection
 			Harvesting.MultiTilesTrees(x, y, kill: true, treeTypes);
             if (Main.tile[x, y + 2].TileType == 1)
             {
-				WorldGen.PlaceTile(x, y + 1, 590, mute: true, forced: true, style: (Main.tile[x, y + 1].TileType - 583) * 3);
+                switch(Main.tile[x, y + 1].TileType)
+                {
+					case 583: WorldGen.PlaceTile(x, y + 1, ModContent.TileType<TopazCorn>(), mute: true, forced: true); break;
+					case 584: WorldGen.PlaceTile(x, y + 1, ModContent.TileType<AmethystCorn>(), mute: true, forced: true); break;
+					case 585: WorldGen.PlaceTile(x, y + 1, ModContent.TileType<SapphireCorn>(), mute: true, forced: true); break;
+					case 586: WorldGen.PlaceTile(x, y + 1, ModContent.TileType<EmeraldCorn>(), mute: true, forced: true); break;
+					case 587: WorldGen.PlaceTile(x, y + 1, ModContent.TileType<RubyCorn>(), mute: true, forced: true); break;
+					case 588: WorldGen.PlaceTile(x, y + 1, ModContent.TileType<DiamondCorn>(), mute: true, forced: true); break;
+					case 589: WorldGen.PlaceTile(x, y + 1, ModContent.TileType<AmberCorn>(), mute: true, forced: true); break;
+				}
 			}
 		}
 
