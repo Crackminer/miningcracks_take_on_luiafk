@@ -96,7 +96,7 @@ namespace miningcracks_take_on_luiafk.Images.Items.Misc
             recipeBack.Register();
             
             Recipe recipeForth = base.CreateRecipe(1);
-            recipeForth.AddIngredient(3302, 1);
+            recipeForth.AddIngredient(3202, 1);
             recipeForth.Register();
         }
     }
