@@ -21,28 +21,50 @@ namespace miningcracks_take_on_luiafk.Images.Items.Placeables.Collection
 			int tt2 = Main.tile[x, y + 1].TileType;
 			if (tt2 == TileID.Stone)
 			{
+				int rnd = 0;
 				switch (tt)
 				{
 					case 583:
 						WorldGen.Place1x2(x, y, 590, 0);
+						rnd = Main.rand.Next(0, 2);
+						Main.tile[x, y].TileFrameX += (short)(rnd * 18);
+                        Main.tile[x, y - 1].TileFrameX += (short)(rnd * 18);
 						break;
 					case 584:
-						WorldGen.Place1x2(x, y, 590, 1);
+						WorldGen.Place1x2(x, y, 590, 0);
+						rnd = Main.rand.Next(3, 5);
+						Main.tile[x, y].TileFrameX += (short)(rnd * 18);
+						Main.tile[x, y - 1].TileFrameX += (short)(rnd * 18);
 						break;
 					case 585:
-						WorldGen.Place1x2(x, y, 590, 2);
+						WorldGen.Place1x2(x, y, 590, 0);
+						rnd = Main.rand.Next(6, 8);
+						Main.tile[x, y].TileFrameX += (short)(rnd * 18);
+						Main.tile[x, y - 1].TileFrameX += (short)(rnd * 18);
 						break;
 					case 586:
-						WorldGen.Place1x2(x, y, 590, 3);
+						WorldGen.Place1x2(x, y, 590, 0);
+						rnd = Main.rand.Next(9, 11);
+						Main.tile[x, y].TileFrameX += (short)(rnd * 18);
+						Main.tile[x, y - 1].TileFrameX += (short)(rnd * 18);
 						break;
 					case 587:
-						WorldGen.Place1x2(x, y, 590, 4);
+						WorldGen.Place1x2(x, y, 590, 0);
+						rnd = Main.rand.Next(12, 14);
+						Main.tile[x, y].TileFrameX += (short)(rnd * 18);
+						Main.tile[x, y - 1].TileFrameX += (short)(rnd * 18);
 						break;
 					case 588:
-						WorldGen.Place1x2(x, y, 590, 5);
+						WorldGen.Place1x2(x, y, 590, 0);
+						rnd = Main.rand.Next(15, 17);
+						Main.tile[x, y].TileFrameX += (short)(rnd * 18);
+						Main.tile[x, y - 1].TileFrameX += (short)(rnd * 18);
 						break;
 					case 589:
-						WorldGen.Place1x2(x, y, 590, 6);
+						WorldGen.Place1x2(x, y, 590, 0);
+						rnd = Main.rand.Next(18, 23);
+						Main.tile[x, y].TileFrameX += (short)(rnd * 18);
+						Main.tile[x, y - 1].TileFrameX += (short)(rnd * 18);
 						break;
 					default:
 						break;
