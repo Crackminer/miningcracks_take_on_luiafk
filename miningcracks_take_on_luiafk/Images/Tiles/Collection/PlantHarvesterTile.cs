@@ -11,5 +11,5 @@ namespace miningcracks_take_on_luiafk.Images.Tiles.Collection
 		{
 			Defaults.ChestTile(this, "Plant Harvester", ModContent.ItemType<PlantHarvester>(), new Color(255, 255, 255));
 		}
-	}
+    }
 }

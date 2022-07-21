@@ -10,6 +10,6 @@ namespace miningcracks_take_on_luiafk.Images.Tiles.Collection
 		public override void SetStaticDefaults()
 		{
 			Defaults.ChestTile(this, "Tree Harvester", ModContent.ItemType<TreeHarvester>(), new Color(255, 0, 255));
-		}
+		}		
 	}
 }

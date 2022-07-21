@@ -1,3 +1,4 @@
+using miningcracks_take_on_luiafk.Images.Items.Placeables.Collection;
 using Terraria;
 using Terraria.GameContent.ObjectInteractions;
 using Terraria.ModLoader;
@@ -8,6 +9,8 @@ namespace miningcracks_take_on_luiafk.Images.Tiles.Collection
 	{
 		public override string HighlightTexture => "Terraria/Images/Misc/TileOutlines/Tiles_21";
 
+		internal bool loaded = false;
+
 		public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings)
 		{
 			return true;
@@ -16,6 +19,7 @@ namespace miningcracks_take_on_luiafk.Images.Tiles.Collection
 		public override void PlaceInWorld(int x, int y, Item item)
 		{
 			Chests.PlaceHarvester(x, y);
+			loaded = true;
 		}
 
 		public override void KillMultiTile(int x, int y, int frameX, int frameY)
@@ -37,6 +41,16 @@ namespace miningcracks_take_on_luiafk.Images.Tiles.Collection
 		{
 			Chests.ChestRightClick(x, y);
 			return true;
+		}
+
+		public override void NearbyEffects(int i, int j, bool closer)		//doesnt work like i wanted :(
+		{
+			if (!Main.PlayerLoaded) return;
+			if (!loaded)
+			{
+				Chests.PlaceHarvester(i, j);
+				loaded = true;
+			}
 		}
 	}
 }

@@ -75,63 +75,6 @@ namespace miningcracks_take_on_luiafk.Images.Tiles.Collection
 
 		internal static void ChestRightClick(int x, int y)
 		{
-			/*Player player = Main.player[Main.myPlayer];
-			Main.mouseRightRelease = false;
-			Point16 point = TileChecks.FindChestTopLeft(x, y, destroy: false);
-			if (player.sign >= 0)
-			{
-				player.sign = -1;
-				Main.editSign = false;
-				Main.npcChatText = "";
-				SoundEngine.PlaySound(in SoundID.Item11, (Vector2?)new Vector2(-1f, -1f));
-			}
-			if (Main.editChest)
-			{
-				Main.editChest = false;
-				Main.npcChatText = "";
-				SoundEngine.PlaySound(in SoundID.Item12, (Vector2?)new Vector2(-1f, -1f));
-			}
-			if (player.editedChestName)
-			{
-				player.editedChestName = false;
-				NetMessage.SendData(33, -1, -1, NetworkText.FromLiteral(Main.chest[player.chest].name), player.chest, 1f);
-			}
-			if (Main.netMode == 1)
-			{
-				if (point.X == player.chestX && point.Y == player.chestY && player.chest >= 0)
-				{
-					player.chest = -1;
-					Recipe.FindRecipes();
-					SoundEngine.PlaySound(in SoundID.Item11, (Vector2?)new Vector2(-1f, -1f));
-				}
-				else
-				{
-					Main.stackSplit = 600;
-					NetMessage.SendData(31, -1, -1, null, point.X, point.Y);
-				}
-				return;
-			}
-			int num = Chest.FindChest(point.X, point.Y);
-			if (num >= 0)
-			{
-				Main.stackSplit = 600;
-				if (num == player.chest)
-				{
-					player.chest = -1;
-					SoundEngine.PlaySound(in SoundID.Item11, (Vector2?)new Vector2(-1f, -1f));
-				}
-				else
-				{
-					player.chest = num;
-					player.chestX = point.X;
-					player.chestY = point.Y;
-					Main.playerInventory = true;
-					Main.recBigList = false;
-					SoundStyle style = ((player.chest < 0) ? SoundID.Item10 : SoundID.Item12);
-					SoundEngine.PlaySound(in style, (Vector2?)new Vector2(-1f, -1f));
-				}
-				Recipe.FindRecipes();
-			}*/
 			Player player = Main.LocalPlayer;
 			Tile tile = Main.tile[x, y];
 			Main.mouseRightRelease = false;
