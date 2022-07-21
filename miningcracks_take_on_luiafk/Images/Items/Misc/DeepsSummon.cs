@@ -94,6 +94,10 @@ namespace miningcracks_take_on_luiafk.Images.Items.Misc
             Recipe recipeBack = Recipe.Create(3202, 1);
             recipeBack.AddIngredient<DeepsSummon>(1);
             recipeBack.Register();
+            
+            Recipe recipeForth = base.CreateRecipe(1);
+            recipeForth.AddIngredient(3302, 1);
+            recipeForth.Register();
         }
     }
 }
