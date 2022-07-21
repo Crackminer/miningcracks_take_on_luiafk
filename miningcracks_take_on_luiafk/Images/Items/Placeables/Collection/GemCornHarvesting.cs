@@ -43,7 +43,7 @@ namespace miningcracks_take_on_luiafk.Images.Items.Placeables.Collection
 						rnd = Main.rand.Next(15, 17);
 						break;
 					case 589:
-						rnd = Main.rand.Next(18, 23);
+						rnd = Main.rand.Next(18, 20);
 						break;
 					default:	return;
 				}
