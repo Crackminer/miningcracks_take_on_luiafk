@@ -1,5 +1,4 @@
 ﻿using Microsoft.Xna.Framework;
-using miningcracks_take_on_luiafk.Images.Tiles.Gemcorns;
 using miningcracks_take_on_luiafk.Utility;
 using System;
 using System.Linq;
@@ -15,51 +14,40 @@ namespace miningcracks_take_on_luiafk.Images.Items.Placeables.Collection
 
 		private static void UpdateTile(Tile t, int x, int y)
 		{
+			int tt = Main.tile[x, y].TileType;
+			if (tt == 590) return;
 			Harvesting.MultiTilesTrees(x, y, kill: true, treeTypes);
-            //if (Main.tile[x, y + 1].TileType == TileID.Stone)
-            //{
-				int tt = Main.tile[x, y].TileType;
-				int tt2 = Main.tile[x, y + 1].TileType;
-				//Main.NewText("TileID: " + tt + " at Coordinates: " + x + ", " + y, Color.Yellow);
-				//Main.NewText("This is one below: TileID: " + tt2 + " at Coordinates: " + x + ", " + (y + 1), Color.Yellow);
-			//WorldGen.KillTile(x, y, noItem: true);
+			tt = Main.tile[x, y].TileType;
+			int tt2 = Main.tile[x, y + 1].TileType;
 			if (tt2 == TileID.Stone)
 			{
-				bool temp;
 				switch (tt)
 				{
 					case 583:
-						temp = WorldGen.PlaceTile(x, y, ModContent.TileType<TopazCorn>(), mute: true, forced: true);
-						//Main.NewText("Tried planting TopazCorn: " + (temp ? "Successful" : "Unsuccessful"), Color.Yellow);
+						WorldGen.Place1x2(x, y, 590, 0);
 						break;
 					case 584:
-						temp = WorldGen.PlaceTile(x, y, ModContent.TileType<AmethystCorn>(), mute: true, forced: true);
-						//Main.NewText("Tried planting AmethystCorn: " + (temp ? "Successful" : "Unsuccessful"), Color.Yellow);
+						WorldGen.Place1x2(x, y, 590, 1);
 						break;
 					case 585:
-						temp = WorldGen.PlaceTile(x, y, ModContent.TileType<SapphireCorn>(), mute: true, forced: true);
-						//Main.NewText("Tried planting SapphireCorn: " + (temp ? "Successful" : "Unsuccessful"), Color.Yellow);
+						WorldGen.Place1x2(x, y, 590, 2);
 						break;
 					case 586:
-						temp = WorldGen.PlaceTile(x, y, ModContent.TileType<EmeraldCorn>(), mute: true, forced: true);
-						//Main.NewText("Tried planting EmeraldCorn: " + (temp ? "Successful" : "Unsuccessful"), Color.Yellow);
+						WorldGen.Place1x2(x, y, 590, 3);
 						break;
 					case 587:
-						temp = WorldGen.PlaceTile(x, y, ModContent.TileType<RubyCorn>(), mute: true, forced: true);
-						//Main.NewText("Tried planting RubyCorn: " + (temp ? "Successful" : "Unsuccessful"), Color.Yellow);
+						WorldGen.Place1x2(x, y, 590, 4);
 						break;
 					case 588:
-						temp = WorldGen.PlaceTile(x, y, ModContent.TileType<DiamondCorn>(), mute: true, forced: true);
-						//Main.NewText("Tried planting DiamondCorn: " + (temp ? "Successful" : "Unsuccessful"), Color.Yellow);
+						WorldGen.Place1x2(x, y, 590, 5);
 						break;
 					case 589:
-						temp = WorldGen.PlaceTile(x, y, ModContent.TileType<AmberCorn>(), mute: true, forced: true);
-						//Main.NewText("Tried planting AmberCorn: " + (temp ? "Successful" : "Unsuccessful"), Color.Yellow);
+						WorldGen.Place1x2(x, y, 590, 6);
+						break;
+					default:
 						break;
 				}
 			}
-				//WorldGen.PlaceTile(x, y + 1, 590, mute: true, forced: true, plr: 5);
-			//}
 		}
 
 		internal static bool NearbyGemTrees(Tile t, int chest, int x, int y)
