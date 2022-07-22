@@ -234,6 +234,7 @@ namespace miningcracks_take_on_luiafk
 		public override void PostItemCheck()
 		{
 			base.PostItemCheck();
+			if (UILearning.LuiP == null) return;
 			Item heldItem = UILearning.LuiP.Player.HeldItem;
 
 			if (heldItem == null)

@@ -47,10 +47,10 @@ namespace miningcracks_take_on_luiafk.Images.Items.Placeables.Collection
 						break;
 					default:	return;
 				}
-
 				WorldGen.Place1x2(x, y, 590, 0);
 				Main.tile[x, y].TileFrameX += (short)(rnd * 18);
 				Main.tile[x, y - 1].TileFrameX += (short)(rnd * 18);
+				if (Main.netMode != 0) NetMessage.SendObjectPlacment(-1, x, y, 590, 0, rnd, 0, 0);
 			}
 		}
 
