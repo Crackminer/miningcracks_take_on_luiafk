@@ -494,6 +494,7 @@ namespace miningcracks_take_on_luiafk.Images.Items.Placeables.Collection
 			((BinaryWriter)packet).Write(x);
 			((BinaryWriter)packet).Write(y);
 			packet.Send();
+			HandleHarvesting(x, y);
 		}
 
 		internal static void HandleHarvesting(int x, int y)
