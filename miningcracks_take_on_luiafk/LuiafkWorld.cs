@@ -25,6 +25,8 @@ namespace miningcracks_take_on_luiafk
 
 		internal static int dd2Time = 1800;
 
+		internal static bool loaded = false;
+
 		private static Dictionary<string, Vector2> telePoints;
 
 		internal static bool AnyBoss { get; private set; } = false;
@@ -45,9 +47,19 @@ namespace miningcracks_take_on_luiafk
 			UpdateAnyBoss();
 			UpdateEvents();
 			UpdateHarvestingChests();
+			if (!loaded)
+			{
+				Harvesting.SearchHarvestersOnLoad();
+				loaded = true;
+			}
 		}
 
-		public override void SaveWorldData(TagCompound tag)
+        public override void OnWorldUnload()
+        {
+			loaded = false;
+        }
+
+        public override void SaveWorldData(TagCompound tag)
 		{
 			TagCompound tagCompound = new TagCompound
 			{

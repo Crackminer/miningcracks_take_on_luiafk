@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using Microsoft.Xna.Framework;
 using miningcracks_take_on_luiafk.Images.Items.Fishing;
+using miningcracks_take_on_luiafk.Images.Tiles.Collection;
 using miningcracks_take_on_luiafk.Utility;
 using Terraria;
 using Terraria.DataStructures;
@@ -513,6 +514,29 @@ namespace miningcracks_take_on_luiafk.Images.Items.Placeables.Collection
 			else
 			{
 				crappyPackets = true;
+			}
+		}
+
+		internal static void SearchHarvestersOnLoad()
+        {
+			for (int x = 0; x < Main.ActiveWorldFileData.WorldSizeX; x++)
+			{
+				for(int y = 0; y < Main.ActiveWorldFileData.WorldSizeY; y++)
+                {
+					if (Main.tile[x, y].HasTile)
+					{
+						int tileType = Main.tile[x, y].TileType;
+						if (tileType == ModContent.TileType<TreeHarvesterTile>() || tileType == ModContent.TileType<PlantHarvesterTile>() || tileType == ModContent.TileType<CactusHarvesterTile>() || tileType == ModContent.TileType<FishHarvesterTile>() || tileType == ModContent.TileType<GemCornHarvesterTile>())
+						if (Main.netMode == 0)
+						{
+							HandleHarvesting(x, y);
+						}
+						else
+						{
+							HarvestingPacket(x, y, Packet.Harvesting);
+						}
+					}
+				}
 			}
 		}
 	}
