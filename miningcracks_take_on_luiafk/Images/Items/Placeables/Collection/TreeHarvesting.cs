@@ -14,6 +14,7 @@ namespace miningcracks_take_on_luiafk.Images.Items.Placeables.Collection
 			if (Main.tile[x, y + 1].TileType != 60)
 			{
 				WorldGen.PlaceTile(x, y, 20);
+				if (Main.netMode != 0) NetMessage.SendObjectPlacment(-1, x, y, 20, 0, 0, 0, 0);
 			}
 		}
 

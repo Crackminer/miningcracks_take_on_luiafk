@@ -10,17 +10,17 @@ namespace miningcracks_take_on_luiafk.Utility
 	{
 		internal static Point16 PlayerCenterTile(Player player)
 		{
-									return new Point16((int)(player.Center.X / 16f), (int)(player.Center.Y / 16f));
+			return new Point16((int)(player.Center.X / 16f), (int)(player.Center.Y / 16f));
 		}
 
 		internal static int PlayerCenterTileX(Player player)
 		{
-						return (int)(player.Center.X / 16f);
+			return (int)(player.Center.X / 16f);
 		}
 
 		internal static int PlayerCenterTileY(Player player)
 		{
-						return (int)(player.Center.Y / 16f);
+			return (int)(player.Center.Y / 16f);
 		}
 
 		internal static bool InGameWorldLeft(int x)
@@ -212,6 +212,7 @@ namespace miningcracks_take_on_luiafk.Utility
 			if (Main.netMode != 0)
 			{
 				NetMessage.SendTileSquare(-1, x, y, 1);
+				//NetMessage.SendObjectPlacment(-1, x, y, -1, 0, 0, 0, 0);
 			}
 		}
 
@@ -338,7 +339,7 @@ namespace miningcracks_take_on_luiafk.Utility
 
 		internal static void PrintCoords(int x, int y, Color color, string location)
 		{
-									MiscMethods.WriteText(location, color);
+			MiscMethods.WriteText(location, color);
 			MiscMethods.WriteText(CoordsString(x, y), color);
 		}
 
@@ -367,7 +368,7 @@ namespace miningcracks_take_on_luiafk.Utility
 
 		internal static bool SearchBelow(Player player, Func<int, int, bool> toSearch, Color color, string located, int gap)
 		{
-									int num = PlayerCenterTileX(player);
+			int num = PlayerCenterTileX(player);
 			int num2 = PlayerCenterTileY(player);
 			for (int i = 0; InGameWorldLeft(num - i) || InGameWorldRight(num + i); i += gap)
 			{
