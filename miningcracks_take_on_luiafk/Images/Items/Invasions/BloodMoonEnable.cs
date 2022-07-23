@@ -32,6 +32,15 @@ namespace miningcracks_take_on_luiafk.Images.Items.Invasions
 					NetMessage.SendData(7);
 				}
 			}
+			if (!Main.dayTime && !Main.snowMoon && !Main.pumpkinMoon && Main.bloodMoon && Main.netMode != 1)
+            {
+				Main.bloodMoon = false;
+				if (!Main.bloodMoon)
+				{
+					MiscMethods.WriteText("BloodMoon disabled", new Color(50, 255, 130));
+					NetMessage.SendData(7);
+				}
+			}
 			return true;
 		}
 
