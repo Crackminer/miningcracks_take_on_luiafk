@@ -14,7 +14,7 @@ namespace miningcracks_take_on_luiafk.Images.Items.Buckets
 
 		public override void SetDefaults()
 		{
-			Defaults.CloneAmmoThrown(base.Item, 820, usable: true);
+			Defaults.CloneAmmoThrown(base.Item, 4608, usable: true);
 		}
 
 		public override void AddRecipes()
