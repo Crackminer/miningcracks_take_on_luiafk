@@ -1,15 +1,16 @@
-using miningcracks_take_on_luiafk.Utility;
+﻿using miningcracks_take_on_luiafk.Utility;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace miningcracks_take_on_luiafk.Images.Items.Potions.IndividualPotions
 {
-	public class UnlimitedAmmoReservation : ModItem
+	public class UnlimitedLadybug : ModItem
 	{
 		public override void SetStaticDefaults()
 		{
-			base.DisplayName.SetDefault("Unlimited Ammo Reservation Potion");
-			base.Tooltip.SetDefault("Save some ammo.");
+			base.DisplayName.SetDefault("Unlimited Ladybugs");
+			base.Tooltip.SetDefault("You feel the luck buzzing in your hands.\nNo critter!");
 			base.SacrificeTotal = 1;
 		}
 
@@ -20,13 +21,13 @@ namespace miningcracks_take_on_luiafk.Images.Items.Potions.IndividualPotions
 
 		public override void UpdateInventory(Player player)
 		{
-			player.GetModPlayer<LuiafkPlayer>().buffs[5] = true;
+			player.GetModPlayer<LuiafkPlayer>().buffs[76] = true;
 			player.GetModPlayer<LuiafkPlayer>().buffs[0] = true;
 		}
 
 		public override void AddRecipes()
 		{
-			CreateRecipe().AddIngredient(2344, 30).AddTile(13).Register();
+			CreateRecipe().AddIngredient(4361, 95).AddIngredient(4362, 5).AddTile(13).Register();
 		}
 	}
 }

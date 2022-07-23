@@ -50,6 +50,7 @@ player.GetModPlayer<LuiafkPlayer>().buffs[0] = true;
 				.AddIngredient(null, "UnlimitedTeleportation")
 				.AddIngredient(null, "UltimateBattler")
 				.AddIngredient(null, "UltimatePeaceful")
+				.AddIngredient(null, "UnlimitedLucky")
 				.AddTile(13)
 				.Register();
 		}

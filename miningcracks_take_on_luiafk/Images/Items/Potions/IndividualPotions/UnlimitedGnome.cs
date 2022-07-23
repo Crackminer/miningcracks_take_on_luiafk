@@ -1,15 +1,15 @@
-using miningcracks_take_on_luiafk.Utility;
+﻿using miningcracks_take_on_luiafk.Utility;
 using Terraria;
 using Terraria.ModLoader;
 
 namespace miningcracks_take_on_luiafk.Images.Items.Potions.IndividualPotions
 {
-	public class UnlimitedAmmoReservation : ModItem
+	public class UnlimitedGnome : ModItem
 	{
 		public override void SetStaticDefaults()
 		{
-			base.DisplayName.SetDefault("Unlimited Ammo Reservation Potion");
-			base.Tooltip.SetDefault("Save some ammo.");
+			base.DisplayName.SetDefault("Unlimited Gnomes");
+			base.Tooltip.SetDefault("You got Gnomed.");
 			base.SacrificeTotal = 1;
 		}
 
@@ -20,13 +20,13 @@ namespace miningcracks_take_on_luiafk.Images.Items.Potions.IndividualPotions
 
 		public override void UpdateInventory(Player player)
 		{
-			player.GetModPlayer<LuiafkPlayer>().buffs[5] = true;
+			player.GetModPlayer<LuiafkPlayer>().buffs[77] = true;
 			player.GetModPlayer<LuiafkPlayer>().buffs[0] = true;
 		}
 
 		public override void AddRecipes()
 		{
-			CreateRecipe().AddIngredient(2344, 30).AddTile(13).Register();
+			CreateRecipe().AddIngredient(4609, 10).AddTile(13).Register();
 		}
 	}
 }
