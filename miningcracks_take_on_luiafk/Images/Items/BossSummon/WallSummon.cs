@@ -24,15 +24,14 @@ namespace miningcracks_take_on_luiafk.Images.Items.BossSummon
 
 		public override bool CanUseItem(Player player)
 		{
-			return Main.hardMode && player.ZoneUnderworldHeight;
+			return Main.hardMode && player.ZoneUnderworldHeight && !NPC.AnyNPCs(113) && !NPC.AnyNPCs(114);
 		}
 
 		public override bool? UseItem(Player player)
 		{
 			if (Main.netMode != 1)
 			{
-				NPC.SpawnWOF(player.position);//new(player.Left.X < player.Right.X ? 0 + 400 : Main.ActiveWorldFileData.WorldSizeX - 400, player.height));
-				MiscMethods.WriteText("Wall of Flesh has been summoned!", new Color(175, 75, 255));
+				NPC.SpawnWOF(player.position);
 			}
 			return true;
 		}
