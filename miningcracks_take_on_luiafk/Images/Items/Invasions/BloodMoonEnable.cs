@@ -39,6 +39,7 @@ namespace miningcracks_take_on_luiafk.Images.Items.Invasions
 		{
 			CreateRecipe().AddRecipeGroup("Luiafk:EvilOreMat", 15).AddIngredient(1727, 50).AddIngredient(225, 5)
 				.AddIngredient(216)
+				.AddIngredient(216).AddIngredient<UnlimitedBloodyTear>()
 				.AddTile(18)
 				.Register();
 		}
