@@ -11,7 +11,7 @@ namespace miningcracks_take_on_luiafk.Images.Items.MobileBanks
 		public override void SetStaticDefaults()
 		{
 			base.DisplayName.SetDefault("Mobile All-in-One Chest and Merchant");
-			base.Tooltip.SetDefault("Summons a floating Piggy Bank, Safe, and Defender's Forge.\nSummons a Fairy that will buy and sell goods.\nSmart cursor disabled while using banks.");
+			base.Tooltip.SetDefault("Summons a floating Piggy Bank, Safe, Void Vault, and Defender's Forge.\nSummons a Fairy that will buy and sell goods.\nSmart cursor disabled while using banks.");
 			base.SacrificeTotal = 1;
 		}
 
@@ -23,7 +23,7 @@ namespace miningcracks_take_on_luiafk.Images.Items.MobileBanks
 
 		public override bool? UseItem(Player player)
 		{
-									LuiafkPlayer modPlayer = player.GetModPlayer<LuiafkPlayer>();
+			LuiafkPlayer modPlayer = player.GetModPlayer<LuiafkPlayer>();
 			if (Main.netMode == 2)
 			{
 				modPlayer.mobileMerchantDelete = NPC.NewNPC(null, (int)player.Center.X, (int)player.Center.Y - 48, base.Mod.Find<ModNPC>("MobileMerchant").Type, 0, 0f, 0f, player.whoAmI);
