@@ -20,7 +20,7 @@ namespace miningcracks_take_on_luiafk.Images.Items.Potions.IndividualArena
 
         public override void UpdateInventory(Player player)
         {
-            player.GetModPlayer<LuiafkPlayer>().buffs[215] = true;
+            player.GetModPlayer<LuiafkPlayer>().buffs[79] = true;
             player.GetModPlayer<LuiafkPlayer>().buffs[0] = true;
         }
 
