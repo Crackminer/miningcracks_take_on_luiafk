@@ -28,6 +28,7 @@ player.GetModPlayer<LuiafkPlayer>().buffs[0] = true;
 		{
 			CreateRecipe().AddIngredient(null, "UnlimitedCrystalBall").AddIngredient(null, "UnlimitedAmmoBox").AddIngredient(null, "UnlimitedSharpeningStation")
 				.AddIngredient(null, "UnlimitedBewitchingTable")
+				.AddIngredient(null, "UnlimitedSliceCake")
 				.AddTile(13)
 				.Register();
 		}

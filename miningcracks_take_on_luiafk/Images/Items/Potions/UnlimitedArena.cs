@@ -28,6 +28,7 @@ player.GetModPlayer<LuiafkPlayer>().buffs[0] = true;
 		{
 			CreateRecipe().AddIngredient(null, "UnlimitedHoneyBuff").AddIngredient(null, "UnlimitedStarinaBottle").AddIngredient(null, "UnlimitedCampfire")
 				.AddIngredient(null, "UnlimitedHeartLantern")
+				.AddIngredient(null, "UnlimitedBastStatue")
 				.AddTile(13)
 				.Register();
 		}
