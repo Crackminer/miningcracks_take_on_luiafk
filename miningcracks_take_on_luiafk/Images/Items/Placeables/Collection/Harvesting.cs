@@ -268,8 +268,8 @@ namespace miningcracks_take_on_luiafk.Images.Items.Placeables.Collection
 
 		internal static void MultiFits(int x, int y, int drop, int[] types, int chest, Tile t, TileUpdate updateTile, ref bool full, bool trees)
 		{
-            int num;
-			int num2;
+            int num = 0;
+			int num2 = 0;
 			if (trees)
 			{
 				if(types.Length == 7)
@@ -282,6 +282,7 @@ namespace miningcracks_take_on_luiafk.Images.Items.Placeables.Collection
 					int ruby = 0;
 					int diamond = 0;
 					int amber = 0;
+					num2 = 0;
 					num = MultiTilesTrees(x, y, kill: false, new int[] { types[0] } );
 					for(int i = 0; i < num; i++)
                     {
@@ -289,7 +290,7 @@ namespace miningcracks_take_on_luiafk.Images.Items.Placeables.Collection
 						else if (Main.rand.NextBool(2)) stone += 2;
 						else stone++;
                     }
-					num2 = PutInChest(chest, ItemID.Topaz, topaz);
+					if(topaz > 0)	num2 = PutInChest(chest, ItemID.Topaz, topaz);
 					if (num2 < num)
 					{
 						updateTile(t, x, y);
@@ -298,6 +299,9 @@ namespace miningcracks_take_on_luiafk.Images.Items.Placeables.Collection
 					{
 						full = true;
 					}
+
+					num = 0;
+					num2 = 0;
 
 					num = MultiTilesTrees(x, y, kill: false, new int[] { types[1] });
 					for (int i = 0; i < num; i++)
@@ -306,7 +310,7 @@ namespace miningcracks_take_on_luiafk.Images.Items.Placeables.Collection
 						else if (Main.rand.NextBool(2)) stone += 2;
 						else stone++;
 					}
-					num2 = PutInChest(chest, ItemID.Amethyst, amethyst);
+					if (amethyst > 0) num2 = PutInChest(chest, ItemID.Amethyst, amethyst);
 					if (num2 < num)
 					{
 						updateTile(t, x, y);
@@ -315,6 +319,9 @@ namespace miningcracks_take_on_luiafk.Images.Items.Placeables.Collection
 					{
 						full = true;
 					}
+
+					num = 0;
+					num2 = 0;
 
 					num = MultiTilesTrees(x, y, kill: false, new int[] { types[2] });
 					for (int i = 0; i < num; i++)
@@ -323,7 +330,7 @@ namespace miningcracks_take_on_luiafk.Images.Items.Placeables.Collection
 						else if (Main.rand.NextBool(2)) stone += 2;
 						else stone++;
 					}
-					num2 = PutInChest(chest, ItemID.Sapphire, sapphire);
+					if (sapphire > 0) num2 = PutInChest(chest, ItemID.Sapphire, sapphire);
 					if (num2 < num)
 					{
 						updateTile(t, x, y);
@@ -332,6 +339,9 @@ namespace miningcracks_take_on_luiafk.Images.Items.Placeables.Collection
 					{
 						full = true;
 					}
+
+					num = 0;
+					num2 = 0;
 
 					num = MultiTilesTrees(x, y, kill: false, new int[] { types[3] });
 					for (int i = 0; i < num; i++)
@@ -340,7 +350,7 @@ namespace miningcracks_take_on_luiafk.Images.Items.Placeables.Collection
 						else if (Main.rand.NextBool(2)) stone += 2;
 						else stone++;
 					}
-					num2 = PutInChest(chest, ItemID.Emerald, emerald);
+					if (emerald > 0) num2 = PutInChest(chest, ItemID.Emerald, emerald);
 					if (num2 < num)
 					{
 						updateTile(t, x, y);
@@ -349,6 +359,9 @@ namespace miningcracks_take_on_luiafk.Images.Items.Placeables.Collection
 					{
 						full = true;
 					}
+
+					num = 0;
+					num2 = 0;
 
 					num = MultiTilesTrees(x, y, kill: false, new int[] { types[4] });
 					for (int i = 0; i < num; i++)
@@ -357,7 +370,7 @@ namespace miningcracks_take_on_luiafk.Images.Items.Placeables.Collection
 						else if (Main.rand.NextBool(2)) stone += 2;
 						else stone++;
 					}
-					num2 = PutInChest(chest, ItemID.Ruby, ruby);
+					if (ruby > 0) num2 = PutInChest(chest, ItemID.Ruby, ruby);
 					if (num2 < num)
 					{
 						updateTile(t, x, y);
@@ -366,6 +379,9 @@ namespace miningcracks_take_on_luiafk.Images.Items.Placeables.Collection
 					{
 						full = true;
 					}
+
+					num = 0;
+					num2 = 0;
 
 					num = MultiTilesTrees(x, y, kill: false, new int[] { types[5] });
 					for (int i = 0; i < num; i++)
@@ -374,7 +390,7 @@ namespace miningcracks_take_on_luiafk.Images.Items.Placeables.Collection
 						else if (Main.rand.NextBool(2)) stone += 2;
 						else stone++;
 					}
-					num2 = PutInChest(chest, ItemID.Diamond, diamond);
+					if (diamond > 0) num2 = PutInChest(chest, ItemID.Diamond, diamond);
 					if (num2 < num)
 					{
 						updateTile(t, x, y);
@@ -383,6 +399,9 @@ namespace miningcracks_take_on_luiafk.Images.Items.Placeables.Collection
 					{
 						full = true;
 					}
+
+					num = 0;
+					num2 = 0;
 
 					num = MultiTilesTrees(x, y, kill: false, new int[] { types[6] });
 					for (int i = 0; i < num; i++)
@@ -391,7 +410,7 @@ namespace miningcracks_take_on_luiafk.Images.Items.Placeables.Collection
 						else if (Main.rand.NextBool(2)) stone += 2;
 						else stone++;
 					}
-					num2 = PutInChest(chest, ItemID.Amber, amber);
+					if (amber > 0) num2 = PutInChest(chest, ItemID.Amber, amber);
 					if (num2 < num)
 					{
 						updateTile(t, x, y);
@@ -400,9 +419,12 @@ namespace miningcracks_take_on_luiafk.Images.Items.Placeables.Collection
 					{
 						full = true;
 					}
-					num = stone;
 
-					num2 = PutInChest(chest, ItemID.StoneBlock, stone);
+					num = 0;
+					num2 = 0;
+
+					num = stone;
+					if (stone > 0) num2 = PutInChest(chest, ItemID.StoneBlock, stone);
 					if (num2 < num)
 					{
 						updateTile(t, x, y);

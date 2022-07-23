@@ -31,6 +31,16 @@ namespace miningcracks_take_on_luiafk.Images.Items.Invasions
 					MiscMethods.WriteText(Lang.misc[8].Value, new Color(50, 255, 130));
 					NetMessage.SendData(7);
 				}
+				return true;
+			}
+			if (!Main.dayTime && !Main.snowMoon && !Main.pumpkinMoon && Main.bloodMoon && Main.netMode != 1)
+            {
+				Main.bloodMoon = false;
+				if (!Main.bloodMoon)
+				{
+					MiscMethods.WriteText("BloodMoon disabled", new Color(50, 255, 130));
+					NetMessage.SendData(7);
+				}
 			}
 			return true;
 		}
@@ -39,6 +49,7 @@ namespace miningcracks_take_on_luiafk.Images.Items.Invasions
 		{
 			CreateRecipe().AddRecipeGroup("Luiafk:EvilOreMat", 15).AddIngredient(1727, 50).AddIngredient(225, 5)
 				.AddIngredient(216)
+				.AddIngredient(216).AddIngredient<UnlimitedBloodyTear>()
 				.AddTile(18)
 				.Register();
 		}

@@ -8,7 +8,7 @@ namespace miningcracks_take_on_luiafk.Images.Items.Misc
 		public override void SetStaticDefaults()
 		{
 			base.DisplayName.SetDefault("Really Heavy Boulder");
-			base.Tooltip.SetDefault("It's so heavy it makes you fall faster than normal.");
+			base.Tooltip.SetDefault("It's so heavy it makes you fall faster than normal.\nFavorite for it to work.");
 			base.SacrificeTotal = 1;
 		}
 
