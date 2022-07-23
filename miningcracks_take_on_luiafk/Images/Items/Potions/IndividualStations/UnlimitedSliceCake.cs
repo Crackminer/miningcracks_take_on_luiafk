@@ -2,14 +2,14 @@ using miningcracks_take_on_luiafk.Utility;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace miningcracks_take_on_luiafk.Images.Items.Potions.IndividualArena
+namespace miningcracks_take_on_luiafk.Images.Items.Potions.IndividualStations
 {
-    public class UnlimitedCampfire : ModItem
+    public class UnlimitedSliceCake : ModItem
     {
         public override void SetStaticDefaults()
         {
-            base.DisplayName.SetDefault("Unlimited Campfire");
-            base.Tooltip.SetDefault("Life regen increased.");
+            base.DisplayName.SetDefault("Unlimited Slice of Cake");
+            base.Tooltip.SetDefault("'Stuff your face. Stuff someone else's face. Whatever.'");
             base.SacrificeTotal = 1;
         }
 
@@ -20,15 +20,13 @@ namespace miningcracks_take_on_luiafk.Images.Items.Potions.IndividualArena
 
         public override void UpdateInventory(Player player)
         {
-            player.GetModPlayer<LuiafkPlayer>().buffs[49] = true;
+            player.GetModPlayer<LuiafkPlayer>().buffs[80] = true;
             player.GetModPlayer<LuiafkPlayer>().buffs[0] = true;
         }
 
         public override void AddRecipes()
         {
-            CreateRecipe().AddIngredient(23, 60).AddIngredient(318, 30).AddIngredient(126, 30)
-                .AddTile(13)
-                .Register();
+            CreateRecipe().AddIngredient(3750, 5).AddTile(13).Register();
         }
     }
 }

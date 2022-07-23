@@ -9,7 +9,7 @@ namespace miningcracks_take_on_luiafk.Images.Items.Potions
 		public override void SetStaticDefaults()
 		{
 			base.DisplayName.SetDefault("Ultimate Peaceful");
-			base.Tooltip.SetDefault("It's oh so quiet.Greatly reduced spawns.");
+			base.Tooltip.SetDefault("It's oh so quiet. Greatly reduced spawns.");
 			base.SacrificeTotal = 1;
 		}
 

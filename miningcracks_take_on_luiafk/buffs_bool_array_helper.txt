@@ -77,4 +77,6 @@
 76 = ladybug
 77 = gnome
 78 = lucky buffs
-79 = 
+79 = bast statue
+80 = slice of cake
+81 = 

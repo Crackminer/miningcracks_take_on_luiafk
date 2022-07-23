@@ -17,7 +17,6 @@ namespace miningcracks_take_on_luiafk.Images.Items.Placeables.Collection
 			int tt = Main.tile[x, y].TileType;
 			if (tt == 590) return;
 			Harvesting.MultiTilesTrees(x, y, kill: true, treeTypes);
-			tt = Main.tile[x, y].TileType;
 			int tt2 = Main.tile[x, y + 1].TileType;
 			if (tt2 == TileID.Stone)
 			{
@@ -47,6 +46,7 @@ namespace miningcracks_take_on_luiafk.Images.Items.Placeables.Collection
 						break;
 					default:	return;
 				}
+				//WorldGen.PlaceTile(x, y, 590, forced: true);
 				WorldGen.Place1x2(x, y, 590, 0);
 				Main.tile[x, y].TileFrameX += (short)(rnd * 18);
 				Main.tile[x, y - 1].TileFrameX += (short)(rnd * 18);

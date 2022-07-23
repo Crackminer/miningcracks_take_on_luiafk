@@ -11,7 +11,7 @@ namespace miningcracks_take_on_luiafk.Images.Items.MobileBanks
 		public override void SetStaticDefaults()
 		{
 			base.DisplayName.SetDefault("Mobile All-in-One Chest and Merchant");
-			base.Tooltip.SetDefault("Summons a floating Piggy Bank, Safe, and Defender's Forge.\nSummons a Fairy that will buy and sell goods.\nSmart cursor disabled while using banks.");
+			base.Tooltip.SetDefault("Summons a floating Piggy Bank, Safe, Void Vault, and Defender's Forge.\nSummons a Fairy that will buy and sell goods.\nSmart cursor disabled while using banks.");
 			base.SacrificeTotal = 1;
 		}
 
@@ -23,7 +23,7 @@ namespace miningcracks_take_on_luiafk.Images.Items.MobileBanks
 
 		public override bool? UseItem(Player player)
 		{
-									LuiafkPlayer modPlayer = player.GetModPlayer<LuiafkPlayer>();
+			LuiafkPlayer modPlayer = player.GetModPlayer<LuiafkPlayer>();
 			if (Main.netMode == 2)
 			{
 				modPlayer.mobileMerchantDelete = NPC.NewNPC(null, (int)player.Center.X, (int)player.Center.Y - 48, base.Mod.Find<ModNPC>("MobileMerchant").Type, 0, 0f, 0f, player.whoAmI);
@@ -33,9 +33,10 @@ namespace miningcracks_take_on_luiafk.Images.Items.MobileBanks
 
 		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo s, Vector2 position, Vector2 velocity, int type, int damage, float knockBack)
 		{
-																											Projectile.NewProjectile(null, player.Center.X, player.Center.Y + 48f, 0f, 0f, base.Mod.Find<ModProjectile>("DefendersForgeProjectile").Type, 0, 0f, player.whoAmI);
+			Projectile.NewProjectile(null, player.Center.X, player.Center.Y + 48f, 0f, 0f, base.Mod.Find<ModProjectile>("DefendersForgeProjectile").Type, 0, 0f, player.whoAmI);
 			Projectile.NewProjectile(null, player.Center.X - 48f, player.Center.Y, 0f, 0f, base.Mod.Find<ModProjectile>("PiggyBankProjectile").Type, 0, 0f, player.whoAmI);
 			Projectile.NewProjectile(null, player.Center.X + 48f, player.Center.Y, 0f, 0f, base.Mod.Find<ModProjectile>("SafeProjectile").Type, 0, 0f, player.whoAmI);
+			Projectile.NewProjectile(null, player.Center, Vector2.Zero, 734, 0, 0f, player.whoAmI);
 			LuiafkPlayer modPlayer = player.GetModPlayer<LuiafkPlayer>();
 			if (Main.netMode == 0)
 			{
@@ -46,7 +47,7 @@ namespace miningcracks_take_on_luiafk.Images.Items.MobileBanks
 
 		public override void AddRecipes()
 		{
-			CreateRecipe().AddIngredient(null, "DefendersForge").AddIngredient(null, "PiggySafe").AddTile(18)
+			CreateRecipe().AddIngredient(null, "DefendersForge").AddIngredient(null, "PiggySafe").AddIngredient(4131, 1).AddTile(18)
 				.Register();
 		}
 	}
