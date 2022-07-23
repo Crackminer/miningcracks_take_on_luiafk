@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
+using miningcracks_take_on_luiafk.Images.Items.Misc;
 using miningcracks_take_on_luiafk.Images.Items.MobileBanks;
 using miningcracks_take_on_luiafk.UI;
 using miningcracks_take_on_luiafk.UI.AutoBuilderUIs;
@@ -1132,13 +1133,26 @@ namespace miningcracks_take_on_luiafk
 			}
 		}
 
+		internal bool checkBoulder(Item[] i)
+        {
+			foreach(Item item in i)
+            {
+				if(!item.IsAir)
+                {
+					if (item.type == ModContent.ItemType<FastFall>() && item.favorited) return true;
+                }
+            }
+			return false;
+        }
+
 		public override void PostUpdateEquips()
 		{
 			checkPotions(Player.bank.item);
 			checkPotions(Player.bank2.item);
 			checkPotions(Player.bank3.item);
 			checkPotions(Player.bank4.item);
-			if (base.Player.inventory[base.Player.selectedItem].type == base.Mod.Find<ModItem>("FastFall").Type && base.Player.inventory[base.Player.selectedItem].favorited)
+			
+			if (checkBoulder(Player.inventory))
 			{
 				base.Player.maxFallSpeed = 28f;
 			}

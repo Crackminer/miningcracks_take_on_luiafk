@@ -29,7 +29,7 @@ namespace miningcracks_take_on_luiafk.Images.Items.BossSummon
 
 		public override bool? UseItem(Player player)
 		{
-			if (!player.ZoneUnderworldHeight) return false;
+			if (!player.ZoneUnderworldHeight) return false;	//something in here is faulty and i believe its this line right here
 			if (Main.netMode != 1)
 			{
 				NPC.NewNPC(player.GetSource_ItemUse(this.Item), player.Left.X < player.Right.X ? 0 : Main.ActiveWorldFileData.WorldSizeX, player.height, 113, ai0: 28, ai1: 27);
