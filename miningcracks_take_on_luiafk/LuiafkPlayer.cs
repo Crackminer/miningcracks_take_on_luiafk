@@ -1138,7 +1138,7 @@ namespace miningcracks_take_on_luiafk
 			checkPotions(Player.bank2.item);
 			checkPotions(Player.bank3.item);
 			checkPotions(Player.bank4.item);
-			if (base.Player.inventory[base.Player.selectedItem].type == base.Mod.Find<ModItem>("FastFall").Type)
+			if (base.Player.inventory[base.Player.selectedItem].type == base.Mod.Find<ModItem>("FastFall").Type && base.Player.inventory[base.Player.selectedItem].favorited)
 			{
 				base.Player.maxFallSpeed = 28f;
 			}
