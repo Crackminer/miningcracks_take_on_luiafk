@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
+using miningcracks_take_on_luiafk.Images.Items.Misc;
 using miningcracks_take_on_luiafk.Images.Items.MobileBanks;
 using miningcracks_take_on_luiafk.UI;
 using miningcracks_take_on_luiafk.UI.AutoBuilderUIs;
@@ -89,7 +90,7 @@ namespace miningcracks_take_on_luiafk
 
 		private static int[] coatings;
 
-		internal bool[] buffs = new bool[73];
+		internal bool[] buffs = new bool[81];
 
 		internal int[] uiMultiSolutionTileX;
 
@@ -310,12 +311,352 @@ namespace miningcracks_take_on_luiafk
 					UILearning.RightInterface.SetState(null);
 					return;
 				}
+				/*if (UILearning.RightInterface.CurrentState.Equals(UILearning.RightClickUIs<MossUI>()) && heldItem.Name != "Mossificator")
+				{
+					UILearning.RightInterface.SetState(null);
+					return;
+				}*/
 			}
 			if (UILearning.ComboInterface?.CurrentState != null && UILearning.ComboInterface.CurrentState.Equals(UILearning.RightClickUIs<ComboRodUI>()) && heldItem.Name != "Combo Rod")
 			{
 				UILearning.ComboInterface.SetState(null);
 			}
 		}
+
+		public void checkPotions(Item[] b)
+        {
+			foreach(Item i in b)
+            {
+				if(!i.IsAir)
+                {
+					switch(i.Name)
+                    {
+						case "Unlimited Buffs":
+							buffs[0] = true; 
+							buffs[1] = true;
+							break;
+						case "Ultimate Battler":
+							buffs[0] = true;
+							buffs[2] = true;
+							break;
+						case "Ultimate Peaceful":
+							buffs[0] = true;
+							buffs[3] = true;
+							break;
+						case "Unlimited Travel Potion":
+							buffs[0] = true;
+							buffs[4] = true;
+							break;
+						case "Unlimited Ammo Reservation Potion":
+							buffs[0] = true;
+							buffs[5] = true;
+							break;
+						case "Unlimited Archery Potion":
+							buffs[0] = true;
+							buffs[6] = true;
+							break;
+						case "Unlimited Battle Potion":
+							buffs[0] = true;
+							buffs[7] = true;
+							break;
+						case "Unlimited Builder Potion":
+							buffs[0] = true;
+							buffs[8] = true;
+							break;
+						case "Unlimited Calming Potion":
+							buffs[0] = true;
+							buffs[9] = true;
+							break;
+						case "Unlimited Crate Potion":
+							buffs[0] = true;
+							buffs[10] = true;
+							break;
+						case "Unlimited Aquatic Buffs":
+							buffs[0] = true;
+							buffs[11] = true;
+							break;
+						case "Unlimited Danger Sense Potion":
+							buffs[0] = true;
+							buffs[12] = true;
+							break;
+						case "Unlimited Endurance Potion":
+							buffs[0] = true;
+							buffs[13] = true;
+							break;
+						case "Unlimited Featherfall Potion":
+							buffs[0] = true;
+							buffs[14] = true;
+							break;
+						case "Unlimited Fishing Potion":
+							buffs[0] = true;
+							buffs[15] = true;
+							break;
+						case "Unlimited Flipper Potion":
+							buffs[0] = true;
+							buffs[16] = true;
+							break;
+						case "Unlimited Gravitation Potion":
+							buffs[0] = true;
+							buffs[17] = true;
+							break;
+						case "Unlimited Gills Potion":
+							buffs[0] = true;
+							buffs[18] = true;
+							break;
+						case "Unlimited Heartreach Potion":
+							buffs[0] = true;
+							buffs[19] = true;
+							break;
+						case "Unlimited Hunter Potion":
+							buffs[0] = true;
+							buffs[20] = true;
+							break;
+						case "Unlimited Ichor Flask":
+							buffs[0] = true;
+							buffs[21] = true;
+							break;
+						case "Unlimited Inferno Potion":
+							buffs[0] = true;
+							buffs[22] = true;
+							break;
+						case "Unlimited Invisibility Potion":
+							buffs[0] = true;
+							buffs[23] = true;
+							break;
+						case "Unlimited Ironskin Potion":
+							buffs[0] = true;
+							buffs[24] = true;
+							break;
+						case "Unlimited Lifeforce Potion":
+							buffs[0] = true;
+							buffs[25] = true;
+							break;
+						case "Unlimited Magic Power Potion":
+							buffs[0] = true;
+							buffs[26] = true;
+							break;
+						case "Unlimited Mana Regeneration Potion":
+							buffs[0] = true;
+							buffs[27] = true;
+							break;
+						case "Unlimited Mining Potion":
+							buffs[0] = true;
+							buffs[28] = true;
+							break;
+						case "Unlimited Night Owl Potion":
+							buffs[0] = true;
+							buffs[29] = true;
+							break;
+						case "Unlimited Obsidian Skin Potion":
+							buffs[0] = true;
+							buffs[30] = true;
+							break;
+						case "Unlimited Rage Potion":
+							buffs[0] = true;
+							buffs[31] = true;
+							break;
+						case "Unlimited Recall Potion":
+							buffs[0] = true;
+							buffs[32] = true;
+							break;
+						case "Unlimited Regeneration Potion":
+							buffs[0] = true;
+							buffs[33] = true;
+							break;
+						case "Unlimited Shine Potion":
+							buffs[0] = true;
+							buffs[34] = true;
+							break;
+						case "Unlimited Sonar Potion":
+							buffs[0] = true;
+							buffs[35] = true;
+							break;
+						case "Unlimited Spelunker Potion":
+							buffs[0] = true;
+							buffs[36] = true;
+							break;
+						case "Unlimited Summoning Potion":
+							buffs[0] = true;
+							buffs[37] = true;
+							break;
+						case "Unlimited Swiftness Potion":
+							buffs[0] = true;
+							buffs[38] = true;
+							break;
+						case "Unlimited Thorns Potion":
+							buffs[0] = true;
+							buffs[39] = true;
+							break;
+						case "Unlimited Tipsy Potion":
+							buffs[0] = true;
+							buffs[40] = true;
+							break;
+						case "Unlimited Titan Potion":
+							buffs[0] = true;
+							buffs[41] = true;
+							break;
+						case "Unlimited Warmth Potion":
+							buffs[0] = true;
+							buffs[42] = true;
+							break;
+						case "Unlimited Water Walking Potion":
+							buffs[0] = true;
+							buffs[43] = true;
+							break;
+						case "Unlimited Well Fed":
+							buffs[0] = true;
+							buffs[44] = true;
+							break;
+						case "Unlimited Wormhole Potion":
+							buffs[0] = true;
+							buffs[45] = true;
+							break;
+						case "Unlimited Wrath Potion":
+							buffs[0] = true;
+							buffs[46] = true;
+							break;
+						case "Unlimited Peace Candle":
+							buffs[0] = true;
+							buffs[47] = true;
+							break;
+						case "Unlimited Water Candle":
+							buffs[0] = true;
+							buffs[48] = true;
+							break;
+						case "Unlimited Campfire":
+							buffs[0] = true;
+							buffs[49] = true;
+							break;
+						case "Unlimited Heart Lantern":
+							buffs[0] = true;
+							buffs[50] = true;
+							break;
+						case "Unlimited Honey":
+							buffs[0] = true;
+							buffs[51] = true;
+							break;
+						case "Unlimited Star in a Bottle":
+							buffs[0] = true;
+							buffs[52] = true;
+							break;
+						case "Unlimited Ammo Box":
+							buffs[0] = true;
+							buffs[53] = true;
+							break;
+						case "Unlimited Bewitching Table":
+							buffs[0] = true;
+							buffs[54] = true;
+							break;
+						case "Unlimited Crystal Ball":
+							buffs[0] = true;
+							buffs[55] = true;
+							break;
+						case "Unlimited Sharpening Station":
+							buffs[0] = true;
+							buffs[56] = true;
+							break;
+						case "Unlimited Arena Buffs":
+							buffs[0] = true;
+							buffs[57] = true;
+							break;
+						case "Unlimited Basic Buffs":
+							buffs[0] = true;
+							buffs[58] = true;
+							break;
+						case "Unlimited Battler Buffs":
+							buffs[0] = true;
+							buffs[59] = true;
+							break;
+						case "Unlimited Combat Buffs":
+							buffs[0] = true;
+							buffs[60] = true;
+							break;
+						case "Unlimited Damage Buffs":
+							buffs[0] = true;
+							buffs[61] = true;
+							break;
+						case "Unlimited Danger Buffs":
+							buffs[0] = true;
+							buffs[62] = true;
+							break;
+						case "Unlimited Defense Buffs":
+							buffs[0] = true;
+							buffs[63] = true;
+							break;
+						case "Unlimited Explorer Buffs":
+							buffs[0] = true;
+							buffs[64] = true;
+							break;
+						case "Unlimited Fishing Buffs":
+							buffs[0] = true;
+							buffs[65] = true;
+							break;
+						case "Unlimited Flight Buffs":
+							buffs[0] = true;
+							buffs[66] = true;
+							break;
+						case "Unlimited Gathering Buffs":
+							buffs[0] = true;
+							buffs[67] = true;
+							break;
+						case "Unlimited Magic Buffs":
+							buffs[0] = true;
+							buffs[68] = true;
+							break;
+						case "Unlimited Melee Buffs":
+							buffs[0] = true;
+							buffs[69] = true;
+							break;
+						case "Unlimited Peaceful Buffs":
+							buffs[0] = true;
+							buffs[70] = true;
+							break;
+						case "Unlimited Ranged Buffs":
+							buffs[0] = true;
+							buffs[71] = true;
+							break;
+						case "Unlimited Station Buffs":
+							buffs[0] = true;
+							buffs[72] = true;
+							break;
+						case "Unlimited Lesser Luck Potion":
+							buffs[0] = true;
+							buffs[73] = true;
+							break;
+						case "Unlimited Luck Potion":
+							buffs[0] = true;
+							buffs[74] = true;
+							break;
+						case "Unlimited Greater Luck Potion":
+							buffs[0] = true;
+							buffs[75] = true;
+							break;
+						case "Unlimited Ladybug":
+							buffs[0] = true;
+							buffs[76] = true;
+							break;
+						case "Unlimited Gnome":
+							buffs[0] = true;
+							buffs[77] = true;
+							break;
+						case "Unlimited Lucky Buffs":
+							buffs[0] = true;
+							buffs[78] = true;
+							break;
+						case "Unlimited Bast Statue":
+							buffs[0] = true;
+							buffs[79] = true;
+							break;
+						case "Unlimited Slice of Cake":
+							buffs[0] = true;
+							buffs[80] = true;
+							break;
+						default: 
+							break;
+                    }
+                }
+            }
+        }
 
 		private void MovePacket(bool server)
 		{
@@ -354,7 +695,7 @@ namespace miningcracks_take_on_luiafk
 		private void Reset()
 		{
 			buffs = null;
-			buffs = new bool[73];
+			buffs = new bool[81];
 			holdingFishingRod = false;
 			unlimitedMana = false;
 			moneyCollect = false;
@@ -792,9 +1133,26 @@ namespace miningcracks_take_on_luiafk
 			}
 		}
 
+		internal bool checkBoulder(Item[] i)
+        {
+			foreach(Item item in i)
+            {
+				if(!item.IsAir)
+                {
+					if (item.type == ModContent.ItemType<FastFall>() && item.favorited) return true;
+                }
+            }
+			return false;
+        }
+
 		public override void PostUpdateEquips()
 		{
-			if (base.Player.inventory[base.Player.selectedItem].type == base.Mod.Find<ModItem>("FastFall").Type)
+			checkPotions(Player.bank.item);
+			checkPotions(Player.bank2.item);
+			checkPotions(Player.bank3.item);
+			checkPotions(Player.bank4.item);
+			
+			if (checkBoulder(Player.inventory))
 			{
 				base.Player.maxFallSpeed = 28f;
 			}
@@ -1272,6 +1630,37 @@ namespace miningcracks_take_on_luiafk
 					base.Player.GetArmorPenetration(DamageClass.Melee) += 4f;
 				}
 				base.Player.buffImmune[159] = true;
+			}
+			if (buffs[75] || buffs[78] || buffs[1])
+            {
+				base.Player.luck += 0.3f;
+				base.Player.buffImmune[257] = true;
+			}
+			if (buffs[76] || buffs[78] || buffs[1])
+            {
+				base.Player.luck += 0.3f;
+			}
+			if (buffs[77] || buffs[78] || buffs[1])
+            {
+				base.Player.luck += 0.2f;
+			}
+			if (buffs[78] || buffs[1])
+			{
+				if (base.Player.unlockedBiomeTorches)
+				{
+					base.Player.luck += 0.2f;
+				}
+			}
+            if (buffs[79] || buffs[57] || buffs[1])
+            {
+				base.Player.statDefense += 5;
+				base.Player.buffImmune[215] = true;
+            }
+			if (buffs[80] || buffs[72] || buffs[1])
+			{
+				base.Player.pickSpeed -= 0.2f;
+				base.Player.moveSpeed += 0.2f;
+				base.Player.buffImmune[192] = true;
 			}
 			if ((buffs[3] || buffs[1]) && (uiBuffs & PotToggles.UltPeaceful) != 0)
 			{

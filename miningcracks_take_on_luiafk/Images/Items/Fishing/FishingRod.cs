@@ -80,7 +80,8 @@ namespace miningcracks_take_on_luiafk.Images.Items.Fishing
 			Player player = Main.player[Main.myPlayer];
 			if (player.inventory[player.selectedItem].type == base.Item.type)
 			{
-				string text = player.displayedFishingInfo.Remove(player.displayedFishingInfo.IndexOf(' '));
+				string text = "-1";
+				if(player.displayedFishingInfo.IndexOf(' ') != -1)	text = player.displayedFishingInfo.Remove(player.displayedFishingInfo.IndexOf(' '));
 				if (text == "-1")
 				{
 					text = "Pig";

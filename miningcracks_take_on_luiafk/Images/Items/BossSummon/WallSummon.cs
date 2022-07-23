@@ -1,16 +1,17 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using miningcracks_take_on_luiafk.Utility;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace miningcracks_take_on_luiafk.Images.Items.BossSummon
 {
-	public class NoFishDuke : ModItem
-	{
+    public class WallSummon : ModItem
+    {
 		public override void SetStaticDefaults()
 		{
-			base.DisplayName.SetDefault("Fishron Summon");
-			base.Tooltip.SetDefault("Summons Fishron with out having to fish.");
+			base.DisplayName.SetDefault("Bloody Guide Voodoo Doll");
+			base.Tooltip.SetDefault("Summons Wall of Flesh with out needing the Guide.\nOnly usable after Wall of Flesh has been killed.");
 			base.SacrificeTotal = 1;
 		}
 
@@ -23,25 +24,23 @@ namespace miningcracks_take_on_luiafk.Images.Items.BossSummon
 
 		public override bool CanUseItem(Player player)
 		{
-			return player.ZoneBeach;
+			return Main.hardMode && player.ZoneUnderworldHeight && !NPC.AnyNPCs(113) && !NPC.AnyNPCs(114);
 		}
 
 		public override bool? UseItem(Player player)
 		{
 			if (Main.netMode != 1)
 			{
-				NPC.NewNPC(null, (int)player.position.X + Main.rand.Next(-800, 800), (int)player.position.Y - Main.rand.Next(650), 370);
-				MiscMethods.WriteText("Duke Fishron has awoken!", new Color(175, 75, 255));
+				NPC.SpawnWOF(player.position);
 			}
 			return true;
 		}
 
 		public override void AddRecipes()
 		{
-			if (!LuiafkMod.FargoLoaded)
-			{
-				CreateRecipe().AddIngredient(2673).Register();
-			}
+			CreateRecipe()
+				.AddIngredient(ItemID.GuideVoodooDoll, 8)
+				.Register();
 		}
 	}
 }

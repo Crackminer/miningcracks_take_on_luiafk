@@ -38,7 +38,7 @@ namespace miningcracks_take_on_luiafk.Images.Items.Potions
 		public override void UpdateInventory(Player player)
 		{
 			player.GetModPlayer<LuiafkPlayer>().buffs[1] = true;
-player.GetModPlayer<LuiafkPlayer>().buffs[0] = true;
+			player.GetModPlayer<LuiafkPlayer>().buffs[0] = true;
 		}
 
 		public override void AddRecipes()
@@ -50,6 +50,7 @@ player.GetModPlayer<LuiafkPlayer>().buffs[0] = true;
 				.AddIngredient(null, "UnlimitedTeleportation")
 				.AddIngredient(null, "UltimateBattler")
 				.AddIngredient(null, "UltimatePeaceful")
+				.AddIngredient(null, "UnlimitedLucky")
 				.AddTile(13)
 				.Register();
 		}
