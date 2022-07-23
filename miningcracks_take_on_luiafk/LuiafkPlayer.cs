@@ -235,10 +235,6 @@ namespace miningcracks_take_on_luiafk
 		{
 			base.PostItemCheck();
 			if (UILearning.LuiP == null) return;
-			checkPotions(Player.bank);
-			checkPotions(Player.bank2);
-			checkPotions(Player.bank3);
-			checkPotions(Player.bank4);
 			Item heldItem = UILearning.LuiP.Player.HeldItem;
 
 			if (heldItem == null)
@@ -326,15 +322,15 @@ namespace miningcracks_take_on_luiafk
 			}
 		}
 
-		public void checkPotions(Chest b)
+		public void checkPotions(Item[] b)
         {
-			foreach(Item i in b.item)
+			foreach(Item i in b)
             {
 				if(!i.IsAir)
                 {
 					switch(i.Name)
                     {
-						case "Unlimited Buffs": 
+						case "Unlimited Buffs":
 							buffs[0] = true; 
 							buffs[1] = true;
 							break;
@@ -1138,6 +1134,10 @@ namespace miningcracks_take_on_luiafk
 
 		public override void PostUpdateEquips()
 		{
+			checkPotions(Player.bank.item);
+			checkPotions(Player.bank2.item);
+			checkPotions(Player.bank3.item);
+			checkPotions(Player.bank4.item);
 			if (base.Player.inventory[base.Player.selectedItem].type == base.Mod.Find<ModItem>("FastFall").Type)
 			{
 				base.Player.maxFallSpeed = 28f;
