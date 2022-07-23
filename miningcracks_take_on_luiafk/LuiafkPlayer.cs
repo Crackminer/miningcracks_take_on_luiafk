@@ -310,6 +310,11 @@ namespace miningcracks_take_on_luiafk
 					UILearning.RightInterface.SetState(null);
 					return;
 				}
+				/*if (UILearning.RightInterface.CurrentState.Equals(UILearning.RightClickUIs<MossUI>()) && heldItem.Name != "Mossificator")
+				{
+					UILearning.RightInterface.SetState(null);
+					return;
+				}*/
 			}
 			if (UILearning.ComboInterface?.CurrentState != null && UILearning.ComboInterface.CurrentState.Equals(UILearning.RightClickUIs<ComboRodUI>()) && heldItem.Name != "Combo Rod")
 			{
@@ -1272,6 +1277,22 @@ namespace miningcracks_take_on_luiafk
 					base.Player.GetArmorPenetration(DamageClass.Melee) += 4f;
 				}
 				base.Player.buffImmune[159] = true;
+			}
+			if (buffs[75] || buffs[78] || buffs[1])
+            {
+				base.Player.luck += 0.3f;
+            }
+			if (buffs[76] || buffs[78] || buffs[1])
+            {
+				base.Player.luck += 0.3f;
+			}
+			if (buffs[77] || buffs[78] || buffs[1])
+            {
+				base.Player.luck += 0.2f;
+			}
+			if (buffs[78] || buffs[1])
+            {
+				if(base.Player.unlockedBiomeTorches)	base.Player.luck += 0.2f;
 			}
 			if ((buffs[3] || buffs[1]) && (uiBuffs & PotToggles.UltPeaceful) != 0)
 			{
