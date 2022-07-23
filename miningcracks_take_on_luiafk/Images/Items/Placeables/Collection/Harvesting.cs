@@ -268,8 +268,8 @@ namespace miningcracks_take_on_luiafk.Images.Items.Placeables.Collection
 
 		internal static void MultiFits(int x, int y, int drop, int[] types, int chest, Tile t, TileUpdate updateTile, ref bool full, bool trees)
 		{
-            int num;
-			int num2;
+            int num = 0;
+			int num2 = 0;
 			if (trees)
 			{
 				if(types.Length == 7)
