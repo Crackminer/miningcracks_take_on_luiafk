@@ -89,7 +89,7 @@ namespace miningcracks_take_on_luiafk
 
         private static int[] coatings;
 
-        internal bool[] buffs = new bool[80];
+        internal bool[] buffs = new bool[81];
 
         internal int[] uiMultiSolutionTileX;
 
@@ -359,7 +359,7 @@ namespace miningcracks_take_on_luiafk
         private void Reset()
         {
             buffs = null;
-            buffs = new bool[80];
+            buffs = new bool[81];
             holdingFishingRod = false;
             unlimitedMana = false;
             moneyCollect = false;
