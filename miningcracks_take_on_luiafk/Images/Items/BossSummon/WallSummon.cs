@@ -24,15 +24,15 @@ namespace miningcracks_take_on_luiafk.Images.Items.BossSummon
 
 		public override bool CanUseItem(Player player)
 		{
-			return Main.hardMode;
+			return Main.hardMode && player.ZoneUnderworldHeight;
 		}
 
 		public override bool? UseItem(Player player)
 		{
-			if (!player.ZoneUnderworldHeight) return false;	//something in here is faulty and i believe its this line right here
 			if (Main.netMode != 1)
 			{
-				NPC.NewNPC(player.GetSource_ItemUse(this.Item), player.Left.X < player.Right.X ? 0 : Main.ActiveWorldFileData.WorldSizeX, player.height, 113, ai0: 28, ai1: 27);
+				NPC.SpawnWOF(player.position);//new(player.Left.X < player.Right.X ? 0 + 400 : Main.ActiveWorldFileData.WorldSizeX - 400, player.height));
+				MiscMethods.WriteText("Wall of Flesh has been summoned!", new Color(175, 75, 255));
 			}
 			return true;
 		}

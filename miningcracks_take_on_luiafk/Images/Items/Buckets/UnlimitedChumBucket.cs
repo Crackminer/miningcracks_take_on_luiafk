@@ -19,7 +19,7 @@ namespace miningcracks_take_on_luiafk.Images.Items.Buckets
 
 		public override void AddRecipes()
 		{
-			CreateRecipe().AddIngredient(4608, 10).AddTile(18)
+			CreateRecipe().AddIngredient(4608, 50).AddTile(18)
 				.Register();
 		}
 	}
