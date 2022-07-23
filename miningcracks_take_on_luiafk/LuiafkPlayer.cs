@@ -235,10 +235,10 @@ namespace miningcracks_take_on_luiafk
 		{
 			base.PostItemCheck();
 			if (UILearning.LuiP == null) return;
-			checkPotions(UILearning.LuiP, UILearning.LuiP.Player.bank);
-			checkPotions(UILearning.LuiP, UILearning.LuiP.Player.bank2);
-			checkPotions(UILearning.LuiP, UILearning.LuiP.Player.bank3);
-			checkPotions(UILearning.LuiP, UILearning.LuiP.Player.bank4);
+			checkPotions(Player.bank);
+			checkPotions(Player.bank2);
+			checkPotions(Player.bank3);
+			checkPotions(Player.bank4);
 			Item heldItem = UILearning.LuiP.Player.HeldItem;
 
 			if (heldItem == null)
@@ -326,7 +326,7 @@ namespace miningcracks_take_on_luiafk
 			}
 		}
 
-		public void checkPotions(ModPlayer p, Chest b)
+		public void checkPotions(Chest b)
         {
 			foreach(Item i in b.item)
             {

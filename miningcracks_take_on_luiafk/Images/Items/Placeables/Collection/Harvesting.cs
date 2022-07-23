@@ -300,6 +300,9 @@ namespace miningcracks_take_on_luiafk.Images.Items.Placeables.Collection
 						full = true;
 					}
 
+					num = 0;
+					num2 = 0;
+
 					num = MultiTilesTrees(x, y, kill: false, new int[] { types[1] });
 					for (int i = 0; i < num; i++)
 					{
@@ -316,6 +319,9 @@ namespace miningcracks_take_on_luiafk.Images.Items.Placeables.Collection
 					{
 						full = true;
 					}
+
+					num = 0;
+					num2 = 0;
 
 					num = MultiTilesTrees(x, y, kill: false, new int[] { types[2] });
 					for (int i = 0; i < num; i++)
@@ -334,6 +340,9 @@ namespace miningcracks_take_on_luiafk.Images.Items.Placeables.Collection
 						full = true;
 					}
 
+					num = 0;
+					num2 = 0;
+
 					num = MultiTilesTrees(x, y, kill: false, new int[] { types[3] });
 					for (int i = 0; i < num; i++)
 					{
@@ -350,6 +359,9 @@ namespace miningcracks_take_on_luiafk.Images.Items.Placeables.Collection
 					{
 						full = true;
 					}
+
+					num = 0;
+					num2 = 0;
 
 					num = MultiTilesTrees(x, y, kill: false, new int[] { types[4] });
 					for (int i = 0; i < num; i++)
@@ -368,6 +380,9 @@ namespace miningcracks_take_on_luiafk.Images.Items.Placeables.Collection
 						full = true;
 					}
 
+					num = 0;
+					num2 = 0;
+
 					num = MultiTilesTrees(x, y, kill: false, new int[] { types[5] });
 					for (int i = 0; i < num; i++)
 					{
@@ -385,6 +400,9 @@ namespace miningcracks_take_on_luiafk.Images.Items.Placeables.Collection
 						full = true;
 					}
 
+					num = 0;
+					num2 = 0;
+
 					num = MultiTilesTrees(x, y, kill: false, new int[] { types[6] });
 					for (int i = 0; i < num; i++)
 					{
@@ -401,8 +419,11 @@ namespace miningcracks_take_on_luiafk.Images.Items.Placeables.Collection
 					{
 						full = true;
 					}
-					num = stone;
 
+					num = 0;
+					num2 = 0;
+
+					num = stone;
 					if (stone > 0) num2 = PutInChest(chest, ItemID.StoneBlock, stone);
 					if (num2 < num)
 					{
