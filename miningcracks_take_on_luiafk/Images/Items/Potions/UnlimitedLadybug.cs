@@ -2,14 +2,14 @@ using miningcracks_take_on_luiafk.Utility;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace miningcracks_take_on_luiafk.Images.Items.Potions.IndividualArena
+namespace miningcracks_take_on_luiafk.Images.Items.Potions.IndividualPotions
 {
-    public class UnlimitedCampfire : ModItem
+    public class UnlimitedLadybug : ModItem
     {
         public override void SetStaticDefaults()
         {
-            base.DisplayName.SetDefault("Unlimited Campfire");
-            base.Tooltip.SetDefault("Life regen increased.");
+            base.DisplayName.SetDefault("Unlimited Ladybuy");
+            base.Tooltip.SetDefault("Increase the luck");
             base.SacrificeTotal = 1;
         }
 
@@ -20,15 +20,13 @@ namespace miningcracks_take_on_luiafk.Images.Items.Potions.IndividualArena
 
         public override void UpdateInventory(Player player)
         {
-            player.GetModPlayer<LuiafkPlayer>().buffs[49] = true;
+            player.GetModPlayer<LuiafkPlayer>().buffs[257] = true;
             player.GetModPlayer<LuiafkPlayer>().buffs[0] = true;
         }
 
         public override void AddRecipes()
         {
-            CreateRecipe().AddIngredient(23, 60).AddIngredient(318, 30).AddIngredient(126, 30)
-                .AddTile(13)
-                .Register();
+            CreateRecipe().AddIngredient(4361, 95).AddIngredient(4362, 5).AddTile(13).Register();
         }
     }
 }
