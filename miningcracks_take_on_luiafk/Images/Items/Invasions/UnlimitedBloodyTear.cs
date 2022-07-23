@@ -17,7 +17,7 @@ namespace miningcracks_take_on_luiafk.Images.Items.Invasions
 
         public override void SetDefaults()
         {
-            Defaults.Base(base.Item);
+            Defaults.UnlUse(base.Item);
         }
 
         public override bool? UseItem(Player player)
