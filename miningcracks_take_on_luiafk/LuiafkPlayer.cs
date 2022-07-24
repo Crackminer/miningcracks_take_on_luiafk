@@ -1215,7 +1215,7 @@ namespace miningcracks_take_on_luiafk
 
 			if (Main.FrameSkipMode == Terraria.Enums.FrameSkipMode.On)
 			{
-				if ((UILearning.BuffInterface?.CurrentState != null || UILearning.RightInterface?.CurrentState != null || UILearning.ComboInterface?.CurrentState != null) && ticks == 600)
+				if ((UILearning.BuffInterface?.CurrentState != null || UILearning.RightInterface?.CurrentState != null || UILearning.ComboInterface?.CurrentState != null) && ticks >= 30)
 				{
 					ticks = 0;
 					if (Main.netMode == 0)
