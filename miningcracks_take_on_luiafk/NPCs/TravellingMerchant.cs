@@ -111,7 +111,7 @@ namespace miningcracks_take_on_luiafk.NPCs
         {
             if (numTownNPCs > 2)
             {
-                return money >= 500000;
+                return money >= Item.gold * 50;
             }
             return false;
         }

@@ -19,6 +19,7 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
+using Terraria.UI.Chat;
 
 namespace miningcracks_take_on_luiafk
 {
@@ -1218,13 +1219,9 @@ namespace miningcracks_take_on_luiafk
 				if ((UILearning.BuffInterface?.CurrentState != null || UILearning.RightInterface?.CurrentState != null || UILearning.ComboInterface?.CurrentState != null) && ticks >= 30)
 				{
 					ticks = 0;
-					if (Main.netMode == 0)
+					if (Main.netMode != 2)
 					{
 						Main.NewText("[LuiAFK] Please set FrameSkip to Subtle or Off for the GUIs to work!");
-					}
-					else if (Main.netMode == NetmodeID.MultiplayerClient)
-					{
-						ChatHelper.SendChatMessageToClient(NetworkText.FromLiteral("[LuiAFK] Please set FrameSkip to Subtle or Off for the GUIs to work!"), Color.Orange, (Main.player[Main.myPlayer].GetModPlayer<LuiafkPlayer>() == UILearning.LuiP) ? UILearning.LuiP.Player.whoAmI : base.Player.whoAmI);
 					}
 				}
 				ticks++;

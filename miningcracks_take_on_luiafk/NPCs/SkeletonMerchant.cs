@@ -79,7 +79,16 @@ namespace miningcracks_take_on_luiafk.NPCs
 
         public override bool CanTownNPCSpawn(int numTownNPCs, int money)
         {
+            /*int count = 0;
+            count += NPC.killCount[21];
+            count += NPC.killCount[201];
+            count += NPC.killCount[202];
+            count += NPC.killCount[203];
+            count += NPC.killCount[322];
+            count += NPC.killCount[323];
+            count += NPC.killCount[324];
 
+            return count >= 50;*/
             return NPC.killCount[Item.NPCtoBanner(NPCID.Skeleton)] >= 50; //Counts the kill of every skeleton type in the game
         }
 
